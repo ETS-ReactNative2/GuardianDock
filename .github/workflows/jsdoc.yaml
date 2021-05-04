@@ -1,0 +1,28 @@
+name: JSDoc
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  doc_actions:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Build Doc
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          output_dir: ./out
+          config_file: jsdoc_config/conf.json
+          template: minami
+          front_page: README.md
+      - name: Upload doc
+        uses: actions/upload-artifact@v2
+        with:
+          name: JSDoc
+          path: out
