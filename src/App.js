@@ -66,7 +66,7 @@ class App extends Component {
 
     /**
      * Graphics
-     * @returns 
+     * @returns JSX.Element
      */
     render() {
         return (
