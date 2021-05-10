@@ -3,19 +3,24 @@ import { Text } from "react-native";
 
 class APILoader extends React.Component {
 
-    state = {url: '', isLoaded: false, account_id: ''};
+    /**
+     * State into the api loader
+     */
+    state = {url: '', playerName: '', isLoaded: false, account_id: ''};
 
     constructor(props) {
         super(props);
         this.state = {
             url: props.url,
+            playerName: props.playerName,
             isLoaded: false,
             account_id: ''
         };
     }
 
     componentDidMount() {
-        fetch(this.state.url, {
+        if (this.state.playerName == '') return;
+        fetch(this.state.url + this.state.playerName, {
             method: 'GET',
             headers: {
                 'Authorization': 'c905ac22-2ef5e8bd-a9b0a0e0-9f4e3ba3'
@@ -32,10 +37,12 @@ class APILoader extends React.Component {
 
     render() {
         if (!this.state.isLoaded) {
-            return <Text>Chargement…</Text>;
+            return (
+                <Text style={{color:'white'}}>Chargement…</Text>
+            );
         } else {
             return (
-            <Text style={{color:'white'}}>PlayerID: {this.state.account_id}</Text>
+                <Text style={{color:'white'}}>PlayerID: {this.state.account_id}</Text>
             );
         }
     }
