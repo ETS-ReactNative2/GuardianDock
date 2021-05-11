@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import APILoader from './ApiLoader';
+import Fortnite from './Fortnite/Fortnite';
 
 class App extends Component {
 
     //States about home menu
     state = {
         username: '',
-        apiloader: null
+        fortnite: null
     };
 
     tempUsername = '';
@@ -55,11 +55,11 @@ class App extends Component {
     confirmButton = () => {
         this.setState({
             username: this.tempUsername,
-            apiloader: null
+            fortnite: null
         });
         setTimeout(() => {
             this.setState({
-                apiloader: <APILoader url="https://fortniteapi.io/v1/lookup?username=" playerName={this.state.username} />
+                fortnite: <Fortnite url="https://fortniteapi.io/v1/lookup?username=" playerName={this.state.username} />
             });
         }, 500);
     }
@@ -77,7 +77,7 @@ class App extends Component {
                         <Text style={this.styles.confirmText}>Confirmer</Text>
                     </TouchableOpacity>
                 </View>
-                {this.state.apiloader}
+                {this.state.fortnite}
             </View>
         )
     }
