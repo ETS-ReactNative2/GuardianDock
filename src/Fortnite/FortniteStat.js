@@ -63,14 +63,14 @@ class FortniteStat extends React.Component {
     writeStat(stats = JSON) {
         return (
             <View>
-                <Text style={{ color: 'white' }}>Donnée de {this.state.stats["name"]} en solo :</Text>
-                <Text style={{ color: 'white' }}>Nombre de Top1 effectué : {stats.placetop1}</Text>
-                <Text style={{ color: 'white' }}>Nombre de Top3 effectué : {stats.placetop3}</Text>
-                <Text style={{ color: 'white' }}>Nombre de Top5 effectué : {stats.placetop5}</Text>
-                <Text style={{ color: 'white' }}>Nombre de Top10 effectué : {stats.placetop10}</Text>
-                <Text style={{ color: 'white' }}>Nombre de kill effectué : {stats.kills}</Text>
-                <Text style={{ color: 'white' }}>Nombre de match joué : {stats.matchesplayed}</Text>
-                <Text style={{ color: 'white' }}>Temps de jeu effectué : {this.parseTime(stats.minutesplayed)} </Text>
+                <Text style={{ color: 'black' }}>Donnée de {this.state.stats["name"]} en solo :</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top1 effectué : {stats.placetop1}</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top3 effectué : {stats.placetop3}</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top5 effectué : {stats.placetop5}</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top10 effectué : {stats.placetop10}</Text>
+                <Text style={{ color: 'black' }}>Nombre de kill effectué : {stats.kills}</Text>
+                <Text style={{ color: 'black' }}>Nombre de match joué : {stats.matchesplayed}</Text>
+                <Text style={{ color: 'black' }}>Temps de jeu effectué : {this.parseTime(stats.minutesplayed)} </Text>
             </View>
         );
     }
@@ -78,17 +78,17 @@ class FortniteStat extends React.Component {
     render() {
         if (this.state.error) {
             return (
-                <Text style={{ color: 'white' }}>Erreur lors du chargement des stats.</Text>
+                <Text style={{ color: 'black' }}>Erreur lors du chargement des stats.</Text>
             );
         }
         if (!this.state.isLoaded) {
             return (
-                <Text style={{ color: 'white' }}>Chargement des stats…</Text>
+                <Text style={{ color: 'black' }}>Chargement des stats…</Text>
             );
         } else {
             return (
                 <View>
-                    <Text style={{ color: 'white' }}>Level {this.state.stats["account"]["level"]}</Text>
+                    <Text style={{ color: 'black' }}>Level {this.state.stats["account"]["level"]}</Text>
                     {this.writeStat(this.state.stats["global_stats"]["duo"])}
                     {this.writeStat(this.state.stats["global_stats"]["solo"])}
                     {this.writeStat(this.state.stats["global_stats"]["squad"])}

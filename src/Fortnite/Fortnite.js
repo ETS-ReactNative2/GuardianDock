@@ -1,94 +1,110 @@
-import React from "react";
-import { Text, View } from "react-native";
-import FortniteStat from "./FortniteStat";
+import React, { Component } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import FortniteMatch from './FortniteMatch';
+import FortnitePlayer from './FortnitePlayer';
 
-/**
- * Class Fortnite
- */
-class Fortnite extends React.Component {
+let stat = false;
+let match = false;
+let news = false;
 
-    /**
-     * State into the api loader
-     */
+function changeState(props) {
+    stat = props.stat;
+    match = props.match;
+    news = props.news;
+}
+
+class Fortnite extends Component {
+
+    //States about home menu
     state = {
-        url: '',
-        playerName: '',
-        isLoaded: false,
-        account_id: '',
-        error: false,
-        invalidAccount: false
+        username: '',
+        fortnite: null,
+        stat: stat,
+        match: match,
+        news: news
     };
 
+    tempUsername = '';
+
+    //CSS
+    styles = StyleSheet.create({
+        input: {
+            backgroundColor: "white",
+            color: "black",
+            height: 40,
+            width: 180,
+            textAlign: "center",
+            marginTop: 20,
+            marginLeft: 20
+        },
+        header: {
+            flexDirection: 'row'
+        },
+        confirmButton: {
+            marginTop: 25,
+            marginLeft: 20,
+            height: 30,
+            width: 100,
+            backgroundColor: "white"
+        },
+        confirmText: {
+            color: "black",
+            textAlign: 'center',
+            marginTop: 5
+        }
+    });
+
     /**
-     * Component CTOR
-     * @param {} props Props containing url, playerName
+     * Handle username changes while you're typing on your keyboard
+     * 
+     * @param {String} text 
      */
-    constructor(props) {
-        super(props);
-        this.state = {
-            url: props.url,
-            playerName: props.playerName,
-            isLoaded: false,
-            account_id: '',
-            error: false,
-            invalidAccount: false
-        };
+    handleUsername = (text) => {
+        this.tempUsername = text;
     }
 
-    componentDidMount() {
-        if (this.state.playerName == '') return;
-        fetch(this.state.url + this.state.playerName, {
-            method: 'GET',
-            headers: {
-                'Authorization': 'c905ac22-2ef5e8bd-a9b0a0e0-9f4e3ba3'
-            }
-        }).then(res => {
-            res.json().then(json => {
-                if (json.result === false) {
-                    this.setState({
-                        invalidAccount: true,
-                        isLoaded: true
-                    })
-                } else {
-                    this.setState({
-                        account_id: json.account_id,
-                        isLoaded: true
-                    })
-                }
-            });
-        }).catch(err => {
-            this.setState({
-                error: true
-            });
+    /**
+     * Update player's information
+     */
+    confirmButton = () => {
+        this.setState({
+            username: this.tempUsername,
+            fortnite: null
         });
+        setTimeout(() => {
+            if (this.state.news) {
+                //! TODO News class
+            } else if (this.state.stat) {
+                this.setState({
+                    fortnite: <FortnitePlayer url="https://fortniteapi.io/v1/lookup?username=" playerName={this.state.username} stat={true} match={false} />
+                });
+            } else if (this.state.match) {
+                this.setState({
+                    fortnite: <FortnitePlayer url="https://fortniteapi.io/v1/lookup?username=" playerName={this.state.username} match={true} stat={false} />
+                });
+            }
+        }, 500);
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
-        if (this.state.error) {
-            return (
-                <Text style={{color:'white'}}>La récupération des données a échouée.</Text>
-            );
-        }
-        if (!this.state.isLoaded) {
-            return (
-                <Text style={{color:'white'}}>Chargement des informations basique...</Text>
-            );
-        } else {
-            if (this.state.invalidAccount) {
-                return (
-                    <Text style={{color:'white'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
-                );
-            } else {
-                return (
-                    <View>
-                        <Text style={{color: 'white'}}>Username: {this.state.playerName}</Text>
-                        <Text style={{color: 'white'}}>PlayerID: {this.state.account_id}</Text>
-                        <FortniteStat accountId={this.state.account_id}></FortniteStat>
-                    </View>
-                );
-            }
-        }
+        console.log(this.state);
+        console.log(news, stat, match);
+        return (
+            <View>
+                <View style={this.styles.header}>
+                    <TextInput style={this.styles.input} onChangeText={this.handleUsername}></TextInput>
+                    <TouchableOpacity style={this.styles.confirmButton} onPress={this.confirmButton}>
+                        <Text style={this.styles.confirmText}>Confirmer</Text>
+                    </TouchableOpacity>
+                </View>
+                {this.state.fortnite}
+            </View>
+        )
     }
 }
 
-export default Fortnite;
+export default {Fortnite, changeState};
