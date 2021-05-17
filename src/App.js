@@ -56,7 +56,7 @@ function MainDrawerNavigation() {
     );
 }
 
-const App: () => React$Node = () => {
+const App = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
