@@ -91,8 +91,6 @@ class Fortnite extends Component {
      * @returns JSX.Element
      */
     render() {
-        console.log(this.state);
-        console.log(news, stat, match);
         return (
             <View>
                 <View style={this.styles.header}>
@@ -107,4 +105,4 @@ class Fortnite extends Component {
     }
 }
 
-export default {Fortnite, changeState};
+export default Fortnite;

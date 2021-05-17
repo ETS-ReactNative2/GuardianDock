@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   ScrollView,
@@ -54,7 +54,7 @@ function CustomDrawerContent(props) {
     );
   }
 
-  function renderFilteredItemsDrawer({...props}) {
+  function renderFilteredItemsDrawer() {
     return (
       <View>
         <TouchableOpacity
@@ -67,11 +67,10 @@ function CustomDrawerContent(props) {
             <TouchableOpacity
               key={route.routeName}
               testID={route.routeName}
-              onPress={() => {
-                  props.navigation.navigate(route.nav, {
-                    screen: route.routeName
-                  })
-                }
+              onPress={() =>
+                props.navigation.navigate(route.nav, {
+                  screen: route.routeName
+                })
               }
               style={styles.item}>
               <Text style={styles.title}>{route.title}</Text>

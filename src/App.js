@@ -38,17 +38,17 @@ function MainDrawerNavigation() {
                 <CustomDrawerContent drawerItems={drawerItemsMain} {...props} />
             )}>
             <Drawer.Screen name="Home" component={HomeScreen} />
-            <Drawer.Screen name="Statistiques" component={Fortnite.Fortnite} options={{
+            <Drawer.Screen name="Statistiques" component={Fortnite} options={{
                 stat: true,
                 match: false,
                 news: false
             }} />
-            <Drawer.Screen name="Match" component={Fortnite.Fortnite} options={{
+            <Drawer.Screen name="Match" component={Fortnite} options={{
                 stat: false,
                 match: true,
                 news: false
             }} />
-            <Drawer.Screen name="Nouveautés" component={Fortnite.Fortnite} options={{
+            <Drawer.Screen name="Nouveautés" component={Fortnite} options={{
                 stat: false,
                 match: false,
                 news: true
