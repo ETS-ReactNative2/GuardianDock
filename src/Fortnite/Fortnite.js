@@ -3,25 +3,15 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 import FortniteMatch from './FortniteMatch';
 import FortnitePlayer from './FortnitePlayer';
 
-let stat = false;
-let match = false;
-let news = false;
-
-function changeState(props) {
-    stat = props.stat;
-    match = props.match;
-    news = props.news;
-}
-
 class Fortnite extends Component {
 
     //States about home menu
     state = {
         username: '',
         fortnite: null,
-        stat: stat,
-        match: match,
-        news: news
+        stat: false,
+        match: false,
+        news: false
     };
 
     tempUsername = '';
@@ -53,6 +43,13 @@ class Fortnite extends Component {
             marginTop: 5
         }
     });
+
+    constructor(props) {
+        super(props);
+        this.state.news = props.news;
+        this.state.match = props.match;
+        this.state.stat = props.stat;
+    }
 
     /**
      * Handle username changes while you're typing on your keyboard

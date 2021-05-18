@@ -72,33 +72,32 @@ class FortniteMatch extends React.Component {
      */
     writeMatches(match) {
         return (
-            <View>
-                <Text style={{ color: 'white' }}>Date de la partie : {new Date(match.date).toLocaleString()}</Text>
-                <Text style={{ color: 'white' }}>Plateforme de jeu : {match.platform === "keyboardmouse" || match.platform === "touch" ? "PC" : "Console"}</Text>
-                <Text style={{ color: 'white' }}>Mode de la partie : {match.readable_names}</Text>
-                <Text style={{ color: 'white' }}>Kill effectué dans la partie : {match.kills}</Text>
-                <Text style={{ color: 'white' }}>Durée de la partie : {this.parseTime(match.minutesplayed)} </Text>
-            </View>
+            `Date de la partie : ${new Date(match.date).toLocaleString()}\n` +
+            `Plateforme de jeu : ${match.platform === "keyboardmouse" || match.platform === "touch" ? "PC" : "Console"}\n` +
+            `Mode de la partie : ${match.readable_name}\n` +
+            `Kill effectué dans la partie : ${match.kills}\n` +
+            `Durée de la partie : ${this.parseTime(match.minutesplayed)}\n\n`
         );
     }
 
     render() {
         if (this.state.error) {
             return (
-                <Text style={{ color: 'white' }}>Erreur lors du chargement des parties.</Text>
+                <Text style={{ color: 'black' }}>Erreur lors du chargement des parties.</Text>
             );
         }
         if (!this.state.isLoaded) {
             return (
-                <Text style={{ color: 'white' }}>Chargement des parties...</Text>
+                <Text style={{ color: 'black' }}>Chargement des parties...</Text>
             );
         } else {
+            let printData = '';
+            this.state.matches["matches"].forEach(match => {
+                printData = printData + this.writeMatches(match);
+            });
             return (
                 <View>
-                    <Text style={{ color: 'white' }}>Level {this.state.stats["account"]["level"]}</Text>
-                    {this.state.stats["matches"].forEach(match => {
-                        this.writeMatches(match);
-                    })}
+                    <Text>{printData}</Text>
                 </View>
             );
         }

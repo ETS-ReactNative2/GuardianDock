@@ -22,7 +22,63 @@ const Drawer = createDrawerNavigator();
 function HomeScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Home Screen</Text>
+            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+        </View>
+    );
+}
+
+function InventaireScreen() {
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+        </View>
+    );
+}
+
+function StatistiqueD2Screen() {
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+        </View>
+    );
+}
+
+function NouveautésD2Screen() {
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+        </View>
+    );
+}
+
+function StatistiquesWScreen() {
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+        </View>
+    );
+}
+
+function MatchWScreen() {
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+        </View>
+    );
+}
+
+function StatistiquesMScreen() {
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+        </View>
+    );
+}
+
+function MatchMScreen() {
+    return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Welcome to our beautifull application named GuardianDock!</Text>
         </View>
     );
 }
@@ -37,21 +93,22 @@ function MainDrawerNavigation() {
                 <CustomDrawerContent drawerItems={drawerItemsMain} {...props} />
             )}>
             <Drawer.Screen name="Home" component={HomeScreen} />
-            <Drawer.Screen name="Statistiques" component={Fortnite} options={{
-                stat: true,
-                match: false,
-                news: false
-            }} />
-            <Drawer.Screen name="Match" component={Fortnite} options={{
-                stat: false,
-                match: true,
-                news: false
-            }} />
-            <Drawer.Screen name="Nouveautés" component={Fortnite} options={{
-                stat: false,
-                match: false,
-                news: true
-            }} />
+            <Drawer.Screen name="Statistiques">
+                {() => <Fortnite news={false} match={false} stat={true} />}
+            </Drawer.Screen>
+            <Drawer.Screen name="Match">
+                {() => <Fortnite news={false} match={true} stat={false} />}
+            </Drawer.Screen>
+            <Drawer.Screen name="Nouveautés">
+                {() => <Fortnite news={true} match={false} stat={false} />}
+            </Drawer.Screen>
+            <Drawer.Screen name="Inventaire" component={InventaireScreen}></Drawer.Screen>
+            <Drawer.Screen name="Statistiques Destiny2" component={StatistiqueD2Screen}></Drawer.Screen>
+            <Drawer.Screen name="Nouveautés Destiny2" component={NouveautésD2Screen}></Drawer.Screen>
+            <Drawer.Screen name="Statistiques Warzone" component={StatistiquesWScreen}></Drawer.Screen>
+            <Drawer.Screen name="Match Warzone" component={MatchWScreen}></Drawer.Screen>
+            <Drawer.Screen name="Statistiques Multiplayer" component={StatistiquesMScreen}></Drawer.Screen>
+            <Drawer.Screen name="Match Multiplayer" component={MatchMScreen}></Drawer.Screen>
         </Drawer.Navigator>
     );
 }
