@@ -4,8 +4,10 @@ GuardianDock is an Android Mobile Application based on React Native and APIs. Th
 
 ## Before continuing...
 
-GuardianDock is under MIT License Jurisdiction.<br/>
-![Alt Text](https://media.tenor.com/images/4dc761d53f5bad9863d64de1e6cd8db4/tenor.gif)<br/>
+GuardianDock is under MIT License Jurisdiction.
+
+![Alt Text](https://media.tenor.com/images/4dc761d53f5bad9863d64de1e6cd8db4/tenor.gif)
+
 Don't do dumb things!
 
 ### Prerequisites

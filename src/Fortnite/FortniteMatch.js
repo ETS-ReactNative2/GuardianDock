@@ -53,7 +53,7 @@ class FortniteMatch extends React.Component {
 
     /**
      * Parse the stat "minutesplayed" to the following format : XXh XXm XXs
-     * @param {Number} minutesPlayed 
+     * @param {Number} minutesPlayed
      * @returns JSX.Object
      */
     parseTime(minutesPlayed) {

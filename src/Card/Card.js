@@ -43,15 +43,15 @@ class Card extends React.Component {
         this.videoError = this.onError.bind(this);
         this.onBuffer = this.onBuffer.bind(this);
     }
-    
+
       onEnd(){
         console.log('onEnd');
       }
-    
+
       onError(){
         console.log('onError');
       }
-    
+
       onBuffer(){
         console.log('onBuffer');
       }
@@ -65,7 +65,7 @@ class Card extends React.Component {
                         ref={(ref) => {
                             this.player = ref
                         }}
-                        muted={false}                           // Mutes the audio entirely.                  
+                        muted={false}                           // Mutes the audio entirely.
                         resizeMode="cover"                      // Fill the whole screen at aspect ratio.*
                         repeat={false}                           // Repeat forever.
                         playInBackground={false}                // Audio continues to play when app entering background.
@@ -73,7 +73,7 @@ class Card extends React.Component {
                         controls={true}
                         onBuffer={this.onBuffer}                // Callback when remote video is buffering
                         onEnd={this.onEnd}                      // Callback when playback finishes
-                        onError={this.videoError}  
+                        onError={this.videoError}
                         onEnd={() => this.setState({ videoVisible: false, isVisible: true })}/>
                     </Modal>
                 </View>
@@ -81,13 +81,13 @@ class Card extends React.Component {
                     <Modal animationType="slide" visible={this.state.isVisible} onRequestClose={() => this.setState({ isVisible: false })}>
                         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", marginTop: 22 }}>
                             <View style={styles.modalView}>
-                                {this.state.video === undefined ? 
+                                {this.state.video === undefined ?
                                 <Image style={{
                                     width: sWidth - 50,
                                     height: 200
-                                }} source={{ uri: this.state.image }} /> : 
+                                }} source={{ uri: this.state.image }} /> :
                                 <TouchableOpacity onPress={() => this.setState({ videoVisible: true, isVisible: false })}>
-                                    <Text>Regarder la vidéo (Changer de module...)</Text>    
+                                    <Text>Regarder la vidéo (Changer de module...)</Text>
                                 </TouchableOpacity>}
                                 <Text style={{ fontSize: 18 }}>{this.state.subtitle +"\n"}</Text>
                                 <Text style={{ fontSize: 15 }}>{this.state.description}</Text>

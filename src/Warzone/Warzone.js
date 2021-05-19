@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import FortniteNews from './FortniteNews';
-import FortnitePlayer from './FortnitePlayer';
 import { Dimensions } from 'react-native';
+import WarzonePlayer from './WarzonePlayer';
 
 const sWidth = Dimensions.get('screen').width;
 
-class Fortnite extends Component {
+class Warzone extends Component {
 
     //States about home menu
     state = {
         username: '',
-        fortnite: null,
-        stat: false,
+        warzone: null,
+        multiplayer: false,
         match: false,
-        news: false
+        stat: false
     };
 
     tempUsername = '';
@@ -52,6 +51,7 @@ class Fortnite extends Component {
         super(props);
         this.state.news = props.news;
         this.state.match = props.match;
+        this.state.multiplayer = props.mode;
         this.state.stat = props.stat;
     }
 
@@ -70,16 +70,24 @@ class Fortnite extends Component {
     confirmButton = () => {
         this.setState({
             username: this.tempUsername,
-            fortnite: null
+            warzone: null
         });
         setTimeout(() => {
-            if (this.state.stat) {
+            if (this.state.stat && this.state.multiplayer) {
                 this.setState({
-                    fortnite: <FortnitePlayer url="https://fortniteapi.io/v1/lookup?username=" playerName={this.state.username} stat={true} match={false} />
+                    warzone: <WarzonePlayer url="https://call-of-duty-modern-warfare.p.rapidapi.com/" mode={"multiplayer"} playerName={this.state.username} platform={"battle"} />
                 });
-            } else if (this.state.match) {
+            } else if (this.state.stat && !this.state.multiplayer) {
                 this.setState({
-                    fortnite: <FortnitePlayer url="https://fortniteapi.io/v1/lookup?username=" playerName={this.state.username} match={true} stat={false} />
+                    warzone: <WarzonePlayer url="https://call-of-duty-modern-warfare.p.rapidapi.com/" mode={"warzone"} playerName={this.state.username} platform={"battle"} />
+                });
+            } else if (this.state.match && this.state.multiplayer) {
+                this.setState({
+                    warzone: <WarzoneMatch url="https://call-of-duty-modern-warfare.p.rapidapi.com/" mode={"multiplayer"} playerName={this.state.username} platform={"battle"} />
+                });
+            } else if (this.state.match && !this.state.multiplayer) {
+                this.setState({
+                    warzone: <WarzoneMatch url="https://call-of-duty-modern-warfare.p.rapidapi.com/" mode={"warzone"} playerName={this.state.username} platform={"battle"} />
                 });
             }
         }, 500);
@@ -90,13 +98,6 @@ class Fortnite extends Component {
      * @returns JSX.Element
      */
     render() {
-        if (this.state.news) {
-            return (
-                <View>
-                    <FortniteNews type="br"/>
-                </View>
-            );
-        }
         return (
             <View>
                 <View style={this.styles.header}>
@@ -105,10 +106,10 @@ class Fortnite extends Component {
                         <Text style={this.styles.confirmText}>Confirmer</Text>
                     </TouchableOpacity>
                 </View>
-                {this.state.fortnite}
+                {this.state.warzone}
             </View>
         )
     }
 }
 
-export default Fortnite;
+export default Warzone;
