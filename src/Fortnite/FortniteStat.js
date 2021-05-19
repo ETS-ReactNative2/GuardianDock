@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 /**
  * Class FortniteStat
@@ -60,10 +60,10 @@ class FortniteStat extends React.Component {
         return (`${parseInt(daysPlayed)}j ${parseInt(hoursPlayed)}h ${parseInt(minutesPlayed)}m ${parseInt(secondesPlayed)}s`)
     }
 
-    writeStat(stats = JSON) {
+    writeStat(stats = JSON, mode = String) {
         return (
             <View>
-                <Text style={{ color: 'black' }}>Donnée de {this.state.stats["name"]} en solo :</Text>
+                <Text style={{ color: 'black' }}>Donnée de {this.state.stats["name"]} en {mode} :</Text>
                 <Text style={{ color: 'black' }}>Nombre de Top1 effectué : {stats.placetop1}</Text>
                 <Text style={{ color: 'black' }}>Nombre de Top3 effectué : {stats.placetop3}</Text>
                 <Text style={{ color: 'black' }}>Nombre de Top5 effectué : {stats.placetop5}</Text>
@@ -88,10 +88,12 @@ class FortniteStat extends React.Component {
         } else {
             return (
                 <View>
-                    <Text style={{ color: 'black' }}>Level {this.state.stats["account"]["level"]}</Text>
-                    {this.writeStat(this.state.stats["global_stats"]["duo"])}
-                    {this.writeStat(this.state.stats["global_stats"]["solo"])}
-                    {this.writeStat(this.state.stats["global_stats"]["squad"])}
+                    <Text style={{ color: 'black' }}>Level : {this.state.stats["account"]["level"] === null ? "???" : this.state.stats["account"]["level"]}</Text>
+                    <ScrollView>
+                        {this.writeStat(this.state.stats["global_stats"]["solo"], "solo")}
+                        {this.writeStat(this.state.stats["global_stats"]["duo"], "duo")}
+                        {this.writeStat(this.state.stats["global_stats"]["squad"], "squad")}
+                    </ScrollView>
                 </View>
             );
         }

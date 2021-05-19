@@ -22,7 +22,7 @@ const Drawer = createDrawerNavigator();
 function HomeScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+            <Text>Welcome to our beautiful application named GuardianDock!</Text>
         </View>
     );
 }
@@ -30,7 +30,7 @@ function HomeScreen() {
 function InventaireScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+            <Text>Welcome to our beautiful application named GuardianDock!</Text>
         </View>
     );
 }
@@ -38,7 +38,7 @@ function InventaireScreen() {
 function StatistiqueD2Screen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+            <Text>Welcome to our beautiful application named GuardianDock!</Text>
         </View>
     );
 }
@@ -46,7 +46,7 @@ function StatistiqueD2Screen() {
 function NouveautésD2Screen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+            <Text>Welcome to our beautiful application named GuardianDock!</Text>
         </View>
     );
 }
@@ -54,7 +54,7 @@ function NouveautésD2Screen() {
 function StatistiquesWScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+            <Text>Welcome to our beautiful application named GuardianDock!</Text>
         </View>
     );
 }
@@ -62,7 +62,7 @@ function StatistiquesWScreen() {
 function MatchWScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+            <Text>Welcome to our beautiful application named GuardianDock!</Text>
         </View>
     );
 }
@@ -70,7 +70,7 @@ function MatchWScreen() {
 function StatistiquesMScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+            <Text>Welcome to our beautiful application named GuardianDock!</Text>
         </View>
     );
 }
@@ -78,13 +78,17 @@ function StatistiquesMScreen() {
 function MatchMScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautifull application named GuardianDock!</Text>
+            <Text>Welcome to our beautiful application named GuardianDock!</Text>
         </View>
     );
 }
 
 const Stack = createStackNavigator();
 
+/**
+ * Fonction gérant les différents screen sur lesquels ont doit être envoyés
+ * @returns JSX.Element
+ */
 function MainDrawerNavigation() {
     return (
         <Drawer.Navigator

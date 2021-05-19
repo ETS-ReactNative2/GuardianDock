@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 /**
  * Class FortniteMatch
@@ -97,7 +97,9 @@ class FortniteMatch extends React.Component {
             });
             return (
                 <View>
-                    <Text>{printData}</Text>
+                    <ScrollView>
+                        <Text>{printData}</Text>
+                    </ScrollView>
                 </View>
             );
         }

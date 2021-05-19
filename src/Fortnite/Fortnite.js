@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import FortniteMatch from './FortniteMatch';
+import FortniteNews from './FortniteNews';
 import FortnitePlayer from './FortnitePlayer';
+import { Dimensions } from 'react-native';
+
+const sWidth = Dimensions.get('screen').width;
 
 class Fortnite extends Component {
 
@@ -18,11 +21,12 @@ class Fortnite extends Component {
 
     //CSS
     styles = StyleSheet.create({
+        /*! Change width search bar when screen rotate */
         input: {
             backgroundColor: "white",
             color: "black",
             height: 40,
-            width: 180,
+            width: sWidth - 160,
             textAlign: "center",
             marginTop: 20,
             marginLeft: 20
@@ -69,9 +73,7 @@ class Fortnite extends Component {
             fortnite: null
         });
         setTimeout(() => {
-            if (this.state.news) {
-                //! TODO News class
-            } else if (this.state.stat) {
+            if (this.state.stat) {
                 this.setState({
                     fortnite: <FortnitePlayer url="https://fortniteapi.io/v1/lookup?username=" playerName={this.state.username} stat={true} match={false} />
                 });
@@ -88,6 +90,13 @@ class Fortnite extends Component {
      * @returns JSX.Element
      */
     render() {
+        if (this.state.news) {
+            return (
+                <View>
+                    <FortniteNews type="br"/>
+                </View>
+            );
+        }
         return (
             <View>
                 <View style={this.styles.header}>
