@@ -52,14 +52,6 @@ function NouveautésD2Screen() {
     );
 }
 
-function StatistiquesWScreen() {
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautiful application named GuardianDock!</Text>
-        </View>
-    );
-}
-
 function MatchWScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -114,7 +106,9 @@ function MainDrawerNavigation() {
                 {() => <Warzone news={false} match={false} mode={false} stat={true}/>}
             </Drawer.Screen>
             <Drawer.Screen name="Match Warzone" component={MatchWScreen}></Drawer.Screen>
-            <Drawer.Screen name="Statistiques Multiplayer" component={StatistiquesMScreen}></Drawer.Screen>
+            <Drawer.Screen name="Statistiques Multiplayer">
+                {() => <Warzone news={false} match={false} mode={false} stat={true}/>}
+            </Drawer.Screen>
             <Drawer.Screen name="Match Multiplayer" component={MatchMScreen}></Drawer.Screen>
         </Drawer.Navigator>
     );
