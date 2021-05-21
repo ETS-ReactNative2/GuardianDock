@@ -28,7 +28,6 @@ class WarzonePlayer extends React.Component {
      */
     constructor(props) {
         super(props);
-        console.log("Platforme : ", props.platform);
         this.state = {
             url: "https://call-of-duty-modern-warfare.p.rapidapi.com/" + props.mode + '/' + props.playerName.replace(/#/g, "%23") + '/' + props.platform,
             playerName: props.playerName,
@@ -79,19 +78,26 @@ class WarzonePlayer extends React.Component {
     }
 
     writeBrStat(stats = JSON, mode = String) {
+        let scorePerMinute = stats.scorePerMinute.toFixed(2)
         let kdRatio = stats.kdRatio.toFixed(2)
         return (
             <View>
-                <Text style={{ color: 'black' }}>Donnée de {this.state.playerName} en {mode} :</Text>
-                <Text style={{ color: 'black' }}>Nombre de victoires : {stats.wins}</Text>
+                <Text style={{ color: 'black' }}>
+                    {'\n'}
+                    Donnée de {this.state.playerName} en {mode} :</Text>
                 <Text style={{ color: 'black' }}>Nombre de match joué : {stats.gamesPlayed}</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top 25 effectué : {stats.topTwentyFive}</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top 10 effectué : {stats.topTen}</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top 5 effectué : {stats.topFive}</Text>
+                <Text style={{ color: 'black' }}>Nombre de victoires : {stats.wins}</Text>
+                <Text style={{ color: 'black' }}>Temps de jeu effectué : {this.parseTime(stats.timePlayed / 60)} </Text>
+                <Text style={{ color: 'black' }}>
+                    {'\n'}
+                    Ratio élimnation / mort : {kdRatio}
+                </Text>
                 <Text style={{ color: 'black' }}>Nombre d'élimination : {stats.kills}</Text>
                 <Text style={{ color: 'black' }}>Nombre de morts : {stats.deaths}</Text>
-                <Text style={{ color: 'black' }}>Ratio élimnation / mort : {kdRatio}</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top 5 effectué : {stats.topFive}</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top 10 effectué : {stats.topTen}</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top 25 effectué : {stats.topTwentyFive}</Text>
-                <Text style={{ color: 'black' }}>Temps de jeu effectué : {this.parseTime(stats.timePlayed)} </Text>
+                <Text style={{ color: 'black' }}>Score par minute : {scorePerMinute}</Text>
             </View>
         );
     }
@@ -104,7 +110,7 @@ class WarzonePlayer extends React.Component {
             <View>
                 <Text style={{ color: 'black' }}>Donnée de {this.state.username} en {mode} :</Text>
                 <Text style={{ color: 'black' }}>Ratio Victoire / Défaite : {wlRatio}</Text>
-                <Text style={{ color: 'black' }}>Nombre de matchs joués : {stats["lifetime"]["all"]["properties"].totalGamesPlayed}</Text>
+                <Text style={{ color: 'black' }}>Nombre de matchs joués : {stats["lifetime"]["all"]["properties"].wins + stats["lifetime"]["all"]["properties"].losses}</Text>
                 <Text style={{ color: 'black' }}>Nombre de victoires : {stats["lifetime"]["all"]["properties"].wins}</Text>
                 <Text style={{ color: 'black' }}>Nombre de défaites : {stats["lifetime"]["all"]["properties"].losses}</Text>
                 <Text></Text>
@@ -114,7 +120,7 @@ class WarzonePlayer extends React.Component {
                 <Text style={{ color: 'black' }}>Nombre d'assistances : {stats["lifetime"]["all"]["properties"].assists}</Text>
                 <Text style={{ color: 'black' }}>Nombre d'élimination avec des tirs en pleine tête : {stats["lifetime"]["all"]["properties"].headshots}</Text>
                 <Text></Text>
-                <Text style={{ color: 'black' }}>Temps de jeu total effectif : {this.parseTime(stats["lifetime"]["all"]["properties"].timePlayedTotal)}</Text>
+                <Text style={{ color: 'black' }}>Temps de jeu total effectif : {this.parseTime(stats["lifetime"]["all"]["properties"].timePlayedTotal / 60)}</Text>
                 <Text style={{ color: 'black' }}>Score par minute : {scorePerMinute}</Text>
             </View>
         );
@@ -128,7 +134,7 @@ class WarzonePlayer extends React.Component {
         }
         if (!this.state.isLoaded) {
             return (
-                <Text style={{color:'black'}}>Chargement des informations basique...</Text>
+                <Text style={{color:'black'}}>Chargement des informations basiques...</Text>
             );
         } else {
             if (this.state.invalidAccount) {
@@ -138,9 +144,9 @@ class WarzonePlayer extends React.Component {
             } else {
                 if (this.state.mode == "warzone") {
                     return (
-                        <View>
+                        <View style={{flex: 1}}>
                             <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
-                            <ScrollView>
+                            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                                 {this.writeBrStat(this.state.stats["br_all"], "Warzone Global")}
                                 {this.writeBrStat(this.state.stats["br"], "Warzone")}
                                 {this.writeBrStat(this.state.stats["br_dmz"], "Warzone Plunder")}
@@ -149,10 +155,10 @@ class WarzonePlayer extends React.Component {
                     );
                 } else if (this.state.mode == "multiplayer") {
                     return (
-                        <View>
+                        <View style={{flex: 1}}>
                             <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
-                            <ScrollView>
-                                {this.writeMultiStat(this.state.stats, "Multiplayer")}
+                            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                                {this.writeMultiStat(this.state.stats, "Multijoueur")}
                             </ScrollView>
                         </View>
                     );
