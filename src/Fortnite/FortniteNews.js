@@ -1,5 +1,6 @@
 import React from "react";
 import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import ModalSelector from "react-native-modal-selector";
 import Card from "../Card/Card";
 
 /**
@@ -12,6 +13,7 @@ class FortniteNews extends React.Component {
      */
     state = {
         url: '',
+        type: '',
         isLoaded: false,
         error: false,
         allNews: []
@@ -23,15 +25,15 @@ class FortniteNews extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            url: 'https://fortniteapi.io/v1/news?lang=fr&type=' + props.type,
+            url: 'https://fortniteapi.io/v1/news?lang=fr&type=',
+            type: props.type,
             isLoaded: false,
             error: false
         };
     }
 
     componentDidMount() {
-        if (this.state.playerName == '') return;
-        fetch(this.state.url, {
+        fetch(this.state.url + this.state.type, {
             method: 'GET',
             headers: {
                 'Authorization': 'c905ac22-2ef5e8bd-a9b0a0e0-9f4e3ba3'

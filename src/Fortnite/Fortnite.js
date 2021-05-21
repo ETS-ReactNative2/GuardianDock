@@ -3,8 +3,24 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 import FortniteNews from './FortniteNews';
 import FortnitePlayer from './FortnitePlayer';
 import { Dimensions } from 'react-native';
+import ModalSelector from 'react-native-modal-selector';
 
 const sWidth = Dimensions.get('screen').width;
+const platforms = new Map([
+    ['Battle Royale', 'br'],
+    ['Save The World', 'stw'],
+    ['Creative', 'creative']
+]);
+
+const datas = [{
+    key: 0, section: true, label: 'Platform'
+}, {
+    key: 1, label: 'Battle Royale'
+}, {
+    key: 2, label: 'Save The World'
+}, {
+    key: 3, label: 'Creative'
+}];
 
 class Fortnite extends Component {
 
@@ -12,6 +28,7 @@ class Fortnite extends Component {
     state = {
         username: '',
         fortnite: null,
+        type: '',
         stat: false,
         match: false,
         news: false
@@ -93,7 +110,22 @@ class Fortnite extends Component {
         if (this.state.news) {
             return (
                 <View>
-                    <FortniteNews type="br"/>
+                    <ModalSelector
+                        style={{marginTop: 10}}
+                        data={datas}
+                        initValue="Select your gamemode"
+                        onChange={(option)=>{
+                            this.setState({
+                                fortnite: null
+                            });
+                            setTimeout(() => {
+                                this.setState({
+                                    fortnite: <FortniteNews type={platforms.get(option.label)}/>
+                                });
+                            }, 500);
+                        }}
+                    />
+                    {this.state.fortnite}
                 </View>
             );
         }

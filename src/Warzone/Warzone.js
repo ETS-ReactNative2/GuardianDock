@@ -156,7 +156,6 @@ class Warzone extends Component {
                             data={datas}
                             initValue="Select your platform"
                             onChange={(option)=>{
-                                console.log(option);
                                 this.dropDownChanges(option.label);
                             }} />
                     </View>
@@ -177,7 +176,6 @@ class Warzone extends Component {
                             data={datas}
                             initValue="Select your platform"
                             onChange={(option)=>{
-                                console.log(option);
                                 this.dropDownChanges(option.label);
                             }} />
                     </View>
