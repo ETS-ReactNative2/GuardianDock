@@ -30,10 +30,11 @@ class WarzonePlayer extends React.Component {
         super(props);
         console.log("Platforme : ", props.platform);
         this.state = {
-            url: "https://call-of-duty-modern-warfare.p.rapidapi.com/" + props.mode + '/' + props.playerName + '/' + props.platform,
+            url: "https://call-of-duty-modern-warfare.p.rapidapi.com/" + props.mode + '/' + props.playerName.replace(/#/g, "%23") + '/' + props.platform,
             playerName: props.playerName,
             isLoaded: false,
-            matchs: null
+            match: null,
+            mode: props.mode
         };
     }
 
@@ -49,14 +50,14 @@ class WarzonePlayer extends React.Component {
             res.json().then(json => {
                 if (json.error === false) {
                     this.setState({
-                        matchs: null,
+                        stats: null,
                         invalidAccount: true,
                         isLoaded: true
                     });
                 } else {
                     this.setState({
                         invalidAccount: false,
-                        matchs: json,
+                        stats: json,
                         isLoaded: true
                     });
                 }
@@ -78,29 +79,43 @@ class WarzonePlayer extends React.Component {
     }
 
     writeBrStat(stats = JSON, mode = String) {
+        let kdRatio = stats.kdRatio.toFixed(2)
         return (
             <View>
                 <Text style={{ color: 'black' }}>Donnée de {this.state.playerName} en {mode} :</Text>
-                <Text style={{ color: 'black' }}>Map jouée : {stats.map}</Text>
-                <Text style={{ color: 'black' }}>Mod de jeu joué : {stats.mode}</Text>
-                <Text style={{ color: 'black' }}>Nombre de joueur présent : {stats.playerCount}</Text>
-                <Text style={{ color: 'black' }}>Nombre d'équipe : {stats.teamCount}</Text>
-                <Text style={{ color: 'black' }}>Partie privée : {stats.privateMatch ? "Oui" : "Non"}</Text>
-                <Text style={{ color: 'black' }}>Durée de la partie : {this.parseTime(stats.duration)}</Text>
+                <Text style={{ color: 'black' }}>Nombre de victoires : {stats.wins}</Text>
+                <Text style={{ color: 'black' }}>Nombre de match joué : {stats.gamesPlayed}</Text>
+                <Text style={{ color: 'black' }}>Nombre d'élimination : {stats.kills}</Text>
+                <Text style={{ color: 'black' }}>Nombre de morts : {stats.deaths}</Text>
+                <Text style={{ color: 'black' }}>Ratio élimnation / mort : {kdRatio}</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top 5 effectué : {stats.topFive}</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top 10 effectué : {stats.topTen}</Text>
+                <Text style={{ color: 'black' }}>Nombre de Top 25 effectué : {stats.topTwentyFive}</Text>
+                <Text style={{ color: 'black' }}>Temps de jeu effectué : {this.parseTime(stats.timePlayed)} </Text>
             </View>
         );
     }
 
     writeMultiStat(stats = JSON, mode = String) {
+        let scorePerMinute = stats["lifetime"]["all"]["properties"].scorePerMinute.toFixed(2)
+        let kdRatio = stats["lifetime"]["all"]["properties"].kdRatio.toFixed(2)
+        let wlRatio = stats["lifetime"]["all"]["properties"].wlRatio.toFixed(2)
         return (
             <View>
-                <Text style={{ color: 'black' }}>Donnée de {this.state.playerName} en {mode} :</Text>
-                <Text style={{ color: 'black' }}>Map jouée : {stats.map}</Text>
-                <Text style={{ color: 'black' }}>Mod de jeu joué : {stats.mode}</Text>
-                <Text style={{ color: 'black' }}>Nombre de joueur présent : {stats.playerCount}</Text>
-                <Text style={{ color: 'black' }}>Nombre d'équipe : {stats.teamCount}</Text>
-                <Text style={{ color: 'black' }}>Partie privée : {stats.privateMatch ? "Oui" : "Non"}</Text>
-                <Text style={{ color: 'black' }}>Durée de la partie : {this.parseTime(stats.duration)}</Text>
+                <Text style={{ color: 'black' }}>Donnée de {this.state.username} en {mode} :</Text>
+                <Text style={{ color: 'black' }}>Ratio Victoire / Défaite : {wlRatio}</Text>
+                <Text style={{ color: 'black' }}>Nombre de matchs joués : {stats["lifetime"]["all"]["properties"].totalGamesPlayed}</Text>
+                <Text style={{ color: 'black' }}>Nombre de victoires : {stats["lifetime"]["all"]["properties"].wins}</Text>
+                <Text style={{ color: 'black' }}>Nombre de défaites : {stats["lifetime"]["all"]["properties"].losses}</Text>
+                <Text></Text>
+                <Text style={{ color: 'black' }}>Ratio élimnation / mort : {kdRatio}</Text>
+                <Text style={{ color: 'black' }}>Nombre d'élimination : {stats["lifetime"]["all"]["properties"].kills}</Text>
+                <Text style={{ color: 'black' }}>Nombre de morts : {stats["lifetime"]["all"]["properties"].deaths}</Text>
+                <Text style={{ color: 'black' }}>Nombre d'assistances : {stats["lifetime"]["all"]["properties"].assists}</Text>
+                <Text style={{ color: 'black' }}>Nombre d'élimination avec des tirs en pleine tête : {stats["lifetime"]["all"]["properties"].headshots}</Text>
+                <Text></Text>
+                <Text style={{ color: 'black' }}>Temps de jeu total effectif : {this.parseTime(stats["lifetime"]["all"]["properties"].timePlayedTotal)}</Text>
+                <Text style={{ color: 'black' }}>Score par minute : {scorePerMinute}</Text>
             </View>
         );
     }
@@ -122,7 +137,6 @@ class WarzonePlayer extends React.Component {
                 );
             } else {
                 if (this.state.mode == "warzone") {
-                    console.log(this.state.stats);
                     return (
                         <View>
                             <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
@@ -134,7 +148,6 @@ class WarzonePlayer extends React.Component {
                         </View>
                     );
                 } else if (this.state.mode == "multiplayer") {
-                    console.log(this.state.stats);
                     return (
                         <View>
                             <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>

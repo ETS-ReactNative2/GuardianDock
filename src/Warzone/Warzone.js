@@ -6,7 +6,7 @@ import WarzonePlayer from './WarzonePlayer';
 import ModalSelector from 'react-native-modal-selector'
 
 const sWidth = Dimensions.get('screen').width;
-    
+
 const platforms = new Map([
     ['Playstation', 'psn'],
     ['Steam', 'steam'],

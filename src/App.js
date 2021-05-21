@@ -107,7 +107,7 @@ function MainDrawerNavigation() {
             </Drawer.Screen>
             <Drawer.Screen name="Match Warzone" component={MatchWScreen}></Drawer.Screen>
             <Drawer.Screen name="Statistiques Multiplayer">
-                {() => <Warzone news={false} match={false} mode={false} stat={true}/>}
+                {() => <Warzone news={false} match={false} mode={true} stat={true}/>}
             </Drawer.Screen>
             <Drawer.Screen name="Match Multiplayer" component={MatchMScreen}></Drawer.Screen>
         </Drawer.Navigator>
