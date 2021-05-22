@@ -13,11 +13,8 @@ class WarzonePlayer extends React.Component {
         url: '',
         playerName: '',
         isLoaded: false,
-        account_id: '',
         error: false,
         invalidAccount: false,
-        stat: false,
-        match: false,
         stats: null,
         mode: null
     };
@@ -32,7 +29,6 @@ class WarzonePlayer extends React.Component {
             url: "https://call-of-duty-modern-warfare.p.rapidapi.com/" + props.mode + '/' + props.playerName.replace(/#/g, "%23") + '/' + props.platform,
             playerName: props.playerName,
             isLoaded: false,
-            match: null,
             mode: props.mode
         };
     }

@@ -9,12 +9,14 @@ class WarzoneMatch extends React.Component {
     /**
      * State into the api loader
      */
-    state = {
+     state = {
         url: '',
+        playerName: '',
         isLoaded: false,
-        accountId: '',
-        matches: [],
-        error: false
+        error: false,
+        invalidAccount: false,
+        matches: null,
+        mode: null
     };
 
     /**
@@ -23,27 +25,37 @@ class WarzoneMatch extends React.Component {
      */
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
-            url: 'https://call-of-duty-modern-warfare.p.rapidapi.com/',
+            url: "https://call-of-duty-modern-warfare.p.rapidapi.com/" + props.mode + '/' + props.playerName.replace(/#/g, "%23") + '/' + props.platform,
+            playerName: props.playerName,
             isLoaded: false,
-            accountId: props.accountId,
-            error: false
+            mode: props.mode
         };
     }
 
     componentDidMount() {
-        if (this.state.accountId == '') return;
-        fetch(this.state.url + this.state.accountId, {
+        fetch(this.state.url, {
             method: 'GET',
             headers: {
-                'Authorization': 'c905ac22-2ef5e8bd-a9b0a0e0-9f4e3ba3'
+                'x-rapidapi-key': 'ad9c7062e9msh5027e0b5810c9ccp18d193jsn69644ec4508e',
+                'x-rapidapi-host': 'call-of-duty-modern-warfare.p.rapidapi.com'
             }
         }).then(res => {
             res.json().then(json => {
-                this.setState({
-                    matches: json,
-                    isLoaded: true
-                });
+                if (json.error === true) {
+                    this.setState({
+                        matches: null,
+                        invalidAccount: true,
+                        isLoaded: true
+                    });
+                } else {
+                    this.setState({
+                        invalidAccount: false,
+                        matches: json,
+                        isLoaded: true
+                    });
+                }
             });
         }).catch(err => {
             this.setState({
@@ -71,13 +83,31 @@ class WarzoneMatch extends React.Component {
      * @param {JSON} match A JSON Object containing every match stats
      * @returns JSX.Object
      */
-    writeMatches(match) {
+    writeWMatches(match) {
         return (
-            `Date de la partie : ${new Date(match.date).toLocaleString()}\n` +
-            `Plateforme de jeu : ${match.platform === "keyboardmouse" || match.platform === "touch" ? "PC" : "Console"}\n` +
-            `Mode de la partie : ${match.readable_name}\n` +
-            `Kill effectué dans la partie : ${match.kills}\n` +
-            `Durée de la partie : ${this.parseTime(match.minutesplayed)}\n\n`
+            `Nombre de joueur dans la partie : ${match.playerCount}\n` +
+            `Map : ${match.map}\n` +
+            `Mode de jeu : ${match.mode}\n` +
+            `Nombre de team dans la partie : ${match.teamCount}\n` +
+            `Type de la partie : ${match.privateMatch ? "Privée" : "Public"}\n` +
+            `Durée de la partie : ${this.parseTime(match.duration / 60000)}\n\n`
+        );
+    }
+
+    /**
+     * Write every match stats
+     * @param {JSON} match A JSON Object containing every match stats
+     * @returns JSX.Object
+     */
+     writeMMatches(match) {
+        return (
+            `Map : ${match.map}\n` +
+            `Mode de jeu : ${match.mode}\n` +
+            `Type de la partie : ${match.privateMatch ? "Privée" : "Public"}\n` +
+            `Résultat de la partie : ${match.win === "win" ? "Victoire" : "Défaite"}\n` +
+            `Score de la team 1 : ${match.team1Score}\n` +
+            `Score de la team 2 : ${match.team2Score}\n` +
+            `Durée de la partie : ${this.parseTime(match.duration / 60000)}\n\n`
         );
     }
 
@@ -92,17 +122,31 @@ class WarzoneMatch extends React.Component {
                 <Text style={{ color: 'black' }}>Chargement des parties...</Text>
             );
         } else {
-            let printData = '';
-            this.state.matches["matches"].forEach(match => {
-                printData = printData + this.writeMatches(match);
-            });
-            return (
-                <View>
-                    <ScrollView>
-                        <Text>{printData}</Text>
-                    </ScrollView>
-                </View>
-            );
+            if (this.state.mode === "warzone-matches") {
+                let printData = '';
+                this.state.matches["matches"].forEach(match => {
+                    printData = printData + this.writeWMatches(match);
+                });
+                return (
+                    <View style={{flex: 1}}>
+                        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                            <Text>{printData}</Text>
+                        </ScrollView>
+                    </View>
+                );
+            } else {
+                let printData = '';
+                this.state.matches["matches"].forEach(match => {
+                    printData = printData + this.writeMMatches(match);
+                });
+                return (
+                    <View style={{flex: 1}}>
+                        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                            <Text>{printData}</Text>
+                        </ScrollView>
+                    </View>
+                );
+            }
         }
     }
 }

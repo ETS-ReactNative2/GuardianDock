@@ -52,30 +52,6 @@ function NouveautésD2Screen() {
     );
 }
 
-function MatchWScreen() {
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautiful application named GuardianDock!</Text>
-        </View>
-    );
-}
-
-function StatistiquesMScreen() {
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautiful application named GuardianDock!</Text>
-        </View>
-    );
-}
-
-function MatchMScreen() {
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Welcome to our beautiful application named GuardianDock!</Text>
-        </View>
-    );
-}
-
 const Stack = createStackNavigator();
 
 /**
@@ -105,11 +81,15 @@ function MainDrawerNavigation() {
             <Drawer.Screen name="Statistiques Warzone">
                 {() => <Warzone news={false} match={false} mode={false} stat={true}/>}
             </Drawer.Screen>
-            <Drawer.Screen name="Match Warzone" component={MatchWScreen}></Drawer.Screen>
+            <Drawer.Screen name="Match Warzone">
+                {() => <Warzone news={false} match={true} mode={false} stat={false}/>}
+            </Drawer.Screen>
             <Drawer.Screen name="Statistiques Multiplayer">
                 {() => <Warzone news={false} match={false} mode={true} stat={true}/>}
             </Drawer.Screen>
-            <Drawer.Screen name="Match Multiplayer" component={MatchMScreen}></Drawer.Screen>
+            <Drawer.Screen name="Match Multiplayer">
+                {() => <Warzone news={false} match={true} mode={true} stat={true}/>}
+            </Drawer.Screen>
         </Drawer.Navigator>
     );
 }

@@ -4,6 +4,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 import { Dimensions } from 'react-native';
 import WarzonePlayer from './WarzonePlayer';
 import ModalSelector from 'react-native-modal-selector'
+import WarzoneMatch from './WarzoneMatch';
 
 const sWidth = Dimensions.get('screen').width;
 
@@ -147,7 +148,7 @@ class Warzone extends Component {
                 <View style={{ flex: 1, flexDirection: 'column'}}>
                     <View style={this.styles.header}>
                         <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
-                        <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButtonStat}>
+                        <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButtonMatch}>
                             <Text style={this.styles.confirmText}>Confirmer</Text>
                         </TouchableOpacity>
                     </View>
