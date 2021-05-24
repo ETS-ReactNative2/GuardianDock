@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, FlatList, StyleSheet, Text, View } from "react-native";
 
 /**
  * Class Warzone
@@ -25,7 +25,6 @@ class WarzoneMatch extends React.Component {
      */
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             url: "https://call-of-duty-modern-warfare.p.rapidapi.com/" + props.mode + '/' + props.playerName.replace(/#/g, "%23") + '/' + props.platform,
             playerName: props.playerName,
@@ -85,12 +84,16 @@ class WarzoneMatch extends React.Component {
      */
     writeWMatches(match) {
         return (
-            `Nombre de joueur dans la partie : ${match.playerCount}\n` +
-            `Map : ${match.map}\n` +
-            `Mode de jeu : ${match.mode}\n` +
-            `Nombre de team dans la partie : ${match.teamCount}\n` +
-            `Type de la partie : ${match.privateMatch ? "Privée" : "Public"}\n` +
-            `Durée de la partie : ${this.parseTime(match.duration / 60000)}\n\n`
+            <View style={styles.statContainer}>
+                <View elevation={3} style={styles.Container}>
+                    <Text>Nombre de joueur dans la partie : {match.playerCount !== null ? match.playerCount : "Error"}</Text>
+                    <Text>Map : {match.map !== null ? match.map : "Error"}</Text>
+                    <Text>Mode de jeu : {match.mode !== null ? match.mode : match.mode}</Text>
+                    <Text>Nombre de team dans la partie : {match.teamCount !== null ? match.teamCount : "Error"}</Text>
+                    <Text>Type de la partie : {match.private !== null ? match.privateMatch ? "Privée" : "Public" : "Error"}</Text>
+                    <Text>Durée de la partie : {match.duration !== null ? this.parseTime(match.duration / 60000) : "Error"}</Text>
+                </View>
+            </View>
         );
     }
 
@@ -101,13 +104,17 @@ class WarzoneMatch extends React.Component {
      */
      writeMMatches(match) {
         return (
-            `Map : ${match.map}\n` +
-            `Mode de jeu : ${match.mode}\n` +
-            `Type de la partie : ${match.privateMatch ? "Privée" : "Public"}\n` +
-            `Résultat de la partie : ${match.win === "win" ? "Victoire" : "Défaite"}\n` +
-            `Score de la team 1 : ${match.team1Score}\n` +
-            `Score de la team 2 : ${match.team2Score}\n` +
-            `Durée de la partie : ${this.parseTime(match.duration / 60000)}\n\n`
+            <View style={styles.statContainer}>
+                <View elevation={3} style={styles.Container}>
+                    <Text>Map : {match.map !== null ? match.map : "Error"}</Text>
+                    <Text>Mode de jeu : {match.mode !== null ? match.mode : "Error"}</Text>
+                    <Text>Type de la partie : {match.privateMatch !== null ? match.privateMatch ? "Privée" : "Public" : "Error"}</Text>
+                    <Text>Résultat de la partie : {match.win !== null ? match.win === "win" ? "Victoire" : "Défaite" : "Error"}</Text>
+                    <Text>Score de la team 1 : {match.team1Score !== null ? match.team1Score : "Error"}</Text>
+                    <Text>Score de la team 2 : {match.team2Score !== null ? match.team2Score : "Error"}</Text>
+                    <Text>Durée de la partie : {match.duration !== null ? this.parseTime(match.duration / 60000) : "Error"}</Text>
+                </View>
+            </View>
         );
     }
 
@@ -122,33 +129,49 @@ class WarzoneMatch extends React.Component {
                 <Text style={{ color: 'black' }}>Chargement des parties...</Text>
             );
         } else {
-            if (this.state.mode === "warzone-matches") {
-                let printData = '';
-                this.state.matches["matches"].forEach(match => {
-                    printData = printData + this.writeWMatches(match);
-                });
+            if (this.state.invalidAccount) {
+                return (
+                    <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
+                );
+            } else if (this.state.mode === "warzone-matches") {
                 return (
                     <View style={{flex: 1}}>
-                        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-                            <Text>{printData}</Text>
-                        </ScrollView>
+                        <FlatList data={this.state.matches["matches"]}
+                        renderItem={({item}) => {
+                            return this.writeWMatches(item);
+                        }}
+                        keyExtractor={(item, index) => index.toString()}>
+                        </FlatList>
                     </View>
                 );
             } else {
-                let printData = '';
-                this.state.matches["matches"].forEach(match => {
-                    printData = printData + this.writeMMatches(match);
-                });
                 return (
                     <View style={{flex: 1}}>
-                        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-                            <Text>{printData}</Text>
-                        </ScrollView>
+                        <FlatList data={this.state.matches["matches"]}
+                        renderItem={({item}) => {
+                            return this.writeMMatches(item);
+                        }}
+                        keyExtractor={(item, index) => index.toString()}>
+                        </FlatList>
                     </View>
                 );
             }
         }
     }
 }
+
+const styles = StyleSheet.create({
+    statContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    Container: {
+        borderRadius: 2,
+        padding: 10,
+        shadowColor: 'black',
+        shadowOpacity: 1.0
+    }
+});
 
 export default WarzoneMatch;

@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 
 /**
  * Class FortniteMatch
@@ -70,13 +70,17 @@ class FortniteMatch extends React.Component {
      * @param {JSON} match A JSON Object containing every match stats
      * @returns JSX.Object
      */
-    writeMatches(match) {
+    writeStat(match) {
         return (
-            `Date de la partie : ${new Date(match.date).toLocaleString()}\n` +
-            `Plateforme de jeu : ${match.platform === "keyboardmouse" || match.platform === "touch" ? "PC" : "Console"}\n` +
-            `Mode de la partie : ${match.readable_name}\n` +
-            `Kill effectué dans la partie : ${match.kills}\n` +
-            `Durée de la partie : ${this.parseTime(match.minutesplayed)}\n\n`
+            <View style={styles.statContainer}>
+                <View elevation={3} style={styles.Container}>
+                    <Text style={styles.text}>Date de la partie : {match.date !== null ? new Date(match.date).toLocaleString() : "Error"}</Text>
+                    <Text style={styles.text}>Plateforme de jeu : {match.platform === null ? "Error" : match.platform === "keyboardmouse" || match.platform === "touch" ? "PC" : "Console"}</Text>
+                    <Text style={styles.text}>Mode de la partie : {match.readable_name !== null ? match.readable_name !== "" ? match.readable_name : "Mode inconnue." : "Error"}</Text>
+                    <Text style={styles.text}>Kill effectué dans la partie : {match.kills !== null ? match.kills : "Error"}</Text>
+                    <Text style={styles.text}>Durée de la partie : {match.minutesplayed !== null ? this.parseTime(match.minutesplayed) : "Error"}</Text>
+                </View>
+            </View>
         );
     }
 
@@ -91,19 +95,32 @@ class FortniteMatch extends React.Component {
                 <Text style={{ color: 'black' }}>Chargement des parties...</Text>
             );
         } else {
-            let printData = '';
-            this.state.matches["matches"].forEach(match => {
-                printData = printData + this.writeMatches(match);
-            });
             return (
-                <View>
-                    <ScrollView>
-                        <Text>{printData}</Text>
-                    </ScrollView>
+                <View style={{marginTop: 15}}>
+                    <FlatList data={this.state.matches["matches"]}
+                    renderItem={({item}) => {
+                        return this.writeStat(item);
+                    }}
+                    keyExtractor={(item, index) => index.toString()}>
+                    </FlatList>
                 </View>
             );
         }
     }
 }
+
+const styles = StyleSheet.create({
+    statContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    Container: {
+        borderRadius: 2,
+        padding: 10,
+        shadowColor: 'black',
+        shadowOpacity: 1.0
+    }
+});
 
 export default FortniteMatch;

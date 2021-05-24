@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
 
 /**
  * Class FortniteStat
@@ -12,6 +12,7 @@ class FortniteStat extends React.Component {
         url: '',
         isLoaded: false,
         accountId: '',
+        playerName: '',
         stats: [],
         error: false
     };
@@ -26,6 +27,7 @@ class FortniteStat extends React.Component {
             url: 'https://fortniteapi.io/v1/stats?account=',
             isLoaded: false,
             accountId: props.accountId,
+            playerName: props.playerName,
             error: false
         };
     }
@@ -62,15 +64,17 @@ class FortniteStat extends React.Component {
 
     writeStat(stats = JSON, mode = String) {
         return (
-            <View>
-                <Text style={{ color: 'black' }}>Donnée de {this.state.stats["name"]} en {mode} :</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top1 effectué : {stats.placetop1}</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top3 effectué : {stats.placetop3}</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top5 effectué : {stats.placetop5}</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top10 effectué : {stats.placetop10}</Text>
-                <Text style={{ color: 'black' }}>Nombre de kill effectué : {stats.kills}</Text>
-                <Text style={{ color: 'black' }}>Nombre de match joué : {stats.matchesplayed}</Text>
-                <Text style={{ color: 'black' }}>Temps de jeu effectué : {this.parseTime(stats.minutesplayed)} </Text>
+            <View style={styles.statContainer}>
+                <View elevation={3} style={styles.Container}>
+                    <Text style={styles.text}>Donnée de {this.state.stats["name"] ? this.state.stats["name"] : "Error"} en {mode} :</Text>
+                    <Text style={styles.text}>Nombre de Top1 effectué : {stats.placetop1 !== null ? stats.placetop1 : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de Top3 effectué : {stats.placetop3 !== null ? stats.placetop3 : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de Top5 effectué : {stats.placetop5 !== null ? stats.placetop5 : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de Top10 effectué : {stats.placetop10 !== null ? stats.placetop10 : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de kill effectué : {stats.kills !== null ? stats.kills : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de match joué : {stats.matchesplayed !== null ? stats.matchesplayed : "Error"}</Text>
+                    <Text style={styles.text}>Temps de jeu effectué : {stats.minutesplayed !== null ? this.parseTime(stats.minutesplayed) : "Error"} </Text>
+                </View>
             </View>
         );
     }
@@ -78,26 +82,56 @@ class FortniteStat extends React.Component {
     render() {
         if (this.state.error) {
             return (
-                <Text style={{ color: 'black' }}>Erreur lors du chargement des stats.</Text>
+                <Text style={styles.text}>Erreur lors du chargement des stats.</Text>
             );
         }
         if (!this.state.isLoaded) {
             return (
-                <Text style={{ color: 'black' }}>Chargement des stats…</Text>
+                <Text style={styles.text}>Chargement des stats…</Text>
             );
         } else {
             return (
                 <View>
-                    <Text style={{ color: 'black' }}>Level : {this.state.stats["account"]["level"] === null ? "???" : this.state.stats["account"]["level"]}</Text>
                     <ScrollView>
-                        {this.writeStat(this.state.stats["global_stats"]["solo"], "solo")}
-                        {this.writeStat(this.state.stats["global_stats"]["duo"], "duo")}
-                        {this.writeStat(this.state.stats["global_stats"]["squad"], "squad")}
+                        <View style={styles.header}>
+                            <Text style={styles.username}>{this.state.playerName}</Text>
+                            <Text style={styles.text}>Level : {this.state.stats["account"]["level"] === null ? "Level indisponible" : this.state.stats["account"]["level"]}</Text>
+                        </View>
+                        {this.state.stats["global_stats"] !== null ? this.writeStat(this.state.stats["global_stats"]["solo"], "solo") : <Text>Donnée de ce joueur en solo indisponible.</Text>}
+                        <Text/>
+                        {this.state.stats["global_stats"] !== null ? this.writeStat(this.state.stats["global_stats"]["duo"], "duo") : <Text>Donnée de ce joueur en duo indisponible.</Text>}
+                        <Text/>
+                        {this.state.stats["global_stats"] !== null ? this.writeStat(this.state.stats["global_stats"]["squad"], "squad") : <Text>Donnée de ce joueur en squad indisponible.</Text>}
                     </ScrollView>
                 </View>
             );
         }
     }
 }
+
+const styles = StyleSheet.create({
+	text: {
+        color: 'black'
+    },
+    username: {
+        fontSize: 20,
+        fontWeight: "bold"
+    },
+    statContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    Container: {
+        borderRadius: 2,
+        padding: 10,
+        shadowColor: 'black',
+        shadowOpacity: 1.0
+    },
+    header: {
+        marginTop: 10,
+        alignItems: 'center',
+    }
+});
 
 export default FortniteStat;

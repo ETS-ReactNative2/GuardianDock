@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 /**
  * Class Fortnite
@@ -74,50 +74,53 @@ class WarzonePlayer extends React.Component {
     }
 
     writeBrStat(stats = JSON, mode = String) {
-        let scorePerMinute = stats.scorePerMinute.toFixed(2)
-        let kdRatio = stats.kdRatio.toFixed(2)
+        let scorePerMinute = stats.scorePerMinute.toFixed(2) !== null ? stats.scorePerMinute.toFixed(2) : "Error";
+        let kdRatio = stats.kdRatio.toFixed(2) !== null ? stats.kdRatio.toFixed(2) : "Error";
         return (
-            <View>
-                <Text style={{ color: 'black' }}>
-                    {'\n'}
-                    Donnée de {this.state.playerName} en {mode} :</Text>
-                <Text style={{ color: 'black' }}>Nombre de match joué : {stats.gamesPlayed}</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top 25 effectué : {stats.topTwentyFive}</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top 10 effectué : {stats.topTen}</Text>
-                <Text style={{ color: 'black' }}>Nombre de Top 5 effectué : {stats.topFive}</Text>
-                <Text style={{ color: 'black' }}>Nombre de victoires : {stats.wins}</Text>
-                <Text style={{ color: 'black' }}>Temps de jeu effectué : {this.parseTime(stats.timePlayed / 60)} </Text>
-                <Text style={{ color: 'black' }}>
-                    {'\n'}
-                    Ratio élimnation / mort : {kdRatio}
-                </Text>
-                <Text style={{ color: 'black' }}>Nombre d'élimination : {stats.kills}</Text>
-                <Text style={{ color: 'black' }}>Nombre de morts : {stats.deaths}</Text>
-                <Text style={{ color: 'black' }}>Score par minute : {scorePerMinute}</Text>
+            <View style={styles.statContainer}>
+                <View elevation={3} style={styles.Container}>
+                    <Text style={{ color: 'black' }}>Donnée de {this.state.playerName} en {mode} :</Text>
+                    <Text style={{ color: 'black' }}>Nombre de match joué : {stats.gamesPlayed !== null ? stats.gamesPlayed : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Nombre de Top 25 effectué : {stats.topTwentyFive !== null ? stats.topTwentyFive : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Nombre de Top 10 effectué : {stats.topTen !== null ? stats.topTen : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Nombre de Top 5 effectué : {stats.topFive !== null ? stats.topFive : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Nombre de victoires : {stats.wins !== null ? stats.wins : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Temps de jeu effectué : {stats.timePlayed !== null ? this.parseTime(stats.timePlayed / 60) : "Error"} </Text>
+                    <Text></Text>
+                    <Text style={{ color: 'black' }}>Ratio élimnation / mort : {kdRatio}</Text>
+                    <Text style={{ color: 'black' }}>Nombre d'élimination : {stats.kills !== null ? stats.kills : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Nombre de morts : {stats.deaths !== null ? stats.deaths : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Score par minute : {scorePerMinute}</Text>
+                </View>
             </View>
         );
     }
 
     writeMultiStat(stats = JSON, mode = String) {
-        let scorePerMinute = stats["lifetime"]["all"]["properties"].scorePerMinute.toFixed(2)
-        let kdRatio = stats["lifetime"]["all"]["properties"].kdRatio.toFixed(2)
-        let wlRatio = stats["lifetime"]["all"]["properties"].wlRatio.toFixed(2)
+        let scorePerMinute = stats["lifetime"]["all"]["properties"].scorePerMinute.toFixed(2) !== null ? stats["lifetime"]["all"]["properties"].scorePerMinute.toFixed(2) : "Error";
+        let kdRatio = stats["lifetime"]["all"]["properties"].kdRatio.toFixed(2) !== null ? stats["lifetime"]["all"]["properties"].kdRatio.toFixed(2) : "Error";
+        let wlRatio = stats["lifetime"]["all"]["properties"].wlRatio.toFixed(2) !== null ? stats["lifetime"]["all"]["properties"].wlRatio.toFixed(2) : "Error";
+        let wins = stats["lifetime"]["all"]["properties"].wins !== null ? stats["lifetime"]["all"]["properties"].wins : -1;
+        let losses = stats["lifetime"]["all"]["properties"].losses !== null ? stats["lifetime"]["all"]["properties"].losses : -1;
+        let matchPlayed = wins !== -1 && losses !== -1 ? wins + losses : "Error";
         return (
-            <View>
-                <Text style={{ color: 'black' }}>Donnée de {this.state.username} en {mode} :</Text>
-                <Text style={{ color: 'black' }}>Ratio Victoire / Défaite : {wlRatio}</Text>
-                <Text style={{ color: 'black' }}>Nombre de matchs joués : {stats["lifetime"]["all"]["properties"].wins + stats["lifetime"]["all"]["properties"].losses}</Text>
-                <Text style={{ color: 'black' }}>Nombre de victoires : {stats["lifetime"]["all"]["properties"].wins}</Text>
-                <Text style={{ color: 'black' }}>Nombre de défaites : {stats["lifetime"]["all"]["properties"].losses}</Text>
-                <Text></Text>
-                <Text style={{ color: 'black' }}>Ratio élimnation / mort : {kdRatio}</Text>
-                <Text style={{ color: 'black' }}>Nombre d'élimination : {stats["lifetime"]["all"]["properties"].kills}</Text>
-                <Text style={{ color: 'black' }}>Nombre de morts : {stats["lifetime"]["all"]["properties"].deaths}</Text>
-                <Text style={{ color: 'black' }}>Nombre d'assistances : {stats["lifetime"]["all"]["properties"].assists}</Text>
-                <Text style={{ color: 'black' }}>Nombre d'élimination avec des tirs en pleine tête : {stats["lifetime"]["all"]["properties"].headshots}</Text>
-                <Text></Text>
-                <Text style={{ color: 'black' }}>Temps de jeu total effectif : {this.parseTime(stats["lifetime"]["all"]["properties"].timePlayedTotal / 60)}</Text>
-                <Text style={{ color: 'black' }}>Score par minute : {scorePerMinute}</Text>
+            <View style={styles.statContainer}>
+                <View elevation={3} style={styles.Container}>
+                    <Text style={{ color: 'black' }}>Donnée de {this.state.username} en {mode} :</Text>
+                    <Text style={{ color: 'black' }}>Ratio Victoire / Défaite : {wlRatio}</Text>
+                    <Text style={{ color: 'black' }}>Nombre de matchs joués : {matchPlayed}</Text>
+                    <Text style={{ color: 'black' }}>Nombre de victoires : {wins}</Text>
+                    <Text style={{ color: 'black' }}>Nombre de défaites : {losses}</Text>
+                    <Text></Text>
+                    <Text style={{ color: 'black' }}>Ratio élimnation / mort : {kdRatio}</Text>
+                    <Text style={{ color: 'black' }}>Nombre d'élimination : {stats["lifetime"]["all"]["properties"].kills !== null ? stats["lifetime"]["all"]["properties"].kills : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Nombre de morts : {stats["lifetime"]["all"]["properties"].deaths !== null ? stats["lifetime"]["all"]["properties"].deaths : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Nombre d'assistances : {stats["lifetime"]["all"]["properties"].assists !== null ? stats["lifetime"]["all"]["properties"].assists : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Nombre d'élimination avec des tirs en pleine tête : {stats["lifetime"]["all"]["properties"].headshots !== null ? stats["lifetime"]["all"]["properties"].headshots : "Error"}</Text>
+                    <Text></Text>
+                    <Text style={{ color: 'black' }}>Temps de jeu total effectif : {stats["lifetime"]["all"]["properties"].timePlayedTotal !== null ? this.parseTime(stats["lifetime"]["all"]["properties"].timePlayedTotal / 60) : "Error"}</Text>
+                    <Text style={{ color: 'black' }}>Score par minute : {scorePerMinute}</Text>
+                </View>
             </View>
         );
     }
@@ -138,7 +141,11 @@ class WarzonePlayer extends React.Component {
                     <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
                 );
             } else {
-                if (this.state.mode == "warzone") {
+                if (this.state.invalidAccount) {
+                    return (
+                        <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
+                    );
+                } else if (this.state.mode == "warzone") {
                     return (
                         <View style={{flex: 1}}>
                             <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
@@ -163,5 +170,18 @@ class WarzonePlayer extends React.Component {
         }
     }
 }
+
+const styles = StyleSheet.create({
+    statContainer: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    Container: {
+        borderRadius: 2,
+        padding: 10,
+        shadowColor: 'black',
+        shadowOpacity: 1.0
+    }
+});
 
 export default WarzonePlayer;

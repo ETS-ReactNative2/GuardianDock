@@ -76,7 +76,7 @@ class FortnitePlayer extends React.Component {
         }
         if (!this.state.isLoaded) {
             return (
-                <Text style={{color:'black'}}>Chargement des informations basique...</Text>
+                <Text style={{color:'black'}}>Chargement des informations basiques...</Text>
             );
         } else {
             if (this.state.invalidAccount) {
@@ -87,17 +87,13 @@ class FortnitePlayer extends React.Component {
                 if (this.state.stat) {
                     return (
                         <View>
-                            <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
-                            <Text style={{color: 'black'}}>PlayerID: {this.state.account_id}</Text>
-                            <FortniteStat accountId={this.state.account_id}></FortniteStat>
+                            <FortniteStat accountId={this.state.account_id} playerName={this.state.playerName}></FortniteStat>
                         </View>
                     );
                 } else {
                     return (
                         <View>
-                            <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
-                            <Text style={{color: 'black'}}>PlayerID: {this.state.account_id}</Text>
-                            <FortniteMatch accountId={this.state.account_id}></FortniteMatch>
+                            <FortniteMatch accountId={this.state.account_id} playerName={this.state.playerName}></FortniteMatch>
                         </View>
                     );
                 }

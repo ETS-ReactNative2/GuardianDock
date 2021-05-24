@@ -45,14 +45,13 @@ class Fortnite extends Component {
             height: 40,
             width: sWidth - 160,
             textAlign: "center",
-            marginTop: 20,
             marginLeft: 20
         },
         header: {
             flexDirection: 'row'
         },
         confirmButton: {
-            marginTop: 25,
+            marginTop: 5,
             marginLeft: 20,
             height: 30,
             width: 100,
@@ -130,10 +129,10 @@ class Fortnite extends Component {
             );
         }
         return (
-            <View>
+            <View style={{ flex: 1, flexDirection: 'column'}}>
                 <View style={this.styles.header}>
-                    <TextInput style={this.styles.input} onChangeText={this.handleUsername}></TextInput>
-                    <TouchableOpacity style={this.styles.confirmButton} onPress={this.confirmButton}>
+                    <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
+                    <TouchableOpacity style={this.styles.confirmButton} onPressIn={this.confirmButton}>
                         <Text style={this.styles.confirmText}>Confirmer</Text>
                     </TouchableOpacity>
                 </View>

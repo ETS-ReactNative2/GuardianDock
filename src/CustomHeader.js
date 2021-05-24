@@ -3,10 +3,11 @@ import {
     StyleSheet,
     TouchableOpacity,
     View,
-    Text,
     SafeAreaView,
+    Image
 } from 'react-native';
 import { DrawerActions } from '@react-navigation/native';
+import {  } from 'native-base';
 
 function CustomHeader(props) {
     const toggleDrawer = () =>
@@ -19,7 +20,8 @@ function CustomHeader(props) {
                     <TouchableOpacity
                         onPress={toggleDrawer}
                         style={styles.leftButton}>
-                        <Text style={styles.buttonTxt}>MENU</Text>
+                        <Image source={require("../assets/menu_hamburger.png")}
+                            style={styles.buttonTxt}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -30,7 +32,6 @@ function CustomHeader(props) {
 const styles = StyleSheet.create({
     headerContainer: {
         justifyContent: 'space-around',
-        backgroundColor: '#222222',
         minHeight: 40,
     },
     headerLeft: {
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
         margin: 10
     },
     buttonTxt: {
-        color: '#ddd',
-        fontWeight: 'bold',
+        width: 30,
+        height: 30
     }
 });
 

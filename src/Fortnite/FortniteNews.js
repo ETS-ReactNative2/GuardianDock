@@ -1,6 +1,5 @@
 import React from "react";
 import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
-import ModalSelector from "react-native-modal-selector";
 import Card from "../Card/Card";
 
 /**

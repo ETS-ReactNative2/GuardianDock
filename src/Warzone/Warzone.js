@@ -54,14 +54,13 @@ class Warzone extends Component {
             height: 40,
             width: sWidth - 160,
             textAlign: "center",
-            marginTop: 15,
             marginLeft: 20
         },
         header: {
             flexDirection: 'row'
         },
         confirmButton: {
-            marginTop: 20,
+            marginTop: 5,
             marginLeft: 20,
             height: 30,
             width: 100,
