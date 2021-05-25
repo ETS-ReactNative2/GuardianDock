@@ -1,6 +1,7 @@
+import { Link } from "@react-navigation/native";
 import { Button, Container } from "native-base";
 import React from "react";
-import { Text, TouchableOpacity, Image, StyleSheet, View, Modal } from "react-native";
+import { Text, TouchableOpacity, Image, StyleSheet, View, Modal, Linking } from "react-native";
 import { Dimensions } from 'react-native';
 import Video from "react-native-video";
 
@@ -23,7 +24,8 @@ class Card extends React.Component {
         description: '',
         video: '',
         isVisible: false,
-        videoVisible: false
+        videoVisible: false,
+        redirect: null
     };
 
     /**
@@ -37,9 +39,18 @@ class Card extends React.Component {
             image: props.image,
             description: props.description,
             video: props.video ? props.video : undefined,
+            redirect: props.link ? props.link : undefined,
             isVisible: false,
             videoVisible: false
         };
+    }
+
+    goToURL() {
+        if (this.state.redirect === undefined) return;
+        Linking.canOpenURL(this.state.redirect).then(supported => {
+            if (supported)
+                Linking.openURL(this.state.redirect)
+        });
     }
 
     /**
@@ -76,7 +87,9 @@ class Card extends React.Component {
                                 <TouchableOpacity onPress={() => this.setState({ videoVisible: true, isVisible: false })}>
                                     <Text>Regarder la vidéo (Changer de module...)</Text>
                                 </TouchableOpacity>}
-                                <Text style={{ fontSize: 18 }}>{this.state.subtitle +"\n"}</Text>
+                                <Text style={{ fontSize: 18 , color: this.state.redirect ? "blue" : "black"}} onPress={() => this.goToURL()}>
+                                    {this.state.subtitle + '\n'}
+                                </Text>
                                 <Text style={{ fontSize: 15 }}>{this.state.description}</Text>
                             </View>
                         </View>
@@ -88,7 +101,9 @@ class Card extends React.Component {
                             width: sWidth,
                             height: 200
                         }} source={{ uri: this.state.image }} />
-                        <Text style={{ alignSelf: "center", fontSize: 15 }}>{this.state.title}</Text>
+                        <Text style={{ alignSelf: "center", fontSize: 15 , color: this.state.redirect ? "blue" : "black"}} onPress={() => this.goToURL()}>
+                            {this.state.title}
+                        </Text>
                         <Text style={{ alignSelf: "center", fontSize: 12 }}>{this.state.subtitle}</Text>
                     </TouchableOpacity>
                 </View>

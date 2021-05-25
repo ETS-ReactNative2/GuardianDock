@@ -84,20 +84,22 @@ function MainDrawerNavigation() {
 				{() => <Fortnite news={true} match={false} stat={false} />}
 			</Drawer.Screen>
 			<Drawer.Screen name="Inventaire" component={InventaireScreen}></Drawer.Screen>
-			<Drawer.Screen name="Statistiques Destiny2">
+			<Drawer.Screen name="Statistiques Destiny 2">
                 {() => <Destiny news={false} inventory={false} stat={true} />}
             </Drawer.Screen>
-			<Drawer.Screen name="Nouveautés Destiny2" component={NouveautésD2Screen}></Drawer.Screen>
+			<Drawer.Screen name="Nouveautés Destiny 2">
+                {() => <Destiny news={true} inventory={false} stat={false} />}
+			</Drawer.Screen>
 			<Drawer.Screen name="Statistiques Warzone">
 				{() => <Warzone news={false} match={false} mode={false} stat={true}/>}
 			</Drawer.Screen>
 			<Drawer.Screen name="Match Warzone">
 				{() => <Warzone news={false} match={true} mode={false} stat={false}/>}
 			</Drawer.Screen>
-			<Drawer.Screen name="Statistiques Multiplayer">
+			<Drawer.Screen name="Statistiques Multijoueur">
 				{() => <Warzone news={false} match={false} mode={true} stat={true}/>}
 			</Drawer.Screen>
-			<Drawer.Screen name="Match Multiplayer">
+			<Drawer.Screen name="Match Multijoueur">
 				{() => <Warzone news={false} match={true} mode={true} stat={true}/>}
 			</Drawer.Screen>
 		</Drawer.Navigator>

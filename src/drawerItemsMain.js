@@ -1,7 +1,7 @@
 export const drawerItemsMain = [
     {
       key: 'Home',
-      title: 'Home',
+      title: 'Menu principal',
       routes: [{nav: 'MainDrawer', routeName: 'Home', title: 'Home'}],
     },
     {
@@ -18,8 +18,8 @@ export const drawerItemsMain = [
       title: 'Destiny 2',
       routes: [
         {nav: 'MainDrawer', routeName: 'Inventaire', title: 'Inventaire'},
-        {nav: 'MainDrawer', routeName: 'Statistiques Destiny2', title: 'Statistiques'},
-        {nav: 'MainDrawer', routeName: 'Nouveautés Destiny2', title: 'Nouveautés'}
+        {nav: 'MainDrawer', routeName: 'Statistiques Destiny 2', title: 'Statistiques'},
+        {nav: 'MainDrawer', routeName: 'Nouveautés Destiny 2', title: 'Nouveautés'}
       ],
     },
     {
@@ -28,8 +28,8 @@ export const drawerItemsMain = [
       routes: [
         {nav: 'MainDrawer', routeName: 'Statistiques Warzone', title: 'Statistiques Warzone'},
         {nav: 'MainDrawer', routeName: 'Match Warzone', title: 'Match Warzone'},
-        {nav: 'MainDrawer', routeName: 'Statistiques Multiplayer', title: 'Statistiques Multiplayer'},
-        {nav: 'MainDrawer', routeName: 'Match Multiplayer', title: 'Match Multiplayer'}
+        {nav: 'MainDrawer', routeName: 'Statistiques Multijoueur', title: 'Statistiques Multijoueur'},
+        {nav: 'MainDrawer', routeName: 'Match Multijoueur', title: 'Match Multijoueur'}
       ],
     }
   ];

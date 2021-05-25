@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, Image, TextInput, TouchableOpacity, View } from 'react-native';
 import { Dimensions } from 'react-native';
 import ModalSelector from 'react-native-modal-selector';
+import DestinyNews from './DestinyNews';
 import DestinyPlayer from './DestinyPlayer';
 
 const sWidth = Dimensions.get('screen').width;
@@ -85,11 +86,7 @@ class Destiny extends Component  {
             destiny: null
         });
         setTimeout(() => {
-            if (this.state.news) {
-                this.setState({
-                    destiny: <DestinyPlayer url="" />
-                })
-            } else if (this.state.stat) {
+            if (this.state.stat) {
                 this.setState({
                     destiny: <DestinyPlayer platformId={platforms.get(this.state.platformSelected)} playerName={this.state.username} stat={true} />
                 })
@@ -121,6 +118,12 @@ class Destiny extends Component  {
                             }} />
                     </View>
                     {this.state.destiny}
+                </View>
+            )
+        } else if (this.state.news) {
+            return (
+                <View style={{ flex: 1, flexDirection: 'column'}}>
+                    <DestinyNews/>
                 </View>
             )
         }

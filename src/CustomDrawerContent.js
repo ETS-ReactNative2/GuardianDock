@@ -60,7 +60,7 @@ function CustomDrawerContent(props) {
         <TouchableOpacity
           onPress={() => toggleMainDrawer()}
           style={styles.backButtonRow}>
-          <Text style={[styles.backButtonText, styles.title]}>{'BACK'}</Text>
+          <Text style={[styles.backButtonText, styles.title]}>{'RETOUR'}</Text>
         </TouchableOpacity>
         {filteredItems.routes.map((route) => {
           return (
