@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
+import DestinyStats from "./DestinyStats"
 
 /**
  * Class DestinyPlayer
@@ -14,6 +15,7 @@ class DestinyPlayer extends React.Component {
         playerName: '',
         isLoaded: false,
         account_id: '',
+        membershipType: '',
         error: false,
         platformId: '',
         invalidAccount: false,
@@ -32,38 +34,43 @@ class DestinyPlayer extends React.Component {
             isLoaded: false,
             platformId: props.platformId,
             account_id: '',
+            membershipType: '',
             error: false,
             invalidAccount: false,
             stat: props.stat,
             match: props.match,
-            url: "https://www.bungie.net/Platform/Destiny2/SearchDestinyPlayer/" + this.state.platformId + '/' + this.state.playerName,
+            url: "https://www.bungie.net/Platform/Destiny2/SearchDestinyPlayer/" ,
         };
     }
 
     componentDidMount() {
-        if (this.state.playerName == '') return;
-        fetch(this.state.url, {
+        if (this.state.playerName === '') return;
+        fetch(this.state.url + this.state.platformId + '/' + this.state.playerName, {
             method: 'GET',
             headers: {
                 'x-api-key': '551b69f4972440f9bfb0a3b2a8a9ed62'
             }
         }).then(res => {
             res.json().then(json => {
-                if (json.result === false) {
+                if (json.ErrorCode !== 1) {
                     this.setState({
                         invalidAccount: true,
                         isLoaded: true
                     })
                 } else if (json["Response"] !== null) {
                     this.setState({
-                        account_id: json["Response"].membershipId,
-                        playerName: json["Response"].displayName,
-                        platformId: json["Response"].membershipType,
+                        account_id: json["Response"][0].membershipId,
+                        playerName: json["Response"][0].displayName,
+                        membershipType: json["Response"][0].membershipType,
                         isLoaded: true
                     })
                 }
+            }).catch(() => {
+                this.setState({
+                    error: true
+                });
             });
-        }).catch(err => {
+        }).catch(() => {
             this.setState({
                 error: true
             });
@@ -87,11 +94,12 @@ class DestinyPlayer extends React.Component {
                 );
             } else {
                 if (this.state.stat) {
+                    console.log(this.state)
                     return (
                         <View>
                             <Text style={{color: 'black'}}>Bungie.net username: {this.state.playerName}</Text>
                             <Text style={{color: 'black'}}>MembershipId: {this.state.account_id}</Text>
-                            <DestinyStats accountId={this.state.account_id} playerName={this.state.playerName} membershipType={this.state.platformId}></DestinyStats>
+                            <DestinyStats accountId={this.state.account_id} playerName={this.state.playerName} membershipType={this.state.membershipType}></DestinyStats>
                         </View>
                     );
                 } else {
@@ -99,7 +107,7 @@ class DestinyPlayer extends React.Component {
                         <View>
                             <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
                             <Text style={{color: 'black'}}>PlayerID: {this.state.account_id}</Text>
-                            <DestinyStats accountId={this.state.account_id} playerName={this.state.playerName} membershipType={this.state.platformId}></DestinyStats>
+                            {/* <DestinyStats accountId={this.state.account_id} playerName={this.state.playerName} membershipType={this.state.platformId}></DestinyStats> */}
                         </View>
                     );
                 }

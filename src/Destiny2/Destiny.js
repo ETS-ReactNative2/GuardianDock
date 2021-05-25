@@ -91,7 +91,7 @@ class Destiny extends Component  {
                 })
             } else if (this.state.stat) {
                 this.setState({
-                    destiny: <DestinyPlayer platformId={platforms.get(this.state.platformSelected)} playerName={this.state.username} />
+                    destiny: <DestinyPlayer platformId={platforms.get(this.state.platformSelected)} playerName={this.state.username} stat={true} />
                 })
             }
         }, 500);
@@ -108,7 +108,7 @@ class Destiny extends Component  {
                 <View style={{ flex: 1, flexDirection: 'column'}}>
                     <View style={this.styles.header}>
                         <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
-                        <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButtonStat}>
+                        <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButton}>
                             <Text style={this.styles.confirmText}>Confirmer</Text>
                         </TouchableOpacity>
                     </View>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 /**
  * Class DestinyPlayer
@@ -14,7 +14,7 @@ import { Text, View } from "react-native";
         isLoaded: false,
         account_id: '',
         error: false,
-        platformId: '',
+        membershipType: '',
         invalidAccount: false,
         stats: null,
         url: null
@@ -29,17 +29,17 @@ import { Text, View } from "react-native";
         this.state = {
             isLoaded: false,
             playerName: props.playerName,
-            platformId: props.membershipType,
+            membershipType: props.membershipType,
             account_id: props.accountId,
             error: false,
             invalidAccount: false,
-            url = "https://www.bungie.net/Platform/Destiny2/" + this.state.platformId + "/Account/" + this.state.account_id + "/Stats/?groups=0&modes=5,7&periodType=0"
+            url: "https://www.bungie.net/Platform/Destiny2/"
         };
     }
+
     componentDidMount() {
         if (this.state.playerName == '') return;
-        this.getIdMembership();
-        fetch(this.state.url, {
+        fetch(this.state.url + this.state.membershipType + "/Account/" + this.state.account_id + "/Stats/?groups=0&modes=5,7&periodType=0", {
             method: 'GET',
             headers: {
                 'x-api-key': '551b69f4972440f9bfb0a3b2a8a9ed62'
@@ -137,19 +137,31 @@ import { Text, View } from "react-native";
                     <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
                 );
             } else {
-                if (this.state.stat) {
-                    return (
-                        <View style={{flex: 1}}>
-                            <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
-                            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-                                {this.writePveStats(this.state.stats["Response"]["mergedAllCharacters"]["results"]["allPvE"]["allTime"], "PvE")}
-                            </ScrollView>
-                        </View>
-                    );
-                }
+                return (
+                    <View style={{flex: 1}}>
+                        <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
+                        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                            {this.writePveStats(this.state.stats["Response"]["mergedAllCharacters"]["results"]["allPvE"]["allTime"], "PvE")}
+                        </ScrollView>
+                    </View>
+                );
             }
         }
     }
 }
+
+const styles = StyleSheet.create({
+    statContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    Container: {
+        borderRadius: 2,
+        padding: 10,
+        shadowColor: 'black',
+        shadowOpacity: 1.0
+    }
+});
 
 export default DestinyStats;

@@ -9,11 +9,12 @@ const sHeight = Dimensions.get('screen').height;
 
 /**
  * Class Card
+ * @extends React.Component a component made to create an element called "Card"
  */
 class Card extends React.Component {
 
     /**
-     * State into the api loader
+     * State into Card component
      */
     state = {
         title: '',
@@ -26,7 +27,7 @@ class Card extends React.Component {
     };
 
     /**
-     * Component CTOR
+     * Card CTOR
      */
     constructor(props) {
         super(props);
@@ -39,23 +40,12 @@ class Card extends React.Component {
             isVisible: false,
             videoVisible: false
         };
-        this.onEnd = this.onEnd.bind(this);
-        this.videoError = this.onError.bind(this);
-        this.onBuffer = this.onBuffer.bind(this);
     }
 
-      onEnd(){
-        console.log('onEnd');
-      }
-
-      onError(){
-        console.log('onError');
-      }
-
-      onBuffer(){
-        console.log('onBuffer');
-      }
-
+    /**
+     * Render function for the Card component
+     * @returns JSX.Element
+     */
     render() {
         return (
             <View>
@@ -65,15 +55,12 @@ class Card extends React.Component {
                         ref={(ref) => {
                             this.player = ref
                         }}
-                        muted={false}                           // Mutes the audio entirely.
-                        resizeMode="cover"                      // Fill the whole screen at aspect ratio.*
-                        repeat={false}                           // Repeat forever.
-                        playInBackground={false}                // Audio continues to play when app entering background.
+                        muted={false}
+                        resizeMode="cover"
+                        repeat={false}
+                        playInBackground={false}
                         playWhenInactive={false}
                         controls={true}
-                        onBuffer={this.onBuffer}                // Callback when remote video is buffering
-                        onEnd={this.onEnd}                      // Callback when playback finishes
-                        onError={this.videoError}
                         onEnd={() => this.setState({ videoVisible: false, isVisible: true })}/>
                     </Modal>
                 </View>

@@ -6,14 +6,21 @@ import { Dimensions } from 'react-native';
 import ModalSelector from 'react-native-modal-selector';
 
 const sWidth = Dimensions.get('screen').width;
+
+/**
+ * Platforms to be used for the News class
+ */
 const platforms = new Map([
     ['Battle Royale', 'br'],
     ['Save The World', 'stw'],
     ['Creative', 'creative']
 ]);
 
+/**
+ * Data to be used with the news
+ */
 const datas = [{
-    key: 0, section: true, label: 'Platform'
+    key: 0, section: true, label: 'Gamemode'
 }, {
     key: 1, label: 'Battle Royale'
 }, {
@@ -24,7 +31,7 @@ const datas = [{
 
 class Fortnite extends Component {
 
-    //States about home menu
+    //States about Fortnite home menu
     state = {
         username: '',
         fortnite: null,
