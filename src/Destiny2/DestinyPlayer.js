@@ -94,7 +94,6 @@ class DestinyPlayer extends React.Component {
                 );
             } else {
                 if (this.state.stat) {
-                    console.log(this.state)
                     return (
                         <View>
                             <Text style={{color: 'black'}}>Bungie.net username: {this.state.playerName}</Text>
