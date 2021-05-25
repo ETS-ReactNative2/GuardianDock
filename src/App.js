@@ -17,6 +17,7 @@ import CustomDrawerContent from './CustomDrawerContent.js';
 import CustomHeader from './CustomHeader';
 import Fortnite from './Fortnite/Fortnite';
 import Warzone from './Warzone/Warzone';
+import Destiny from './Destiny2/Destiny';
 
 const Drawer = createDrawerNavigator();
 
@@ -83,7 +84,9 @@ function MainDrawerNavigation() {
 				{() => <Fortnite news={true} match={false} stat={false} />}
 			</Drawer.Screen>
 			<Drawer.Screen name="Inventaire" component={InventaireScreen}></Drawer.Screen>
-			<Drawer.Screen name="Statistiques Destiny2" component={StatistiqueD2Screen}></Drawer.Screen>
+			<Drawer.Screen name="Statistiques Destiny2">
+                {() => <Destiny news={false} inventory={false} stat={true} />}
+            </Drawer.Screen>
 			<Drawer.Screen name="Nouveautés Destiny2" component={NouveautésD2Screen}></Drawer.Screen>
 			<Drawer.Screen name="Statistiques Warzone">
 				{() => <Warzone news={false} match={false} mode={false} stat={true}/>}
