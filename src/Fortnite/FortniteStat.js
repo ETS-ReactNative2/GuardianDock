@@ -95,7 +95,7 @@ class FortniteStat extends React.Component {
                     <ScrollView>
                         <View style={styles.header}>
                             <Text style={styles.username}>{this.state.playerName}</Text>
-                            <Text style={styles.text}>Level : {this.state.stats["account"]["level"] === null ? "Level indisponible" : this.state.stats["account"]["level"]}</Text>
+                            <Text style={styles.text}>Level : {this.state.stats["account"]["level"] === null ? 0 : this.state.stats["account"]["level"]}</Text>
                         </View>
                         {this.state.stats["global_stats"] !== null ? this.writeStat(this.state.stats["global_stats"]["solo"], "solo") : <Text>Donnée de ce joueur en solo indisponible.</Text>}
                         <Text/>

@@ -71,7 +71,6 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
                     <Text style={{ color: 'black' }}>
-                        {'\n'}
                         Donnée en {mode} :
                     </Text>
                     <Text style={{ color: 'black' }}>Nombre d'activités {mode} complétées : {stats["activitiesCleared"]["basic"].displayValue !== null ? stats["activitiesCleared"]["basic"].displayValue : "Error"}</Text>
@@ -101,7 +100,6 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
                     <Text style={{ color: 'black' }}>
-                        {'\n'}
                         Donnée en {mode} :
                     </Text>
                     <Text style={{ color: 'black' }}>Nombre d'activités {mode} complétées : {stats["activitiesEntered"]["basic"].displayValue !== null ? stats["activitiesEntered"]["basic"].displayValue : "Error"}</Text>
@@ -132,7 +130,6 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
                     <Text style={{ color: 'black' }}>
-                        {'\n'}
                         Données globales de {this.state.playerName} :
                     </Text>
                     <Text style={{ color: 'black' }}>Nombre d'activités complétées : {stats["activitiesCleared"]["basic"].displayValue !== null ? stats["activitiesCleared"]["basic"].displayValue : "Error"}</Text>
@@ -176,7 +173,9 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
                     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                         <View style={{ flex: 1 }}>
                             {this.writePveStats(this.state.stats["Response"]["mergedAllCharacters"]["results"]["allPvE"]["allTime"], "PvE")}
+                            <Text>{'\n'}</Text>
                             {this.writePvpStats(this.state.stats["Response"]["mergedAllCharacters"]["results"]["allPvP"]["allTime"], "PvP")}
+                            <Text>{'\n'}</Text>
                             {this.writeAccountStats(this.state.stats["Response"]["mergedAllCharacters"]["merged"]["allTime"])}
                         </View>
                     </ScrollView>
@@ -197,6 +196,17 @@ const styles = StyleSheet.create({
         padding: 10,
         shadowColor: 'black',
         shadowOpacity: 1.0
+    },
+    text: {
+        color: 'black'
+    },
+    username: {
+        fontSize: 20,
+        fontWeight: "bold"
+    },
+    header: {
+        marginTop: 10,
+        alignItems: 'center',
     }
 });
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 import DestinyStats from "./DestinyStats"
 
 /**
@@ -96,17 +96,9 @@ class DestinyPlayer extends React.Component {
                 if (this.state.stat) {
                     return (
                         <View>
-                            <Text style={{color: 'black'}}>Bungie.net username: {this.state.playerName}</Text>
-                            <Text style={{color: 'black'}}>MembershipId: {this.state.account_id}</Text>
+                            <Text style={styles.username}>Pseudo Bungie.net: {this.state.playerName}</Text>
+                            <Text style={styles.text}>ID de membre: {this.state.account_id}</Text>
                             <DestinyStats accountId={this.state.account_id} playerName={this.state.playerName} membershipType={this.state.membershipType}></DestinyStats>
-                        </View>
-                    );
-                } else {
-                    return (
-                        <View>
-                            <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
-                            <Text style={{color: 'black'}}>PlayerID: {this.state.account_id}</Text>
-                            {/* <DestinyStats accountId={this.state.account_id} playerName={this.state.playerName} membershipType={this.state.platformId}></DestinyStats> */}
                         </View>
                     );
                 }
@@ -114,5 +106,19 @@ class DestinyPlayer extends React.Component {
         }
     }
 }
+
+const styles = StyleSheet.create({
+    username: {
+        fontSize: 20,
+        marginTop: 10,
+        textAlign: 'center',
+        fontWeight: "bold"
+    },
+    text: {
+        marginTop: 10,
+        textAlign: 'center',
+        color: 'black'
+    },
+});
 
 export default DestinyPlayer;

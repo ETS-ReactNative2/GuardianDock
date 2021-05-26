@@ -148,7 +148,7 @@ class WarzonePlayer extends React.Component {
                 } else if (this.state.mode == "warzone") {
                     return (
                         <View style={{flex: 1}}>
-                            <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
+                            <Text style={styles.username}>Pseudonyme: {this.state.playerName}</Text>
                             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                                 {this.writeBrStat(this.state.stats["br_all"], "Warzone Global")}
                                 {this.writeBrStat(this.state.stats["br"], "Warzone")}
@@ -159,7 +159,7 @@ class WarzonePlayer extends React.Component {
                 } else if (this.state.mode == "multiplayer") {
                     return (
                         <View style={{flex: 1}}>
-                            <Text style={{color: 'black'}}>Username: {this.state.playerName}</Text>
+                            <Text style={styles.username}>Pseudonyme: {this.state.playerName}</Text>
                             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                                 {this.writeMultiStat(this.state.stats, "Multijoueur")}
                             </ScrollView>
@@ -172,6 +172,17 @@ class WarzonePlayer extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    username: {
+        fontSize: 20,
+        marginTop: 10,
+        textAlign: 'center',
+        fontWeight: "bold"
+    },
+    text: {
+        marginTop: 10,
+        textAlign: 'center',
+        color: 'black'
+    },
     statContainer: {
         flex: 1,
         alignItems: 'center',
