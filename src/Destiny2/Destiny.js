@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
 import { StyleSheet, Text, Image, TextInput, TouchableOpacity, View } from 'react-native';
 import { Dimensions } from 'react-native';
+import React, { Component } from 'react';
 import ModalSelector from 'react-native-modal-selector';
-import DestinyNews from './DestinyNews';
+import DestinyInventory from './DestinyInventory';
 import DestinyPlayer from './DestinyPlayer';
+import DestinyNews from './DestinyNews';
 
 const sWidth = Dimensions.get('screen').width;
 
@@ -124,6 +125,12 @@ class Destiny extends Component  {
             return (
                 <View style={{ flex: 1, flexDirection: 'column'}}>
                     <DestinyNews/>
+                </View>
+            )
+        } else if (this.state.inventory) {
+            return (
+                <View style={{ flex: 1, flexDirection: 'column'}}>
+                    <DestinyInventory/>
                 </View>
             )
         }
