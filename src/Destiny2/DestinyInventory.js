@@ -7,7 +7,7 @@ import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 class DestinyInventory extends React.Component {
 
     /**
-     * State into the api loader
+     * States about DestinyInventory
      */
     state = {
         url: '',
@@ -18,7 +18,8 @@ class DestinyInventory extends React.Component {
     };
 
     /**
-     * Component CTOR
+     * Component DestinyInventory CTOR
+     * @param {} props Props
      */
     constructor(props) {
         super(props);

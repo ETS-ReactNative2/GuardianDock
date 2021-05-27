@@ -8,7 +8,7 @@ import Card from "../Card/Card";
 class FortniteNews extends React.Component {
 
     /**
-     * State into the api loader
+     * States about FortniteNews
      */
     state = {
         url: '',
@@ -19,7 +19,8 @@ class FortniteNews extends React.Component {
     };
 
     /**
-     * Component CTOR
+     * Component FortniteNews CTOR
+     * @param {*} props Props containing the type
      */
     constructor(props) {
         super(props);
@@ -31,6 +32,11 @@ class FortniteNews extends React.Component {
         };
     }
 
+    /**
+     * Triggered when the component is mount.
+     * Here it just fetch the url to get the news by type (br, creative for example)
+     * @returns nothing
+     */
     componentDidMount() {
         fetch(this.state.url + this.state.type, {
             method: 'GET',
@@ -51,6 +57,10 @@ class FortniteNews extends React.Component {
         });
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.error) {
             return (

@@ -2,12 +2,11 @@ import React from "react";
 import { ScrollView, FlatList, StyleSheet, Text, View } from "react-native";
 
 /**
- * Class Warzone
- *Match
+ * Class WarzoneMatch
  */
 class WarzoneMatch extends React.Component {
     /**
-     * State into the api loader
+     * States about WarzoneMatch
      */
      state = {
         url: '',
@@ -20,8 +19,8 @@ class WarzoneMatch extends React.Component {
     };
 
     /**
-     * Component CTOR
-     * @param {} props Props containing url, playerName
+     * Component WarzoneMatch CTOR
+     * @param {} props Props containing playerName, mode, platform
      */
     constructor(props) {
         super(props);
@@ -33,6 +32,11 @@ class WarzoneMatch extends React.Component {
         };
     }
 
+    /**
+     * Triggered when the component is mount.
+     * Here it just fetch the url to get the matches done by the player
+     * @returns nothing
+     */
     componentDidMount() {
         fetch(this.state.url, {
             method: 'GET',
@@ -66,7 +70,7 @@ class WarzoneMatch extends React.Component {
     /**
      * Parse the stat "minutesplayed" to the following format : XXh XXm XXs
      * @param {Number} minutesPlayed
-     * @returns JSX.Object
+     * @returns string parsed
      */
     parseTime(minutesPlayed) {
         var daysPlayed = minutesPlayed / 60 / 24;
@@ -118,6 +122,10 @@ class WarzoneMatch extends React.Component {
         );
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.error) {
             return (

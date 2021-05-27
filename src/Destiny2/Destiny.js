@@ -9,6 +9,9 @@ import DestinyNews from './DestinyNews';
 const sWidth = Dimensions.get('screen').width;
 const sHeight = Dimensions.get('screen').height;
 
+/**
+ * Platforms to be used for the News class
+ */
 const platforms = new Map([
     ['Playstation', 2],
     ['Xbox', 1],
@@ -16,6 +19,9 @@ const platforms = new Map([
     ['Other', -1],
 ]);
 
+/**
+ * Data to be used with the news
+ */
 const datas = [{
     key: 0, section: true, label: 'Platform'
 }, {
@@ -28,9 +34,12 @@ const datas = [{
     key: 4, label: 'Other'
 }];
 
+/**
+ * Home class about Destiny
+ */
 class Destiny extends Component  {
 
-    //States about home menu
+    //States about DestinyHome
     state =  {
         username: '',
         destiny: null,
@@ -71,6 +80,10 @@ class Destiny extends Component  {
         }
     });
 
+    /**
+     * Component Destiny CTOR
+     * @param {*} props Props containing 3 bools : news, inventory, stat 
+     */
     constructor(props)  {
         super(props);
         this.state.news = props.news;
@@ -78,10 +91,18 @@ class Destiny extends Component  {
         this.state.stat = props.stat;
     }
 
+    /**
+     * Handle username changes while you're typing on your keyboard
+     * 
+     * @param {String} text
+     */
     handleUsername = (text) => {
         this.tempUsername = text;
     }
 
+    /**
+     * Update player's information
+     */
     confirmButton = () => {
         this.setState({
             username: this.tempUsername,
@@ -96,11 +117,18 @@ class Destiny extends Component  {
         }, 500);
     }
 
+    /**
+     * Event triggered when a platform is selected
+     */
     dropDownChanges = (text) => {
         this.setState({platformSelected: text});
         this.setState({buttonDisabled: false});
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.stat) {
             return (

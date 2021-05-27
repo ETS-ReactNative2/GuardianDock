@@ -1,4 +1,3 @@
-import { Picker } from 'native-base';
 import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, ImageBackground, View } from 'react-native';
 import { Dimensions } from 'react-native';
@@ -6,9 +5,18 @@ import WarzonePlayer from './WarzonePlayer';
 import ModalSelector from 'react-native-modal-selector'
 import WarzoneMatch from './WarzoneMatch';
 
+/**
+ * The width of the screen
+ */
 const sWidth = Dimensions.get('screen').width;
+/**
+ * The height of the screen
+ */
 const sHeight = Dimensions.get('screen').height;
 
+/**
+ * Platforms to be used for the News class
+ */
 const platforms = new Map([
     ['Playstation', 'psn'],
     ['Steam', 'steam'],
@@ -17,6 +25,9 @@ const platforms = new Map([
     ['Activision (tag)', 'acti']
 ]);
 
+/**
+ * Data to be used with the news
+ */
 const datas = [{
     key: 0, section: true, label: 'Platform'
 }, {
@@ -31,9 +42,12 @@ const datas = [{
     key: 5, label: 'Activision (tag)'
 }];
 
+/**
+ * Home class about Warzone
+ */
 class Warzone extends Component {
 
-    //States about home menu
+    //States about Warzone
     state = {
         username: '',
         warzone: null,
@@ -75,6 +89,10 @@ class Warzone extends Component {
         }
     });
 
+    /**
+     * Component Warzone CTOR
+     * @param {*} props Props containing 4 bools : news, match, mode and stat
+     */
     constructor(props) {
         super(props);
         this.state.news = props.news;
@@ -134,6 +152,9 @@ class Warzone extends Component {
         }, 500);
     }
 
+    /**
+     * Event triggered when a platform is selected
+     */
     dropDownChanges = (text) => {
         this.setState({platformSelected: text});
         this.setState({buttonDisabled: false});

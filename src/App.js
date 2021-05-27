@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import 'react-native-gesture-handler';
 import React from 'react';
 import { StyleSheet, View, Text, ImageBackground } from 'react-native';
@@ -21,6 +13,10 @@ import Destiny from './Destiny2/Destiny';
 
 const Drawer = createDrawerNavigator();
 
+/**
+ * Screen of the home menu
+ * @returns JSX.Element
+ */
 function HomeScreen() {
 	return (
 		<ImageBackground source={require('../assets/Pixel3Main.jpg')} style={{width: '100%', height: '100%'}}>
@@ -92,6 +88,10 @@ function MainDrawerNavigation() {
 	);
 }
 
+/**
+ * Entrypoint of the app
+ * @returns JSX.Element
+ */
 const App = () => {
 	return (
 		<NavigationContainer>

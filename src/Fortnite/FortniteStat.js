@@ -6,7 +6,7 @@ import { Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
  */
 class FortniteStat extends React.Component {
     /**
-     * State into the api loader
+     * States about FortniteStat
      */
     state = {
         url: '',
@@ -18,8 +18,8 @@ class FortniteStat extends React.Component {
     };
 
     /**
-     * Component CTOR
-     * @param {} props Props containing url, playerName
+     * Component FortniteStat CTOR
+     * @param {} props Props containing accountId, playerName
      */
     constructor(props) {
         super(props);
@@ -32,6 +32,11 @@ class FortniteStat extends React.Component {
         };
     }
 
+    /**
+     * Triggered when the component is mount.
+     * Here it just fetch the url with the accountId to get his stat
+     * @returns nothing
+     */
     componentDidMount() {
         if (this.state.accountId == '') return;
         fetch(this.state.url + this.state.accountId, {
@@ -53,7 +58,12 @@ class FortniteStat extends React.Component {
         });
     }
 
-    parseTime(minutesPlayed = Number) {
+    /**
+     * Parse the stat "minutesplayed" to the following format : XXh XXm XXs
+     * @param {Number} minutesPlayed
+     * @returns string parsed
+     */
+    parseTime(minutesPlayed) {
         var daysPlayed = minutesPlayed / 60 / 24;
         var hoursPlayed = daysPlayed % 1 * 24;
         var minutesPlayed = hoursPlayed % 1 * 60;
@@ -62,7 +72,13 @@ class FortniteStat extends React.Component {
         return (`${parseInt(daysPlayed)}j ${parseInt(hoursPlayed)}h ${parseInt(minutesPlayed)}m ${parseInt(secondesPlayed)}s`)
     }
 
-    writeStat(stats = JSON, mode = String) {
+    /**
+     * Parse the player stat to return a JSX.Element
+     * @param {JSON} stats every stat of the player
+     * @param {String} mode gamemode
+     * @returns JSX.Element
+     */
+    writeStat(stats, mode) {
         return (
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
@@ -79,6 +95,10 @@ class FortniteStat extends React.Component {
         );
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.error) {
             return (

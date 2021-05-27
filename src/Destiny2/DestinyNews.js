@@ -8,7 +8,7 @@ import Card from "../Card/Card";
 class DestinyNews extends React.Component {
 
     /**
-     * State into the api loader
+     * States about DestinyNews
      */
     state = {
         url: '',
@@ -18,7 +18,8 @@ class DestinyNews extends React.Component {
     };
 
     /**
-     * Component CTOR
+     * Component DestinyNews CTOR
+     * @param {} props Props
      */
     constructor(props) {
         super(props);
@@ -29,6 +30,10 @@ class DestinyNews extends React.Component {
         };
     }
 
+    /**
+     * Triggered when the component is mounted
+     * Here it just fetch the current url to get the news
+     */
     componentDidMount() {
         fetch(this.state.url, {
             method: 'GET',
@@ -49,6 +54,10 @@ class DestinyNews extends React.Component {
         });
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.error) {
             return (

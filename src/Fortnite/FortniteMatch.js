@@ -6,7 +6,7 @@ import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
  */
 class FortniteMatch extends React.Component {
     /**
-     * State into the api loader
+     * States about FortniteMatch
      */
     state = {
         url: '',
@@ -17,8 +17,8 @@ class FortniteMatch extends React.Component {
     };
 
     /**
-     * Component CTOR
-     * @param {} props Props containing url, playerName
+     * Component FortniteMatch CTOR
+     * @param {} props Props containing accountId
      */
     constructor(props) {
         super(props);
@@ -30,6 +30,11 @@ class FortniteMatch extends React.Component {
         };
     }
 
+    /**
+     * Triggered when the component is mount.
+     * Here it just fetch the url with the accountId to get every matches done by this player
+     * @returns nothing
+     */
     componentDidMount() {
         if (this.state.accountId == '') return;
         fetch(this.state.url + this.state.accountId, {
@@ -54,7 +59,7 @@ class FortniteMatch extends React.Component {
     /**
      * Parse the stat "minutesplayed" to the following format : XXh XXm XXs
      * @param {Number} minutesPlayed
-     * @returns JSX.Object
+     * @returns string parsed
      */
     parseTime(minutesPlayed) {
         var daysPlayed = minutesPlayed / 60 / 24;
@@ -84,6 +89,10 @@ class FortniteMatch extends React.Component {
         );
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.error) {
             return (

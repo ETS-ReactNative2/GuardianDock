@@ -8,7 +8,7 @@ import DestinyStats from "./DestinyStats"
 class DestinyPlayer extends React.Component {
 
     /**
-     * State into the api loader
+     * States about DestinyPlayer menu
      */
     state = {
         url: '',
@@ -24,7 +24,7 @@ class DestinyPlayer extends React.Component {
     };
 
     /**
-     * Component CTOR
+     * Component DestinyPlayer CTOR
      * @param {} props Props containing url, playerName
      */
     constructor(props) {
@@ -43,6 +43,11 @@ class DestinyPlayer extends React.Component {
         };
     }
 
+    /**
+     * Triggered when the component is mount.
+     * Here it just fetch the url with the platform and the playerName to get some informations about the player
+     * @returns nothing
+     */
     componentDidMount() {
         if (this.state.playerName === '') return;
         fetch(this.state.url + this.state.platformId + '/' + this.state.playerName, {
@@ -77,6 +82,10 @@ class DestinyPlayer extends React.Component {
         });
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.error) {
             return (

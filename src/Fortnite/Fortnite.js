@@ -30,6 +30,9 @@ const datas = [{
     key: 3, label: 'Creative'
 }];
 
+/**
+ * Home class about Fortnite
+ */
 class Fortnite extends Component {
 
     //States about Fortnite home menu
@@ -73,6 +76,10 @@ class Fortnite extends Component {
         }
     });
 
+    /**
+     * Component Fortnite CTOR
+     * @param {*} props Props containing 3 bools, news, match, stat
+     */
     constructor(props) {
         super(props);
         this.state.news = props.news;

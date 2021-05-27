@@ -2,12 +2,12 @@ import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 /**
- * Class Fortnite
+ * Class WarzonePlayer
  */
 class WarzonePlayer extends React.Component {
 
     /**
-     * State into the api loader
+     * States about WarzonePlayer
      */
     state = {
         url: '',
@@ -20,8 +20,8 @@ class WarzonePlayer extends React.Component {
     };
 
     /**
-     * Component CTOR
-     * @param {} props Props containing url, playerName
+     * Component WarzonePlayer CTOR
+     * @param {} props Props containing mode, playerName, platform
      */
     constructor(props) {
         super(props);
@@ -33,6 +33,11 @@ class WarzonePlayer extends React.Component {
         };
     }
 
+    /**
+     * Triggered when the component is mount.
+     * Here it just fetch the url to get the stats of a player
+     * @returns nothing
+     */
     componentDidMount() {
         if (this.state.playerName == '') return;
         fetch(this.state.url, {
@@ -64,7 +69,12 @@ class WarzonePlayer extends React.Component {
         });
     }
 
-    parseTime(minutesPlayed = Number) {
+    /**
+     * Parse the stat "minutesplayed" to the following format : XXh XXm XXs
+     * @param {Number} minutesPlayed
+     * @returns string parsed
+     */
+    parseTime(minutesPlayed) {
         var daysPlayed = minutesPlayed / 60 / 24;
         var hoursPlayed = daysPlayed % 1 * 24;
         var minutesPlayed = hoursPlayed % 1 * 60;
@@ -73,7 +83,13 @@ class WarzonePlayer extends React.Component {
         return (`${parseInt(daysPlayed)}j ${parseInt(hoursPlayed)}h ${parseInt(minutesPlayed)}m ${parseInt(secondesPlayed)}s`);
     }
 
-    writeBrStat(stats = JSON, mode = String) {
+    /**
+     * Write every stats
+     * @param {JSON} stats A JSON Object containing every stats
+     * @param {String} mode gamemode
+     * @returns JSX.Object
+     */
+    writeBrStat(stats, mode) {
         let scorePerMinute = stats.scorePerMinute.toFixed(2) !== null ? stats.scorePerMinute.toFixed(2) : "Error";
         let kdRatio = stats.kdRatio.toFixed(2) !== null ? stats.kdRatio.toFixed(2) : "Error";
         return (
@@ -96,7 +112,13 @@ class WarzonePlayer extends React.Component {
         );
     }
 
-    writeMultiStat(stats = JSON, mode = String) {
+    /**
+     * Write every stats
+     * @param {JSON} stats A JSON Object containing every stats
+     * @param {String} mode gamemode
+     * @returns JSX.Object
+     */
+    writeMultiStat(stats, mode) {
         let scorePerMinute = stats["lifetime"]["all"]["properties"].scorePerMinute.toFixed(2) !== null ? stats["lifetime"]["all"]["properties"].scorePerMinute.toFixed(2) : "Error";
         let kdRatio = stats["lifetime"]["all"]["properties"].kdRatio.toFixed(2) !== null ? stats["lifetime"]["all"]["properties"].kdRatio.toFixed(2) : "Error";
         let wlRatio = stats["lifetime"]["all"]["properties"].wlRatio.toFixed(2) !== null ? stats["lifetime"]["all"]["properties"].wlRatio.toFixed(2) : "Error";
@@ -125,6 +147,10 @@ class WarzonePlayer extends React.Component {
         );
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.error) {
             return (

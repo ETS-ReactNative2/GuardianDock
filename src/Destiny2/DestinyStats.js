@@ -7,7 +7,7 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
  class DestinyStats extends React.Component {
 
     /**
-     * State into the api loader
+     * States about DestinyStats
      */
     state = {
         playerName: '',
@@ -21,8 +21,8 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
     };
 
     /**
-     * Component CTOR
-     * @param {} props Props containing url, playerName
+     * Component DestinyStats CTOR
+     * @param {} props Props containing playerName, membershipType and accountId
      */
     constructor(props) {
         super(props);
@@ -37,6 +37,11 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
         };
     }
 
+    /**
+     * Triggered when the component is mount.
+     * Here it just fetch the url with the membershipType and the accountId to get the stat of the player
+     * @returns nothing
+     */
     componentDidMount() {
         if (this.state.playerName == '') return;
         fetch(this.state.url + this.state.membershipType + "/Account/" + this.state.account_id + "/Stats/?groups=0&modes=5,7&periodType=0", {
@@ -66,7 +71,13 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
         });
     }
 
-    writePveStats(stats = JSON, mode = String) {
+    /**
+     * Parse the json stats to return a JSX.Element containing every pve (player versus mob, ia) stat
+     * @param {JSON} stats json containing every stats of a player
+     * @param {String} mode the gamemode we're looking
+     * @returns JSX.Element
+     */
+    writePveStats(stats, mode) {
         return (
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
@@ -94,7 +105,13 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
         );
     }
 
-    writePvpStats(stats = JSON, mode = String) {
+    /**
+     * Parse the json stats to return a JSX.Element containing every pvp (player versus player) stat
+     * @param {JSON} stats json containing every stats of a player
+     * @param {String} mode the gamemode we're looking
+     * @returns JSX.Element
+     */
+    writePvpStats(stats, mode) {
         let gamesLost = ((stats["activitiesEntered"]["basic"].value !== null ? stats["activitiesEntered"]["basic"].value : 0) - (stats["activitiesWon"]["basic"].value !== null ? stats["activitiesWon"]["basic"].value : 0)).toFixed(0);
         return (
             <View style={styles.statContainer}>
@@ -125,6 +142,12 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
         );
     }
 
+    /**
+     * Parse the json stats to return a JSX.Element containing every global stat
+     * @param {JSON} stats json containing every stats of a player
+     * @param {String} mode the gamemode we're looking
+     * @returns JSX.Element
+     */
     writeAccountStats(stats = JSON) {
         return (
             <View style={styles.statContainer}>
@@ -153,6 +176,10 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
         );
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.error) {
             return (

@@ -9,7 +9,7 @@ import FortniteStat from "./FortniteStat";
 class FortnitePlayer extends React.Component {
 
     /**
-     * State into the api loader
+     * State about FortnitePlayer
      */
     state = {
         url: '',
@@ -23,8 +23,8 @@ class FortnitePlayer extends React.Component {
     };
 
     /**
-     * Component CTOR
-     * @param {} props Props containing url, playerName
+     * Component FortnitePlayer CTOR
+     * @param {} props Props containing url, playerName, stat and match
      */
     constructor(props) {
         super(props);
@@ -40,6 +40,11 @@ class FortnitePlayer extends React.Component {
         };
     }
 
+    /**
+     * Triggered when the component is mount.
+     * Here it just fetch the url with the playerName to get his id
+     * @returns nothing
+     */
     componentDidMount() {
         if (this.state.playerName == '') return;
         fetch(this.state.url + this.state.playerName, {
@@ -68,6 +73,10 @@ class FortnitePlayer extends React.Component {
         });
     }
 
+    /**
+     * Graphics
+     * @returns JSX.Element
+     */
     render() {
         if (this.state.error) {
             return (
