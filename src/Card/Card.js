@@ -1,7 +1,5 @@
-import { Link } from "@react-navigation/native";
-import { Button, Container } from "native-base";
 import React from "react";
-import { Text, TouchableOpacity, Image, StyleSheet, View, Modal, Linking, ImageBackground } from "react-native";
+import { Text, TouchableOpacity, Image, StyleSheet, View, Modal, Linking } from "react-native";
 import { Dimensions } from 'react-native';
 import Video from "react-native-video";
 
@@ -9,7 +7,7 @@ const sWidth = Dimensions.get('screen').width;
 const sHeight = Dimensions.get('screen').height;
 
 /**
- * Class Card
+ * Class Card created by us
  * @extends React.Component a component made to create an element called "Card"
  */
 class Card extends React.Component {
