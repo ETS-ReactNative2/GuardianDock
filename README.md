@@ -4,6 +4,9 @@ GuardianDock is an Android Mobile Application based on React Native and APIs. Th
 
 ## Before continuing...
 
+![Alt Text](https://img.shields.io/github/license/0Nom4D/GuardianDock?style=for-the-badge)
+![Alt Text](https://img.shields.io/github/stars/0Nom4D/GuardianDock?style=for-the-badge)
+
 GuardianDock is under MIT License Jurisdiction.
 
 ![Alt Text](https://media.tenor.com/images/4dc761d53f5bad9863d64de1e6cd8db4/tenor.gif)
@@ -31,9 +34,15 @@ GuardianDock also use 3 APIs:
 * [Fortnite - API](https://fortniteapi.io/)
 * [Warzone - RapidAPI API](https://rapidapi.com/fr/elreco/api/call-of-duty-modern-warfare/)
 
+## Releases
+
+Last GuardianDock release is dated from 05/27/2021. You can find the package here:
+
+[GuardianDock Release Link](https://github.com/0Nom4D/GuardianDock/releases/tag/1.0)
+
 ### Coding Style
 
-GuardianDock is developed with React Native. There's no coding style for React Native but we tried to be as clean as possible.
+GuardianDock is developed with JavaScript and React Native. There's no coding style for JavaScript but we tried to be as clean as possible.
 
 ## Authors
 
