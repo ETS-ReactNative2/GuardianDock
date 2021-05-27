@@ -18,22 +18,23 @@ import CustomHeader from './CustomHeader';
 import Fortnite from './Fortnite/Fortnite';
 import Warzone from './Warzone/Warzone';
 import Destiny from './Destiny2/Destiny';
-import { Image } from 'native-base';
 
 const Drawer = createDrawerNavigator();
 
 function HomeScreen() {
 	return (
-		<View style={{ flex: 1, justifyContent: 'center' }}>
-			<Text style={styles.title}>GuardianDock</Text>
-			<Text/>
-			<Text style={{textAlign: 'left', marginLeft: 10}}>GuardianDock est une application conçue par des joueurs pour des joueurs.</Text>
-			<Text style={{textAlign: 'left', marginLeft: 10}}>Sur cette application nous pouvons y voir nos statistiques, matchs concernant 3 jeux :</Text>
-			<Text style={{textAlign: 'left', marginLeft: 10}}>{'\u2022'}Destiny 2</Text>
-			<Text style={{textAlign: 'left', marginLeft: 10}}>{'\u2022'}Fortnite</Text>
-			<Text style={{textAlign: 'left', marginLeft: 10}}>{'\u2022'}Call of Duty Modern Warfare (Warzone et Multijoueur){'\n'}{'\n'}</Text>
-			<Text style={{textAlign: 'left', marginLeft: 10}}>De plus, pour certains jeux, nous pouvons également y retrouver les nouveautés.</Text>
-		</View>
+		<ImageBackground source={require('../assets/Pixel3Main.jpg')} style={{width: '100%', height: '100%'}}>
+			<View style={{ flex: 1, justifyContent: 'center'}}>
+					<Text style={styles.title}>GuardianDock</Text>
+					<Text/>
+					<Text style={{textAlign: 'left', color: "white", marginLeft: 10}}>{'\t'}GuardianDock est une application conçue par des joueurs pour des joueurs.{'\n'}</Text>
+					<Text style={{textAlign: 'left', color: "white", marginLeft: 10}}>{'\t'}Sur cette application nous pouvons y voir nos statistiques, matchs concernant 3 jeux :</Text>
+					<Text style={{textAlign: 'left', color: "white", marginLeft: 10}}>{'\t'}{'\t'}{'\u2022'}Destiny 2</Text>
+					<Text style={{textAlign: 'left', color: "white", marginLeft: 10}}>{'\t'}{'\t'}{'\u2022'}Fortnite</Text>
+					<Text style={{textAlign: 'left', color: "white", marginLeft: 10}}>{'\t'}{'\t'}{'\u2022'}Call of Duty Modern Warfare (Warzone et Multijoueur){'\n'}{'\n'}</Text>
+					<Text style={{textAlign: 'left', color: "white", marginLeft: 10}}>{'\t'}De plus, pour certains jeux, nous pouvons également y retrouver les nouveautés.</Text>
+			</View>
+		</ImageBackground>
 	);
 }
 

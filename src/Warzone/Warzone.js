@@ -1,12 +1,13 @@
 import { Picker } from 'native-base';
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, ImageBackground, View } from 'react-native';
 import { Dimensions } from 'react-native';
 import WarzonePlayer from './WarzonePlayer';
 import ModalSelector from 'react-native-modal-selector'
 import WarzoneMatch from './WarzoneMatch';
 
 const sWidth = Dimensions.get('screen').width;
+const sHeight = Dimensions.get('screen').height;
 
 const platforms = new Map([
     ['Playstation', 'psn'],
@@ -54,13 +55,14 @@ class Warzone extends Component {
             height: 40,
             width: sWidth - 160,
             textAlign: "center",
-            marginLeft: 20
+            marginLeft: 20,
+            marginTop: 20
         },
         header: {
             flexDirection: 'row'
         },
         confirmButton: {
-            marginTop: 5,
+            marginTop: 25,
             marginLeft: 20,
             height: 30,
             width: 100,
@@ -144,43 +146,47 @@ class Warzone extends Component {
     render() {
         if (this.state.match) {
             return (
-                <View style={{ flex: 1, flexDirection: 'column'}}>
-                    <View style={this.styles.header}>
-                        <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
-                        <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButtonMatch}>
-                            <Text style={this.styles.confirmText}>Confirmer</Text>
-                        </TouchableOpacity>
+                <ImageBackground source={require('../../assets/WarzoneBackground.jpg')} style={{width: sWidth, height: sHeight}}>
+                    <View style={{ flex: 1, flexDirection: 'column'}}>
+                        <View style={this.styles.header}>
+                            <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
+                            <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButtonMatch}>
+                                <Text style={this.styles.confirmText}>Confirmer</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ marginLeft: 15, width: sWidth / 1.09, marginTop: 20 }}>
+                            <ModalSelector
+                                data={datas}
+                                initValue="Select your platform"
+                                onChange={(option)=>{
+                                    this.dropDownChanges(option.label);
+                                }} />
+                        </View>
+                        {this.state.warzone}
                     </View>
-                    <View style={{ marginLeft: 15, width: sWidth / 1.09, marginTop: 20 }}>
-                        <ModalSelector
-                            data={datas}
-                            initValue="Select your platform"
-                            onChange={(option)=>{
-                                this.dropDownChanges(option.label);
-                            }} />
-                    </View>
-                    {this.state.warzone}
-                </View>
+                </ImageBackground>
             );
         } else if (this.state.stat) {
             return (
-                <View style={{ flex: 1, flexDirection: 'column'}}>
-                    <View style={this.styles.header}>
-                        <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
-                        <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButtonStat}>
-                            <Text style={this.styles.confirmText}>Confirmer</Text>
-                        </TouchableOpacity>
+                <ImageBackground source={require('../../assets/WarzoneBackground.jpg')} style={{width: sWidth, height: sHeight}}>
+                    <View style={{ flex: 1, flexDirection: 'column'}}>
+                        <View style={this.styles.header}>
+                            <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
+                            <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButtonStat}>
+                                <Text style={this.styles.confirmText}>Confirmer</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ marginLeft: 15, width: sWidth / 1.09, marginTop: 20 }}>
+                            <ModalSelector
+                                data={datas}
+                                initValue="Select your platform"
+                                onChange={(option)=>{
+                                    this.dropDownChanges(option.label);
+                                }} />
+                        </View>
+                        {this.state.warzone}
                     </View>
-                    <View style={{ marginLeft: 15, width: sWidth / 1.09, marginTop: 20 }}>
-                        <ModalSelector
-                            data={datas}
-                            initValue="Select your platform"
-                            onChange={(option)=>{
-                                this.dropDownChanges(option.label);
-                            }} />
-                    </View>
-                    {this.state.warzone}
-                </View>
+                </ImageBackground>
             );
         }
     }

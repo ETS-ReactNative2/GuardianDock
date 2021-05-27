@@ -71,7 +71,7 @@ class FortnitePlayer extends React.Component {
     render() {
         if (this.state.error) {
             return (
-                <Text style={{color:'black'}}>La récupération des données a échouée.</Text>
+                <Text style={{color: 'red', alignContent: 'center'}}>La récupération des données a échouée.</Text>
             );
         }
         if (!this.state.isLoaded) {
@@ -81,7 +81,7 @@ class FortnitePlayer extends React.Component {
         } else {
             if (this.state.invalidAccount) {
                 return (
-                    <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
+                    <Text style={{color: 'red', alignContent: 'center'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré est valide.</Text>
                 );
             } else {
                 if (this.state.stat) {

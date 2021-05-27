@@ -86,12 +86,12 @@ class WarzoneMatch extends React.Component {
         return (
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
-                    <Text>Nombre de joueur dans la partie : {match.playerCount !== null ? match.playerCount : "Error"}</Text>
-                    <Text>Map : {match.map !== null ? match.map : "Error"}</Text>
-                    <Text>Mode de jeu : {match.mode !== null ? match.mode : match.mode}</Text>
-                    <Text>Nombre de team dans la partie : {match.teamCount !== null ? match.teamCount : "Error"}</Text>
-                    <Text>Type de la partie : {match.private !== null ? match.privateMatch ? "Privée" : "Public" : "Error"}</Text>
-                    <Text>Durée de la partie : {match.duration !== null ? this.parseTime(match.duration / 60000) : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de joueur dans la partie : {match.playerCount !== null ? match.playerCount : "Error"}</Text>
+                    <Text style={styles.text}>Map : {match.map !== null ? match.map : "Error"}</Text>
+                    <Text style={styles.text}>Mode de jeu : {match.mode !== null ? match.mode : match.mode}</Text>
+                    <Text style={styles.text}>Nombre de team dans la partie : {match.teamCount !== null ? match.teamCount : "Error"}</Text>
+                    <Text style={styles.text}>Type de la partie : {match.private !== null ? match.privateMatch ? "Privée" : "Public" : "Error"}</Text>
+                    <Text style={styles.text}>Durée de la partie : {match.duration !== null ? this.parseTime(match.duration / 60000) : "Error"}</Text>
                 </View>
             </View>
         );
@@ -106,13 +106,13 @@ class WarzoneMatch extends React.Component {
         return (
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
-                    <Text>Map : {match.map !== null ? match.map : "Error"}</Text>
-                    <Text>Mode de jeu : {match.mode !== null ? match.mode : "Error"}</Text>
-                    <Text>Type de la partie : {match.privateMatch !== null ? match.privateMatch ? "Privée" : "Public" : "Error"}</Text>
-                    <Text>Résultat de la partie : {match.win !== null ? match.win === "win" ? "Victoire" : "Défaite" : "Error"}</Text>
-                    <Text>Score de la team 1 : {match.team1Score !== null ? match.team1Score : "Error"}</Text>
-                    <Text>Score de la team 2 : {match.team2Score !== null ? match.team2Score : "Error"}</Text>
-                    <Text>Durée de la partie : {match.duration !== null ? this.parseTime(match.duration / 60000) : "Error"}</Text>
+                    <Text style={styles.text}>Map : {match.map !== null ? match.map : "Error"}</Text>
+                    <Text style={styles.text}>Mode de jeu : {match.mode !== null ? match.mode : "Error"}</Text>
+                    <Text style={styles.text}>Type de la partie : {match.privateMatch !== null ? match.privateMatch ? "Privée" : "Public" : "Error"}</Text>
+                    <Text style={styles.text}>Résultat de la partie : {match.win !== null ? match.win === "win" ? "Victoire" : "Défaite" : "Error"}</Text>
+                    <Text style={styles.text}>Score de la team 1 : {match.team1Score !== null ? match.team1Score : "Error"}</Text>
+                    <Text style={styles.text}>Score de la team 2 : {match.team2Score !== null ? match.team2Score : "Error"}</Text>
+                    <Text style={styles.text}>Durée de la partie : {match.duration !== null ? this.parseTime(match.duration / 60000) : "Error"}</Text>
                 </View>
             </View>
         );
@@ -121,7 +121,7 @@ class WarzoneMatch extends React.Component {
     render() {
         if (this.state.error) {
             return (
-                <Text style={{ color: 'black' }}>Erreur lors du chargement des parties.</Text>
+                <Text style={{color: 'red', alignContent: 'center'}}>Erreur lors du chargement des parties.</Text>
             );
         }
         if (!this.state.isLoaded) {
@@ -131,7 +131,7 @@ class WarzoneMatch extends React.Component {
         } else {
             if (this.state.invalidAccount) {
                 return (
-                    <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
+                    <Text style={{color: 'red', alignContent: 'center'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
                 );
             } else if (this.state.mode === "warzone-matches") {
                 return (
@@ -165,12 +165,16 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.35)'
     },
     Container: {
         borderRadius: 2,
         padding: 10,
         shadowColor: 'black',
         shadowOpacity: 1.0
+    },
+    text: {
+        color: 'white'
     }
 });
 

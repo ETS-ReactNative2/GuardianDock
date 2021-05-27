@@ -70,25 +70,25 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
         return (
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
-                    <Text style={{ color: 'black' }}>
-                        Donnée en {mode} :
+                    <Text style={{ color: 'white' }}>
+                        Données en mode {mode} :
                     </Text>
-                    <Text style={{ color: 'black' }}>Nombre d'activités {mode} complétées : {stats["activitiesCleared"]["basic"].displayValue !== null ? stats["activitiesCleared"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>
+                    <Text style={{ color: 'white' }}>Nombre d'activités {mode} complétées : {stats["activitiesCleared"]["basic"].displayValue !== null ? stats["activitiesCleared"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>
                         {'\n'}
                         Ratio élimnation / mort : {stats["killsDeathsRatio"]["basic"].displayValue !== null ? stats["killsDeathsRatio"]["basic"].displayValue : "Error"}
                     </Text>
-                    <Text style={{ color: 'black' }}>Ratio élimnation - assistance / mort : {stats["killsDeathsAssists"]["basic"].displayValue !== null ? stats["killsDeathsAssists"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Efficacitée PvE : {stats["efficiency"]["basic"].displayValue !== null ? stats["efficiency"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'éliminations : {stats["kills"]["basic"].displayValue !== null ? stats["kills"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de morts : {stats["deaths"]["basic"].displayValue !== null ? stats["deaths"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'assistances : {stats["assists"]["basic"].displayValue !== null ? stats["assists"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'éliminations avec des tirs en pleine tête : {stats["precisionKills"]["basic"].displayValue !== null ? stats["precisionKills"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>
+                    <Text style={{ color: 'white' }}>Ratio élimnation - assistance / mort : {stats["killsDeathsAssists"]["basic"].displayValue !== null ? stats["killsDeathsAssists"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Efficacitée PvE : {stats["efficiency"]["basic"].displayValue !== null ? stats["efficiency"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'éliminations : {stats["kills"]["basic"].displayValue !== null ? stats["kills"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre de morts : {stats["deaths"]["basic"].displayValue !== null ? stats["deaths"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'assistances : {stats["assists"]["basic"].displayValue !== null ? stats["assists"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'éliminations avec des tirs en pleine tête : {stats["precisionKills"]["basic"].displayValue !== null ? stats["precisionKills"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>
                         {'\n'}
                         Temps de jeu total effectif : {stats["secondsPlayed"]["basic"].displayValue !== null ? stats["secondsPlayed"]["basic"].displayValue : "Error"}
                     </Text>
-                    <Text style={{ color: 'black' }}>Score : {stats["score"]["basic"].displayValue !== null ? stats["score"]["basic"].displayValue: "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Score : {stats["score"]["basic"].displayValue !== null ? stats["score"]["basic"].displayValue: "Error"}</Text>
                 </View>
             </View>
         );
@@ -99,27 +99,27 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
         return (
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
-                    <Text style={{ color: 'black' }}>
-                        Donnée en {mode} :
+                    <Text style={{ color: 'white' }}>
+                        Données en mode {mode} :
                     </Text>
-                    <Text style={{ color: 'black' }}>Nombre d'activités {mode} complétées : {stats["activitiesEntered"]["basic"].displayValue !== null ? stats["activitiesEntered"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'activités {mode} gagnées : {stats["activitiesWon"]["basic"].displayValue !== null ? stats["activitiesWon"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'activités {mode} perdues : {gamesLost}</Text>
-                    <Text style={{ color: 'black' }}>
+                    <Text style={{ color: 'white' }}>Nombre d'activités {mode} complétées : {stats["activitiesEntered"]["basic"].displayValue !== null ? stats["activitiesEntered"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'activités {mode} gagnées : {stats["activitiesWon"]["basic"].displayValue !== null ? stats["activitiesWon"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'activités {mode} perdues : {gamesLost}</Text>
+                    <Text style={{ color: 'white' }}>
                         {'\n'}
                         Ratio élimnation / mort : {stats["killsDeathsRatio"]["basic"].displayValue !== null ? stats["killsDeathsRatio"]["basic"].displayValue : "Error"}
                     </Text>
-                    <Text style={{ color: 'black' }}>Ratio élimnation - assistance / mort : {stats["killsDeathsAssists"]["basic"].displayValue !== null ? stats["killsDeathsAssists"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Efficacité PvP : {stats["efficiency"]["basic"].displayValue !== null ? stats["efficiency"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'élimination : {stats["kills"]["basic"].displayValue !== null ? stats["kills"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de morts : {stats["deaths"]["basic"].displayValue !== null ? stats["deaths"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'assistances : {stats["assists"]["basic"].displayValue !== null ? stats["assists"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'élimination avec des tirs en pleine tête : {stats["precisionKills"]["basic"].displayValue !== null ? stats["precisionKills"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>
+                    <Text style={{ color: 'white' }}>Ratio élimnation - assistance / mort : {stats["killsDeathsAssists"]["basic"].displayValue !== null ? stats["killsDeathsAssists"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Efficacité PvP : {stats["efficiency"]["basic"].displayValue !== null ? stats["efficiency"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'élimination : {stats["kills"]["basic"].displayValue !== null ? stats["kills"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre de morts : {stats["deaths"]["basic"].displayValue !== null ? stats["deaths"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'assistances : {stats["assists"]["basic"].displayValue !== null ? stats["assists"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'élimination avec des tirs en pleine tête : {stats["precisionKills"]["basic"].displayValue !== null ? stats["precisionKills"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>
                         {'\n'}
                         Temps de jeu total effectif : {stats["secondsPlayed"]["basic"].displayValue !== null ? stats["secondsPlayed"]["basic"].displayValue : "Error"}
                     </Text>
-                    <Text style={{ color: 'black' }}>Score : {stats["score"]["basic"].displayValue !== null ? stats["score"]["basic"].displayValue: "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Score : {stats["score"]["basic"].displayValue !== null ? stats["score"]["basic"].displayValue: "Error"}</Text>
                 </View>
             </View>
         );
@@ -129,25 +129,25 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
         return (
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
-                    <Text style={{ color: 'black' }}>
+                    <Text style={{ color: 'white' }}>
                         Données globales de {this.state.playerName} :
                     </Text>
-                    <Text style={{ color: 'black' }}>Nombre d'activités complétées : {stats["activitiesCleared"]["basic"].displayValue !== null ? stats["activitiesCleared"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>
+                    <Text style={{ color: 'white' }}>Nombre d'activités complétées : {stats["activitiesCleared"]["basic"].displayValue !== null ? stats["activitiesCleared"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>
                         {'\n'}
                         Ratio élimnation / mort : {stats["killsDeathsRatio"]["basic"].displayValue !== null ? stats["killsDeathsRatio"]["basic"].displayValue : "Error"}
                     </Text>
-                    <Text style={{ color: 'black' }}>Ratio élimnation - assistance / mort : {stats["killsDeathsAssists"]["basic"].displayValue !== null ? stats["killsDeathsAssists"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Efficacité : {stats["efficiency"]["basic"].displayValue !== null ? stats["efficiency"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'élimination : {stats["kills"]["basic"].displayValue !== null ? stats["kills"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de morts : {stats["deaths"]["basic"].displayValue !== null ? stats["deaths"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'assistances : {stats["assists"]["basic"].displayValue !== null ? stats["assists"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'élimination avec des tirs en pleine tête : {stats["precisionKills"]["basic"].displayValue !== null ? stats["precisionKills"]["basic"].displayValue : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>
+                    <Text style={{ color: 'white' }}>Ratio élimnation - assistance / mort : {stats["killsDeathsAssists"]["basic"].displayValue !== null ? stats["killsDeathsAssists"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Efficacité : {stats["efficiency"]["basic"].displayValue !== null ? stats["efficiency"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'élimination : {stats["kills"]["basic"].displayValue !== null ? stats["kills"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre de morts : {stats["deaths"]["basic"].displayValue !== null ? stats["deaths"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'assistances : {stats["assists"]["basic"].displayValue !== null ? stats["assists"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Nombre d'élimination avec des tirs en pleine tête : {stats["precisionKills"]["basic"].displayValue !== null ? stats["precisionKills"]["basic"].displayValue : "Error"}</Text>
+                    <Text style={{ color: 'white' }}>
                         {'\n'}
                         Temps de jeu total effectif : {stats["secondsPlayed"]["basic"].displayValue !== null ? stats["secondsPlayed"]["basic"].displayValue : "Error"}
                     </Text>
-                    <Text style={{ color: 'black' }}>Score : {stats["score"]["basic"].displayValue !== null ? stats["score"]["basic"].displayValue: "Error"}</Text>
+                    <Text style={{ color: 'white' }}>Score : {stats["score"]["basic"].displayValue !== null ? stats["score"]["basic"].displayValue: "Error"}</Text>
                 </View>
             </View>
         );
@@ -156,17 +156,17 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
     render() {
         if (this.state.error) {
             return (
-                <Text style={{color:'black'}}>La récupération des données a échouée.</Text>
+                <Text style={{color: 'red', alignContent: 'center'}}>La récupération des données a échouée.</Text>
             );
         }
         if (!this.state.isLoaded) {
             return (
-                <Text style={{color:'black'}}>Chargement des informations basique...</Text>
+                <Text style={{color:'black'}}>Chargement des informations basiques...</Text>
             );
         } else {
             if (this.state.invalidAccount) {
                 return (
-                    <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
+                    <Text style={{color: 'red', alignContent: 'center'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
                 );
             } else {
                 return (
@@ -190,6 +190,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.35)'
     },
     Container: {
         borderRadius: 2,

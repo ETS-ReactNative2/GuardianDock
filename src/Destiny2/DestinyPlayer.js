@@ -80,17 +80,17 @@ class DestinyPlayer extends React.Component {
     render() {
         if (this.state.error) {
             return (
-                <Text style={{color:'black'}}>La récupération des données a échouée.</Text>
+                <Text style={{color: 'red', alignContent: 'center'}}>La récupération des données a échouée.</Text>
             );
         }
         if (!this.state.isLoaded) {
             return (
-                <Text style={{color:'black'}}>Chargement des informations basique...</Text>
+                <Text style={{color:'black'}}>Chargement des informations basiques...</Text>
             );
         } else {
             if (this.state.invalidAccount) {
                 return (
-                    <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
+                    <Text style={{color: 'red', alignContent: 'center'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
                 );
             } else {
                 if (this.state.stat) {
@@ -112,13 +112,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginTop: 10,
         textAlign: 'center',
-        fontWeight: "bold"
+        fontWeight: "bold",
+        color: 'white'
     },
     text: {
         marginTop: 10,
         textAlign: 'center',
-        color: 'black'
-    },
+        color: 'white'
+    }
 });
 
 export default DestinyPlayer;

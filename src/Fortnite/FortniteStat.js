@@ -111,16 +111,18 @@ class FortniteStat extends React.Component {
 
 const styles = StyleSheet.create({
 	text: {
-        color: 'black'
+        color: 'white'
     },
     username: {
         fontSize: 20,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        color: 'white'
     },
     statContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.35)'
     },
     Container: {
         borderRadius: 2,

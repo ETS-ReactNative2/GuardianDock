@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground } from 'react-native';
 import FortniteNews from './FortniteNews';
 import FortnitePlayer from './FortnitePlayer';
 import { Dimensions } from 'react-native';
 import ModalSelector from 'react-native-modal-selector';
 
 const sWidth = Dimensions.get('screen').width;
+const sHeight = Dimensions.get('screen').height;
 
 /**
  * Platforms to be used for the News class
@@ -52,13 +53,14 @@ class Fortnite extends Component {
             height: 40,
             width: sWidth - 160,
             textAlign: "center",
-            marginLeft: 20
+            marginLeft: 20,
+            marginTop: 20
         },
         header: {
             flexDirection: 'row'
         },
         confirmButton: {
-            marginTop: 5,
+            marginTop: 25,
             marginLeft: 20,
             height: 30,
             width: 100,
@@ -115,35 +117,39 @@ class Fortnite extends Component {
     render() {
         if (this.state.news) {
             return (
-                <View>
-                    <ModalSelector
-                        style={{marginTop: 10}}
-                        data={datas}
-                        initValue="Select your gamemode"
-                        onChange={(option)=>{
-                            this.setState({
-                                fortnite: null
-                            });
-                            setTimeout(() => {
+                <View style={{ flex: 1, flexDirection: 'column'}}>
+                    <ImageBackground source={require('../../assets/FortniteBackground.jpg')} style={{width: sWidth, height: sHeight}}>
+                        <ModalSelector
+                            style={{marginTop: 10}}
+                            data={datas}
+                            initValue="Select your gamemode"
+                            onChange={(option)=>{
                                 this.setState({
-                                    fortnite: <FortniteNews type={platforms.get(option.label)}/>
+                                    fortnite: null
                                 });
-                            }, 500);
-                        }}
-                    />
-                    {this.state.fortnite}
+                                setTimeout(() => {
+                                    this.setState({
+                                        fortnite: <FortniteNews type={platforms.get(option.label)}/>
+                                    });
+                                }, 500);
+                            }}
+                        />
+                        {this.state.fortnite}
+                    </ImageBackground>
                 </View>
             );
         }
         return (
             <View style={{ flex: 1, flexDirection: 'column'}}>
-                <View style={this.styles.header}>
-                    <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
-                    <TouchableOpacity style={this.styles.confirmButton} onPressIn={this.confirmButton}>
-                        <Text style={this.styles.confirmText}>Confirmer</Text>
-                    </TouchableOpacity>
-                </View>
-                {this.state.fortnite}
+                <ImageBackground source={require('../../assets/FortniteBackground.jpg')} style={{width: sWidth, height: sHeight}}>
+                    <View style={this.styles.header}>
+                        <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
+                        <TouchableOpacity style={this.styles.confirmButton} onPressIn={this.confirmButton}>
+                            <Text style={this.styles.confirmText}>Confirmer</Text>
+                        </TouchableOpacity>
+                    </View>
+                    {this.state.fortnite}
+                </ImageBackground>
             </View>
         )
     }

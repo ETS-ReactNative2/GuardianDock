@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Image, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, ImageBackground, TextInput, TouchableOpacity, View } from 'react-native';
 import { Dimensions } from 'react-native';
 import React, { Component } from 'react';
 import ModalSelector from 'react-native-modal-selector';
@@ -7,6 +7,7 @@ import DestinyPlayer from './DestinyPlayer';
 import DestinyNews from './DestinyNews';
 
 const sWidth = Dimensions.get('screen').width;
+const sHeight = Dimensions.get('screen').height;
 
 const platforms = new Map([
     ['Playstation', 2],
@@ -103,34 +104,41 @@ class Destiny extends Component  {
     render() {
         if (this.state.stat) {
             return (
-                <View style={{ flex: 1, flexDirection: 'column'}}>
-                    <View style={this.styles.header}>
-                        <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
-                        <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButton}>
-                            <Text style={this.styles.confirmText}>Confirmer</Text>
-                        </TouchableOpacity>
+                <ImageBackground source={require('../../assets/D2Background.jpg')} style={{width: sWidth, height: sHeight}}>
+                    <View style={{ flex: 1, flexDirection: 'column'}}>
+                        <View style={this.styles.header}>
+                            <TextInput style={this.styles.input} onChangeText={this.handleUsername} placeholder="Enter username" placeholderTextColor={"#000"}/>
+                            <TouchableOpacity style={this.styles.confirmButton} disabled={this.state.buttonDisabled} onPressIn={this.confirmButton}>
+                                <Text style={this.styles.confirmText}>Confirmer</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ marginLeft: 15, width: sWidth / 1.09, marginTop: 20 }}>
+                            <ModalSelector
+                                data={datas}
+                                initValue="Select your platform"
+                                selectedItemTextStyle={{color: 'white'}}
+                                onChange={(option)=>{
+                                    this.dropDownChanges(option.label);
+                                }} />
+                        </View>
+                        {this.state.destiny}
                     </View>
-                    <View style={{ marginLeft: 15, width: sWidth / 1.09, marginTop: 20 }}>
-                        <ModalSelector
-                            data={datas}
-                            initValue="Select your platform"
-                            onChange={(option)=>{
-                                this.dropDownChanges(option.label);
-                            }} />
-                    </View>
-                    {this.state.destiny}
-                </View>
+                </ImageBackground>
             )
         } else if (this.state.news) {
             return (
                 <View style={{ flex: 1, flexDirection: 'column'}}>
-                    <DestinyNews/>
+                    <ImageBackground source={require('../../assets/D2Background.jpg')} style={{width: sWidth, height: sHeight}}>
+                        <DestinyNews/>
+                    </ImageBackground>
                 </View>
             )
         } else if (this.state.inventory) {
             return (
                 <View style={{ flex: 1, flexDirection: 'column'}}>
-                    <DestinyInventory/>
+                    <ImageBackground>
+                        <DestinyInventory/>
+                    </ImageBackground>
                 </View>
             )
         }

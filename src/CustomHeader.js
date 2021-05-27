@@ -14,7 +14,7 @@ function CustomHeader(props) {
         props.navigation.dispatch(DrawerActions.toggleDrawer());
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{backgroundColor: '#222222'}}>
             <View style={styles.headerContainer}>
                 <View style={styles.headerLeft}>
                     <TouchableOpacity

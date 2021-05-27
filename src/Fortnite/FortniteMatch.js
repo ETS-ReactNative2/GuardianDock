@@ -110,10 +110,14 @@ class FortniteMatch extends React.Component {
 }
 
 const styles = StyleSheet.create({
+	text: {
+        color: 'white'
+    },
     statContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.35)'
     },
     Container: {
         borderRadius: 2,

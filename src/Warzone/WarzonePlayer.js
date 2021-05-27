@@ -79,18 +79,18 @@ class WarzonePlayer extends React.Component {
         return (
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
-                    <Text style={{ color: 'black' }}>Donnée de {this.state.playerName} en {mode} :</Text>
-                    <Text style={{ color: 'black' }}>Nombre de match joué : {stats.gamesPlayed !== null ? stats.gamesPlayed : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de Top 25 effectué : {stats.topTwentyFive !== null ? stats.topTwentyFive : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de Top 10 effectué : {stats.topTen !== null ? stats.topTen : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de Top 5 effectué : {stats.topFive !== null ? stats.topFive : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de victoires : {stats.wins !== null ? stats.wins : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Temps de jeu effectué : {stats.timePlayed !== null ? this.parseTime(stats.timePlayed / 60) : "Error"} </Text>
+                    <Text style={styles.text}>Donnée de {this.state.playerName} en {mode} :</Text>
+                    <Text style={styles.text}>Nombre de match joué : {stats.gamesPlayed !== null ? stats.gamesPlayed : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de Top 25 effectué : {stats.topTwentyFive !== null ? stats.topTwentyFive : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de Top 10 effectué : {stats.topTen !== null ? stats.topTen : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de Top 5 effectué : {stats.topFive !== null ? stats.topFive : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de victoires : {stats.wins !== null ? stats.wins : "Error"}</Text>
+                    <Text style={styles.text}>Temps de jeu effectué : {stats.timePlayed !== null ? this.parseTime(stats.timePlayed / 60) : "Error"} </Text>
                     <Text></Text>
-                    <Text style={{ color: 'black' }}>Ratio élimnation / mort : {kdRatio}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'élimination : {stats.kills !== null ? stats.kills : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de morts : {stats.deaths !== null ? stats.deaths : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Score par minute : {scorePerMinute}</Text>
+                    <Text style={styles.text}>Ratio élimnation / mort : {kdRatio}</Text>
+                    <Text style={styles.text}>Nombre d'élimination : {stats.kills !== null ? stats.kills : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de morts : {stats.deaths !== null ? stats.deaths : "Error"}</Text>
+                    <Text style={styles.text}>Score par minute : {scorePerMinute}</Text>
                 </View>
             </View>
         );
@@ -106,20 +106,20 @@ class WarzonePlayer extends React.Component {
         return (
             <View style={styles.statContainer}>
                 <View elevation={3} style={styles.Container}>
-                    <Text style={{ color: 'black' }}>Donnée de {this.state.username} en {mode} :</Text>
-                    <Text style={{ color: 'black' }}>Ratio Victoire / Défaite : {wlRatio}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de matchs joués : {matchPlayed}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de victoires : {wins}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de défaites : {losses}</Text>
+                    <Text style={styles.text}>Donnée de {this.state.username} en {mode} :</Text>
+                    <Text style={styles.text}>Ratio Victoire / Défaite : {wlRatio}</Text>
+                    <Text style={styles.text}>Nombre de matchs joués : {matchPlayed}</Text>
+                    <Text style={styles.text}>Nombre de victoires : {wins}</Text>
+                    <Text style={styles.text}>Nombre de défaites : {losses}</Text>
                     <Text></Text>
-                    <Text style={{ color: 'black' }}>Ratio élimnation / mort : {kdRatio}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'élimination : {stats["lifetime"]["all"]["properties"].kills !== null ? stats["lifetime"]["all"]["properties"].kills : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre de morts : {stats["lifetime"]["all"]["properties"].deaths !== null ? stats["lifetime"]["all"]["properties"].deaths : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'assistances : {stats["lifetime"]["all"]["properties"].assists !== null ? stats["lifetime"]["all"]["properties"].assists : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Nombre d'élimination avec des tirs en pleine tête : {stats["lifetime"]["all"]["properties"].headshots !== null ? stats["lifetime"]["all"]["properties"].headshots : "Error"}</Text>
+                    <Text style={styles.text}>Ratio élimnation / mort : {kdRatio}</Text>
+                    <Text style={styles.text}>Nombre d'élimination : {stats["lifetime"]["all"]["properties"].kills !== null ? stats["lifetime"]["all"]["properties"].kills : "Error"}</Text>
+                    <Text style={styles.text}>Nombre de morts : {stats["lifetime"]["all"]["properties"].deaths !== null ? stats["lifetime"]["all"]["properties"].deaths : "Error"}</Text>
+                    <Text style={styles.text}>Nombre d'assistances : {stats["lifetime"]["all"]["properties"].assists !== null ? stats["lifetime"]["all"]["properties"].assists : "Error"}</Text>
+                    <Text style={styles.text}>Nombre d'élimination avec des tirs en pleine tête : {stats["lifetime"]["all"]["properties"].headshots !== null ? stats["lifetime"]["all"]["properties"].headshots : "Error"}</Text>
                     <Text></Text>
-                    <Text style={{ color: 'black' }}>Temps de jeu total effectif : {stats["lifetime"]["all"]["properties"].timePlayedTotal !== null ? this.parseTime(stats["lifetime"]["all"]["properties"].timePlayedTotal / 60) : "Error"}</Text>
-                    <Text style={{ color: 'black' }}>Score par minute : {scorePerMinute}</Text>
+                    <Text style={styles.text}>Temps de jeu total effectif : {stats["lifetime"]["all"]["properties"].timePlayedTotal !== null ? this.parseTime(stats["lifetime"]["all"]["properties"].timePlayedTotal / 60) : "Error"}</Text>
+                    <Text style={styles.text}>Score par minute : {scorePerMinute}</Text>
                 </View>
             </View>
         );
@@ -128,7 +128,7 @@ class WarzonePlayer extends React.Component {
     render() {
         if (this.state.error) {
             return (
-                <Text style={{color:'black'}}>La récupération des données a échouée.</Text>
+                <Text style={{color: 'red', alignContent: 'center'}}>La récupération des données a échouée.</Text>
             );
         }
         if (!this.state.isLoaded) {
@@ -138,12 +138,12 @@ class WarzonePlayer extends React.Component {
         } else {
             if (this.state.invalidAccount) {
                 return (
-                    <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
+                    <Text style={{color: 'red', alignContent: 'center'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
                 );
             } else {
                 if (this.state.invalidAccount) {
                     return (
-                        <Text style={{color:'black'}}>Ce compte n'existe pas, vérifiez le pseudo que vous avez entré.</Text>
+                        <Text style={{color: 'red', alignContent: 'center'}}>Ce compte n'existe pas, vérifiez que le pseudo vous avez entré et votre tag (#) appartiennent bien au même joueur.</Text>
                     );
                 } else if (this.state.mode == "warzone") {
                     return (
@@ -176,16 +176,19 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginTop: 10,
         textAlign: 'center',
-        fontWeight: "bold"
+        fontWeight: "bold",
+        color: 'white'
     },
     text: {
         marginTop: 10,
         textAlign: 'center',
-        color: 'black'
+        color: 'white'
     },
     statContainer: {
         flex: 1,
+        justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.35)'
     },
     Container: {
         borderRadius: 2,

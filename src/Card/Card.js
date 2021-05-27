@@ -1,7 +1,7 @@
 import { Link } from "@react-navigation/native";
 import { Button, Container } from "native-base";
 import React from "react";
-import { Text, TouchableOpacity, Image, StyleSheet, View, Modal, Linking } from "react-native";
+import { Text, TouchableOpacity, Image, StyleSheet, View, Modal, Linking, ImageBackground } from "react-native";
 import { Dimensions } from 'react-native';
 import Video from "react-native-video";
 
@@ -85,9 +85,9 @@ class Card extends React.Component {
                                     height: 200
                                 }} source={{ uri: this.state.image }} /> :
                                 <TouchableOpacity onPress={() => this.setState({ videoVisible: true, isVisible: false })}>
-                                    <Text>Regarder la vidéo (Changer de module...)</Text>
+                                    <Text>Regarder la vidéo (Pas disponible pour l'instant)</Text>
                                 </TouchableOpacity>}
-                                <Text style={{ fontSize: 18 , color: this.state.redirect ? "blue" : "black"}} onPress={() => this.goToURL()}>
+                                <Text style={{ fontSize: 18, fontWeight: "bold", color: this.state.redirect ? "blue" : "black"}} onPress={() => this.goToURL()}>
                                     {this.state.subtitle + '\n'}
                                 </Text>
                                 <Text style={{ fontSize: 15 }}>{this.state.description}</Text>
@@ -101,10 +101,10 @@ class Card extends React.Component {
                             width: sWidth,
                             height: 200
                         }} source={{ uri: this.state.image }} />
-                        <Text style={{ alignSelf: "center", fontSize: 15 , color: this.state.redirect ? "blue" : "black"}} onPress={() => this.goToURL()}>
+                        <Text style={{ alignSelf: "center", fontSize: 15, fontWeight: "bold", color: this.state.redirect ? "aliceblue" : "white"}} onPress={() => this.goToURL()}>
                             {this.state.title}
                         </Text>
-                        <Text style={{ alignSelf: "center", fontSize: 12 }}>{this.state.subtitle}</Text>
+                        <Text style={{ alignSelf: "center", fontSize: 12, color: this.state.subtitle ? "white" : "black" }}>{this.state.subtitle}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     },
     modalView: {
         margin: 20,
-        backgroundColor: "white",
+        backgroundColor: "transparent",
         borderRadius: 20,
         padding: 35,
         alignItems: "center",

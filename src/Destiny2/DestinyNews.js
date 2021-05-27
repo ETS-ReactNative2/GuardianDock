@@ -52,7 +52,7 @@ class DestinyNews extends React.Component {
     render() {
         if (this.state.error) {
             return (
-                <Text style={{color:'black'}}>La récupération des données a échouée.</Text>
+                <Text style={{color: 'red', alignContent: 'center'}}>La récupération des données a échouée.</Text>
             );
         }
         if (!this.state.isLoaded) {
@@ -64,7 +64,7 @@ class DestinyNews extends React.Component {
                 <View style={styles.container}>
                     <FlatList data={this.state.allNews}
                     renderItem={(key, value) => {
-                            return <Card title={key.item.displayName} subtitle={key.item.displayName} link={"https://www.bungie.net" + key.item.link} description={"Cliquez ici pour voir l'article"} image={"https://www.bungie.net" + key.item.image}/>
+                            return <Card title={key.item.displayName} subtitle={key.item.displayName} link={"https://www.bungie.net" + key.item.link} description={"Cliquez sur le titre de l'article pour le lire"} image={"https://www.bungie.net" + key.item.image}/>
                         }
                     }
                     keyExtractor={(item, index) => index.toString()}
