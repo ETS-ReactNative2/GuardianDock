@@ -88,7 +88,7 @@ function CustomDrawerContent(props) {
         forceInset={{top: 'always', horizontal: 'never'}}>
         <View style={styles.centered}>
           <Image
-            source={{uri: 'https://reactjs.org/logo-og.png'}}
+            source={require('../assets/logo-og.png')}
             style={styles.logo}
           />
         </View>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: 100,
+    width: 140,
     height: 75,
   },
   drawerContainer: {
