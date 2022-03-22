@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View, Text, ImageBackground } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '	@react-navigation/drawer';
 import { drawerItemsMain } from './drawerItemsMain';
 import CustomDrawerContent from './CustomDrawerContent.js';
 import CustomHeader from './CustomHeader';
