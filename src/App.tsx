@@ -5,14 +5,19 @@ import CustomHeader from './components/CustomHeader';
 
 import {NavigationContainer} from "@react-navigation/native";
 import {createDrawerNavigator} from "@react-navigation/drawer";
+
+import CustomDrawerContent from "./components/CustomDrawerContent";
 import Accueil from "./views/HomePage";
 
-const Stack = createDrawerNavigator();
+const SideMenu = createDrawerNavigator();
 
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator
+            <SideMenu.Navigator
+                drawerContent={(props) => {
+                    return (<CustomDrawerContent {...props} />);
+                }}
                 screenOptions={{
                     headerTintColor: '#404554', headerTitleStyle: {fontWeight: 'bold'},
                     header: (props) => {
@@ -20,8 +25,8 @@ function App() {
                     }
                 }}
             >
-                <Stack.Screen name='Accueil' component={Accueil}/>
-            </Stack.Navigator>
+                <SideMenu.Screen name='home' component={Accueil}/>
+            </SideMenu.Navigator>
         </NavigationContainer>
     );
 }
