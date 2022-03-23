@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {Drawer} from 'react-native-paper';
 import {DrawerContentComponentProps, DrawerContentScrollView, DrawerItem} from "@react-navigation/drawer";
 
@@ -13,6 +13,11 @@ export default function CustomDrawerContent(props: DrawerContentComponentProps) 
         <View style={{flex: 1}}>
             <DrawerContentScrollView {...props}>
                 <View style={{flex: 1}}>
+                    <View style={{paddingLeft: 20, backgroundColor: '#222222'}}>
+                        <View style={{flexDirection: 'row', marginTop: 15}}>
+                            <Image source={require('../../assets/logo-og-nbg.png')} style={{width: '100%', height: 162.5}}/>
+                        </View>
+                    </View>
                     {DrawerContentItems.map((value, index) => {
                         return value.routes.length === 1 ?
                             (<Drawer.Section style={{marginTop: 15}}>
