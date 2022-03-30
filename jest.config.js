@@ -3,7 +3,7 @@ module.exports = {
     preset: 'react-native',
     clearMocks: true,
     coverageDirectory: 'coverage',
-    setupFiles: ['./jest/setup.js'],
+    setupFiles: ['./jest.setup.js'],
     transformIgnorePatterns: [],
     globals: {
         'ts-jest': {},
