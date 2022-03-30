@@ -1,0 +1,78 @@
+becaee480f01a110c13454f6d7f88325
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = useHeaderHeight;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _HeaderHeightContext = _interopRequireDefault(require("./HeaderHeightContext"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function useHeaderHeight() {
+  var height = React.useContext(_HeaderHeightContext.default);
+
+  if (height === undefined) {
+    throw new Error("Couldn't find the header height. Are you inside a screen in a navigator with a header?");
+  }
+
+  return height;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUVBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBRWUsU0FBU0EsZUFBVCxHQUEyQjtBQUN4QyxNQUFNQyxNQUFNLEdBQUdDLEtBQUssQ0FBQ0MsVUFBTkQsQ0FBaUJFLDRCQUFqQkYsQ0FBZjs7QUFFQSxNQUFJRCxNQUFNLEtBQUtJLFNBQWYsRUFBMEI7QUFDeEIsVUFBTSxJQUFJQyxLQUFKLENBQ0osd0ZBREksQ0FBTjtBQUdEOztBQUVELFNBQU9MLE1BQVA7QUFDRCIsIm5hbWVzIjpbInVzZUhlYWRlckhlaWdodCIsImhlaWdodCIsIlJlYWN0IiwidXNlQ29udGV4dCIsIkhlYWRlckhlaWdodENvbnRleHQiLCJ1bmRlZmluZWQiLCJFcnJvciJdLCJzb3VyY2VzIjpbInVzZUhlYWRlckhlaWdodC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgUmVhY3QgZnJvbSAncmVhY3QnO1xuXG5pbXBvcnQgSGVhZGVySGVpZ2h0Q29udGV4dCBmcm9tICcuL0hlYWRlckhlaWdodENvbnRleHQnO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiB1c2VIZWFkZXJIZWlnaHQoKSB7XG4gIGNvbnN0IGhlaWdodCA9IFJlYWN0LnVzZUNvbnRleHQoSGVhZGVySGVpZ2h0Q29udGV4dCk7XG5cbiAgaWYgKGhlaWdodCA9PT0gdW5kZWZpbmVkKSB7XG4gICAgdGhyb3cgbmV3IEVycm9yKFxuICAgICAgXCJDb3VsZG4ndCBmaW5kIHRoZSBoZWFkZXIgaGVpZ2h0LiBBcmUgeW91IGluc2lkZSBhIHNjcmVlbiBpbiBhIG5hdmlnYXRvciB3aXRoIGEgaGVhZGVyP1wiXG4gICAgKTtcbiAgfVxuXG4gIHJldHVybiBoZWlnaHQ7XG59XG4iXX0=

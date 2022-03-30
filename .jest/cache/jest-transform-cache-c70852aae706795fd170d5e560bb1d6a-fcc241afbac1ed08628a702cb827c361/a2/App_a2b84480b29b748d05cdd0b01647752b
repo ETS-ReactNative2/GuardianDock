@@ -1,0 +1,52 @@
+6095b9f895d005b7401dc7cfeeac0f41
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _CustomHeader = _interopRequireDefault(require("./components/CustomHeader"));
+
+var _native = require("@react-navigation/native");
+
+var _drawer = require("@react-navigation/drawer");
+
+var _CustomDrawerContent = _interopRequireDefault(require("./components/CustomDrawerContent"));
+
+var _HomePage = _interopRequireDefault(require("./views/HomePage"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+var SideMenu = (0, _drawer.createDrawerNavigator)();
+
+function App() {
+  return (0, _jsxRuntime.jsx)(_native.NavigationContainer, {
+    children: (0, _jsxRuntime.jsx)(SideMenu.Navigator, {
+      drawerContent: function drawerContent(props) {
+        return (0, _jsxRuntime.jsx)(_CustomDrawerContent.default, (0, _extends2.default)({}, props));
+      },
+      screenOptions: {
+        headerTintColor: '#404554',
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        },
+        header: function header(props) {
+          return (0, _jsxRuntime.jsx)(_CustomHeader.default, (0, _extends2.default)({}, props));
+        }
+      },
+      children: (0, _jsxRuntime.jsx)(SideMenu.Screen, {
+        name: "home",
+        component: _HomePage.default
+      })
+    })
+  });
+}
+
+var _default = App;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcC50c3giXSwibmFtZXMiOlsiU2lkZU1lbnUiLCJBcHAiLCJwcm9wcyIsImhlYWRlclRpbnRDb2xvciIsImhlYWRlclRpdGxlU3R5bGUiLCJmb250V2VpZ2h0IiwiaGVhZGVyIiwiQWNjdWVpbCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQUE7O0FBRUE7O0FBRUE7O0FBQ0E7O0FBRUE7O0FBQ0E7Ozs7QUFFQSxJQUFNQSxRQUFRLEdBQUcsb0NBQWpCOztBQUVBLFNBQVNDLEdBQVQsR0FBZTtBQUNYLFNBQ0kscUJBQUMsMkJBQUQ7QUFBQSxjQUNJLHFCQUFDLFFBQUQsQ0FBVSxTQUFWO0FBQ0ksTUFBQSxhQUFhLEVBQUUsdUJBQUNDLEtBQUQsRUFBVztBQUN0QixlQUFRLHFCQUFDLDRCQUFELDZCQUF5QkEsS0FBekIsRUFBUjtBQUNILE9BSEw7QUFJSSxNQUFBLGFBQWEsRUFBRTtBQUNYQyxRQUFBQSxlQUFlLEVBQUUsU0FETjtBQUNpQkMsUUFBQUEsZ0JBQWdCLEVBQUU7QUFBQ0MsVUFBQUEsVUFBVSxFQUFFO0FBQWIsU0FEbkM7QUFFWEMsUUFBQUEsTUFBTSxFQUFFLGdCQUFDSixLQUFELEVBQVc7QUFDZixpQkFBTyxxQkFBQyxxQkFBRCw2QkFBa0JBLEtBQWxCLEVBQVA7QUFDSDtBQUpVLE9BSm5CO0FBQUEsZ0JBV0kscUJBQUMsUUFBRCxDQUFVLE1BQVY7QUFBaUIsUUFBQSxJQUFJLEVBQUMsTUFBdEI7QUFBNkIsUUFBQSxTQUFTLEVBQUVLO0FBQXhDO0FBWEo7QUFESixJQURKO0FBaUJIOztlQUVjTixHIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcblxuaW1wb3J0IEN1c3RvbUhlYWRlciBmcm9tICcuL2NvbXBvbmVudHMvQ3VzdG9tSGVhZGVyJztcblxuaW1wb3J0IHtOYXZpZ2F0aW9uQ29udGFpbmVyfSBmcm9tIFwiQHJlYWN0LW5hdmlnYXRpb24vbmF0aXZlXCI7XG5pbXBvcnQge2NyZWF0ZURyYXdlck5hdmlnYXRvcn0gZnJvbSBcIkByZWFjdC1uYXZpZ2F0aW9uL2RyYXdlclwiO1xuXG5pbXBvcnQgQ3VzdG9tRHJhd2VyQ29udGVudCBmcm9tIFwiLi9jb21wb25lbnRzL0N1c3RvbURyYXdlckNvbnRlbnRcIjtcbmltcG9ydCBBY2N1ZWlsIGZyb20gXCIuL3ZpZXdzL0hvbWVQYWdlXCI7XG5cbmNvbnN0IFNpZGVNZW51ID0gY3JlYXRlRHJhd2VyTmF2aWdhdG9yKCk7XG5cbmZ1bmN0aW9uIEFwcCgpIHtcbiAgICByZXR1cm4gKFxuICAgICAgICA8TmF2aWdhdGlvbkNvbnRhaW5lcj5cbiAgICAgICAgICAgIDxTaWRlTWVudS5OYXZpZ2F0b3JcbiAgICAgICAgICAgICAgICBkcmF3ZXJDb250ZW50PXsocHJvcHMpID0+IHtcbiAgICAgICAgICAgICAgICAgICAgcmV0dXJuICg8Q3VzdG9tRHJhd2VyQ29udGVudCB7Li4ucHJvcHN9IC8+KTtcbiAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgIHNjcmVlbk9wdGlvbnM9e3tcbiAgICAgICAgICAgICAgICAgICAgaGVhZGVyVGludENvbG9yOiAnIzQwNDU1NCcsIGhlYWRlclRpdGxlU3R5bGU6IHtmb250V2VpZ2h0OiAnYm9sZCd9LFxuICAgICAgICAgICAgICAgICAgICBoZWFkZXI6IChwcm9wcykgPT4ge1xuICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIDxDdXN0b21IZWFkZXIgey4uLnByb3BzfSAvPjtcbiAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIH19XG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPFNpZGVNZW51LlNjcmVlbiBuYW1lPSdob21lJyBjb21wb25lbnQ9e0FjY3VlaWx9Lz5cbiAgICAgICAgICAgIDwvU2lkZU1lbnUuTmF2aWdhdG9yPlxuICAgICAgICA8L05hdmlnYXRpb25Db250YWluZXI+XG4gICAgKTtcbn1cblxuZXhwb3J0IGRlZmF1bHQgQXBwO1xuIl19

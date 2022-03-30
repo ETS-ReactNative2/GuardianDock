@@ -1,0 +1,145 @@
+b46d3d7ebebcd2ec2664ad0f541f6cc6
+"use strict";
+
+var _interopRequireDefault2 = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _classCallCheck2 = _interopRequireDefault2(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault2(require("@babel/runtime/helpers/createClass"));
+
+var _inherits2 = _interopRequireDefault2(require("@babel/runtime/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault2(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault2(require("@babel/runtime/helpers/getPrototypeOf"));
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _PortalConsumer = _interopRequireDefault(require("./PortalConsumer"));
+
+var _PortalHost = _interopRequireWildcard(require("./PortalHost"));
+
+var _settings = require("../../core/settings");
+
+var _theming = require("../../core/theming");
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _getRequireWildcardCache() {
+  if (typeof WeakMap !== "function") return null;
+  var cache = new WeakMap();
+
+  _getRequireWildcardCache = function _getRequireWildcardCache() {
+    return cache;
+  };
+
+  return cache;
+}
+
+function _interopRequireWildcard(obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache();
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+var Portal = function (_React$Component) {
+  (0, _inherits2.default)(Portal, _React$Component);
+
+  var _super = _createSuper(Portal);
+
+  function Portal() {
+    (0, _classCallCheck2.default)(this, Portal);
+    return _super.apply(this, arguments);
+  }
+
+  (0, _createClass2.default)(Portal, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          children = _this$props.children,
+          theme = _this$props.theme;
+      return React.createElement(_settings.Consumer, null, function (settings) {
+        return React.createElement(_PortalHost.PortalContext.Consumer, null, function (manager) {
+          return React.createElement(_PortalConsumer.default, {
+            manager: manager
+          }, React.createElement(_settings.Provider, {
+            value: settings
+          }, React.createElement(_theming.ThemeProvider, {
+            theme: theme
+          }, children)));
+        });
+      });
+    }
+  }]);
+  return Portal;
+}(React.Component);
+
+_defineProperty(Portal, "Host", _PortalHost.default);
+
+var _default = (0, _theming.withTheme)(Portal);
+
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFJQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBZ0NNQSxNOzs7Ozs7Ozs7Ozs7V0FJSkMsa0JBQVM7QUFDUCx3QkFBNEIsS0FBS0MsS0FBakM7QUFBQSxVQUFRQyxRQUFSLGVBQVFBLFFBQVI7QUFBQSxVQUFrQkMsS0FBbEIsZUFBa0JBLEtBQWxCO0FBRUEsYUFDRUMsb0JBQUNDLGtCQUFELFFBQ0lDLGtCQUFEO0FBQUEsZUFDQ0Ysb0JBQUNHLDBCQUFjQyxRQUFmLFFBQ0lDLGlCQUFEO0FBQUEsaUJBQ0NMLG9CQUFDTSx1QkFBRDtBQUFnQkQsbUJBQU8sRUFBRUE7QUFBekIsYUFDRUwsb0JBQUNDLGtCQUFEO0FBQWtCTSxpQkFBSyxFQUFFTDtBQUF6QixhQUNFRixvQkFBQ1Esc0JBQUQ7QUFBZVQsaUJBQUssRUFBRUE7QUFBdEIsYUFBOEJELFFBQTlCLENBREYsQ0FERixDQUREO0FBQUEsU0FESCxDQUREO0FBQUEsT0FESCxDQURGO0FBZUQ7OztFQXRCa0JFLEtBQUssQ0FBQ1MsUzs7Z0JBQXJCZCxRLFFBRVVlOztlQXVCRCx3QkFBVWYsTUFBViIsIm5hbWVzIjpbIlBvcnRhbCIsInJlbmRlciIsInByb3BzIiwiY2hpbGRyZW4iLCJ0aGVtZSIsIlJlYWN0IiwiX3NldHRpbmdzIiwic2V0dGluZ3MiLCJfUG9ydGFsSG9zdCIsIkNvbnN1bWVyIiwibWFuYWdlciIsIl9Qb3J0YWxDb25zdW1lciIsInZhbHVlIiwiX3RoZW1pbmciLCJDb21wb25lbnQiLCJQb3J0YWxIb3N0Il0sInNvdXJjZXMiOlsiUG9ydGFsLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUG9ydGFsQ29uc3VtZXIgZnJvbSAnLi9Qb3J0YWxDb25zdW1lcic7XG5pbXBvcnQgUG9ydGFsSG9zdCwgeyBQb3J0YWxDb250ZXh0LCBQb3J0YWxNZXRob2RzIH0gZnJvbSAnLi9Qb3J0YWxIb3N0JztcbmltcG9ydCB7XG4gIFByb3ZpZGVyIGFzIFNldHRpbmdzUHJvdmlkZXIsXG4gIENvbnN1bWVyIGFzIFNldHRpbmdzQ29uc3VtZXIsXG59IGZyb20gJy4uLy4uL2NvcmUvc2V0dGluZ3MnO1xuaW1wb3J0IHsgVGhlbWVQcm92aWRlciwgd2l0aFRoZW1lIH0gZnJvbSAnLi4vLi4vY29yZS90aGVtaW5nJztcblxudHlwZSBQcm9wcyA9IHtcbiAgLyoqXG4gICAqIENvbnRlbnQgb2YgdGhlIGBQb3J0YWxgLlxuICAgKi9cbiAgY2hpbGRyZW46IFJlYWN0LlJlYWN0Tm9kZTtcbiAgLyoqXG4gICAqIEBvcHRpb25hbFxuICAgKi9cbiAgdGhlbWU6IFJlYWN0TmF0aXZlUGFwZXIuVGhlbWU7XG59O1xuXG4vKipcbiAqIFBvcnRhbCBhbGxvd3MgdG8gcmVuZGVyIGEgY29tcG9uZW50IGF0IGEgZGlmZmVyZW50IHBsYWNlIGluIHRoZSBwYXJlbnQgdHJlZS5cbiAqIFlvdSBjYW4gdXNlIGl0IHRvIHJlbmRlciBjb250ZW50IHdoaWNoIHNob3VsZCBhcHBlYXIgYWJvdmUgb3RoZXIgZWxlbWVudHMsIHNpbWlsYXIgdG8gYE1vZGFsYC5cbiAqIEl0IHJlcXVpcmVzIGEgW2BQb3J0YWwuSG9zdGBdKHBvcnRhbC1ob3N0Lmh0bWwpIGNvbXBvbmVudCB0byBiZSByZW5kZXJlZCBzb21ld2hlcmUgaW4gdGhlIHBhcmVudCB0cmVlLlxuICpcbiAqICMjIFVzYWdlXG4gKiBgYGBqc1xuICogaW1wb3J0ICogYXMgUmVhY3QgZnJvbSAncmVhY3QnO1xuICogaW1wb3J0IHsgUG9ydGFsLCBUZXh0IH0gZnJvbSAncmVhY3QtbmF0aXZlLXBhcGVyJztcbiAqXG4gKiBjb25zdCBNeUNvbXBvbmVudCA9ICgpID0+IChcbiAqICAgPFBvcnRhbD5cbiAqICAgICA8VGV4dD5UaGlzIGlzIHJlbmRlcmVkIGF0IGEgZGlmZmVyZW50IHBsYWNlPC9UZXh0PlxuICogICA8L1BvcnRhbD5cbiAqICk7XG4gKlxuICogZXhwb3J0IGRlZmF1bHQgTXlDb21wb25lbnQ7XG4gKiBgYGBcbiAqL1xuY2xhc3MgUG9ydGFsIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50PFByb3BzPiB7XG4gIC8vIEBjb21wb25lbnQgLi9Qb3J0YWxIb3N0LnRzeFxuICBzdGF0aWMgSG9zdCA9IFBvcnRhbEhvc3Q7XG5cbiAgcmVuZGVyKCkge1xuICAgIGNvbnN0IHsgY2hpbGRyZW4sIHRoZW1lIH0gPSB0aGlzLnByb3BzO1xuXG4gICAgcmV0dXJuIChcbiAgICAgIDxTZXR0aW5nc0NvbnN1bWVyPlxuICAgICAgICB7KHNldHRpbmdzKSA9PiAoXG4gICAgICAgICAgPFBvcnRhbENvbnRleHQuQ29uc3VtZXI+XG4gICAgICAgICAgICB7KG1hbmFnZXIpID0+IChcbiAgICAgICAgICAgICAgPFBvcnRhbENvbnN1bWVyIG1hbmFnZXI9e21hbmFnZXIgYXMgUG9ydGFsTWV0aG9kc30+XG4gICAgICAgICAgICAgICAgPFNldHRpbmdzUHJvdmlkZXIgdmFsdWU9e3NldHRpbmdzfT5cbiAgICAgICAgICAgICAgICAgIDxUaGVtZVByb3ZpZGVyIHRoZW1lPXt0aGVtZX0+e2NoaWxkcmVufTwvVGhlbWVQcm92aWRlcj5cbiAgICAgICAgICAgICAgICA8L1NldHRpbmdzUHJvdmlkZXI+XG4gICAgICAgICAgICAgIDwvUG9ydGFsQ29uc3VtZXI+XG4gICAgICAgICAgICApfVxuICAgICAgICAgIDwvUG9ydGFsQ29udGV4dC5Db25zdW1lcj5cbiAgICAgICAgKX1cbiAgICAgIDwvU2V0dGluZ3NDb25zdW1lcj5cbiAgICApO1xuICB9XG59XG5cbmV4cG9ydCBkZWZhdWx0IHdpdGhUaGVtZShQb3J0YWwpO1xuIl19

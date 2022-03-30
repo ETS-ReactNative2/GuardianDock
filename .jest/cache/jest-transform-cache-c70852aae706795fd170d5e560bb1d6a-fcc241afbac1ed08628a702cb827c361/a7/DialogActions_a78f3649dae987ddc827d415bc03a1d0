@@ -1,0 +1,106 @@
+9448dac66187265550e14a316ddffed0
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _reactNative = require("react-native");
+
+function _getRequireWildcardCache() {
+  if (typeof WeakMap !== "function") return null;
+  var cache = new WeakMap();
+
+  _getRequireWildcardCache = function _getRequireWildcardCache() {
+    return cache;
+  };
+
+  return cache;
+}
+
+function _interopRequireWildcard(obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache();
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var DialogActions = function DialogActions(props) {
+  return React.createElement(_reactNative.View, _extends({}, props, {
+    style: [styles.container, props.style]
+  }), React.Children.map(props.children, function (child) {
+    return React.isValidElement(child) ? React.cloneElement(child, {
+      compact: true
+    }) : child;
+  }));
+};
+
+DialogActions.displayName = 'Dialog.Actions';
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: 8
+  }
+});
+
+var _default = DialogActions;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUNBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUE0Q0EsSUFBTUEsYUFBYSxHQUFJQyxTQUFqQkQsYUFBaUJDLE1BQUQ7QUFBQSxTQUNwQkMsb0JBQUNDLGlCQUFELGVBQVVGLEtBQVY7QUFBaUJHLFNBQUssRUFBRSxDQUFDQyxNQUFNLENBQUNDLFNBQVIsRUFBbUJMLEtBQUssQ0FBQ0csS0FBekI7QUFBeEIsTUFDR0YsS0FBSyxDQUFDSyxRQUFOTCxDQUFlTSxHQUFmTixDQUFtQkQsS0FBSyxDQUFDUSxRQUF6QlAsRUFBb0NRLGVBQUQ7QUFBQSxXQUNsQ1IsS0FBSyxDQUFDUyxjQUFOVCxDQUFxQlEsS0FBckJSLElBQ0lBLEtBQUssQ0FBQ1UsWUFBTlYsQ0FBbUJRLEtBQW5CUixFQUEwQjtBQUN4QlcsYUFBTyxFQUFFO0FBRGUsS0FBMUJYLENBREpBLEdBSUlRLEtBTDhCO0FBQUEsR0FBbkNSLENBREgsQ0FEb0I7QUFBQSxDQUF0Qjs7QUFZQUYsYUFBYSxDQUFDYyxXQUFkZCxHQUE0QixnQkFBNUJBOztBQUVBLElBQU1LLE1BQU0sR0FBR1Usd0JBQVdDLE1BQVhELENBQWtCO0FBQy9CVCxXQUFTLEVBQUU7QUFDVFcsaUJBQWEsRUFBRSxLQUROO0FBRVRDLGNBQVUsRUFBRSxRQUZIO0FBR1RDLGtCQUFjLEVBQUUsVUFIUDtBQUlUQyxXQUFPLEVBQUU7QUFKQTtBQURvQixDQUFsQkwsQ0FBZjs7ZUFTZWYiLCJuYW1lcyI6WyJEaWFsb2dBY3Rpb25zIiwicHJvcHMiLCJSZWFjdCIsIl9yZWFjdE5hdGl2ZSIsInN0eWxlIiwic3R5bGVzIiwiY29udGFpbmVyIiwiQ2hpbGRyZW4iLCJtYXAiLCJjaGlsZHJlbiIsImNoaWxkIiwiaXNWYWxpZEVsZW1lbnQiLCJjbG9uZUVsZW1lbnQiLCJjb21wYWN0IiwiZGlzcGxheU5hbWUiLCJTdHlsZVNoZWV0IiwiY3JlYXRlIiwiZmxleERpcmVjdGlvbiIsImFsaWduSXRlbXMiLCJqdXN0aWZ5Q29udGVudCIsInBhZGRpbmciXSwic291cmNlcyI6WyJEaWFsb2dBY3Rpb25zLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBTdHlsZVNoZWV0LCBTdHlsZVByb3AsIFZpZXcsIFZpZXdTdHlsZSB9IGZyb20gJ3JlYWN0LW5hdGl2ZSc7XG5cbnR5cGUgUHJvcHMgPSBSZWFjdC5Db21wb25lbnRQcm9wc1dpdGhSZWY8dHlwZW9mIFZpZXc+ICYge1xuICAvKipcbiAgICogQ29udGVudCBvZiB0aGUgYERpYWxvZ0FjdGlvbnNgLlxuICAgKi9cbiAgY2hpbGRyZW46IFJlYWN0LlJlYWN0Tm9kZTtcbiAgc3R5bGU/OiBTdHlsZVByb3A8Vmlld1N0eWxlPjtcbn07XG5cbi8qKlxuICogQSBjb21wb25lbnQgdG8gc2hvdyBhIGxpc3Qgb2YgYWN0aW9ucyBpbiBhIERpYWxvZy5cbiAqXG4gKiA8ZGl2IGNsYXNzPVwic2NyZWVuc2hvdHNcIj5cbiAqICAgPGZpZ3VyZT5cbiAqICAgICA8aW1nIGNsYXNzPVwibWVkaXVtXCIgc3JjPVwic2NyZWVuc2hvdHMvZGlhbG9nLWFjdGlvbnMucG5nXCIgLz5cbiAqICAgPC9maWd1cmU+XG4gKiA8L2Rpdj5cbiAqXG4gKiAjIyBVc2FnZVxuICogYGBganNcbiAqIGltcG9ydCAqIGFzIFJlYWN0IGZyb20gJ3JlYWN0JztcbiAqIGltcG9ydCB7IEJ1dHRvbiwgRGlhbG9nLCBQb3J0YWwgfSBmcm9tICdyZWFjdC1uYXRpdmUtcGFwZXInO1xuICpcbiAqIGNvbnN0IE15Q29tcG9uZW50ID0gKCkgPT4ge1xuICogICBjb25zdCBbdmlzaWJsZSwgc2V0VmlzaWJsZV0gPSBSZWFjdC51c2VTdGF0ZShmYWxzZSk7XG4gKlxuICogICBjb25zdCBoaWRlRGlhbG9nID0gKCkgPT4gc2V0VmlzaWJsZShmYWxzZSk7XG4gKlxuICogICByZXR1cm4gKFxuICogICAgIDxQb3J0YWw+XG4gKiAgICAgICA8RGlhbG9nIHZpc2libGU9e3Zpc2libGV9IG9uRGlzbWlzcz17aGlkZURpYWxvZ30+XG4gKiAgICAgICAgIDxEaWFsb2cuQWN0aW9ucz5cbiAqICAgICAgICAgICA8QnV0dG9uIG9uUHJlc3M9eygpID0+IGNvbnNvbGUubG9nKCdDYW5jZWwnKX0+Q2FuY2VsPC9CdXR0b24+XG4gKiAgICAgICAgICAgPEJ1dHRvbiBvblByZXNzPXsoKSA9PiBjb25zb2xlLmxvZygnT2snKX0+T2s8L0J1dHRvbj5cbiAqICAgICAgICAgPC9EaWFsb2cuQWN0aW9ucz5cbiAqICAgICAgIDwvRGlhbG9nPlxuICogICAgIDwvUG9ydGFsPlxuICogICApO1xuICogfTtcbiAqXG4gKiBleHBvcnQgZGVmYXVsdCBNeUNvbXBvbmVudDtcbiAqIGBgYFxuICovXG5jb25zdCBEaWFsb2dBY3Rpb25zID0gKHByb3BzOiBQcm9wcykgPT4gKFxuICA8VmlldyB7Li4ucHJvcHN9IHN0eWxlPXtbc3R5bGVzLmNvbnRhaW5lciwgcHJvcHMuc3R5bGVdfT5cbiAgICB7UmVhY3QuQ2hpbGRyZW4ubWFwKHByb3BzLmNoaWxkcmVuLCAoY2hpbGQpID0+XG4gICAgICBSZWFjdC5pc1ZhbGlkRWxlbWVudChjaGlsZClcbiAgICAgICAgPyBSZWFjdC5jbG9uZUVsZW1lbnQoY2hpbGQsIHtcbiAgICAgICAgICAgIGNvbXBhY3Q6IHRydWUsXG4gICAgICAgICAgfSlcbiAgICAgICAgOiBjaGlsZFxuICAgICl9XG4gIDwvVmlldz5cbik7XG5cbkRpYWxvZ0FjdGlvbnMuZGlzcGxheU5hbWUgPSAnRGlhbG9nLkFjdGlvbnMnO1xuXG5jb25zdCBzdHlsZXMgPSBTdHlsZVNoZWV0LmNyZWF0ZSh7XG4gIGNvbnRhaW5lcjoge1xuICAgIGZsZXhEaXJlY3Rpb246ICdyb3cnLFxuICAgIGFsaWduSXRlbXM6ICdjZW50ZXInLFxuICAgIGp1c3RpZnlDb250ZW50OiAnZmxleC1lbmQnLFxuICAgIHBhZGRpbmc6IDgsXG4gIH0sXG59KTtcblxuZXhwb3J0IGRlZmF1bHQgRGlhbG9nQWN0aW9ucztcbiJdfQ==

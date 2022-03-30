@@ -1,0 +1,5 @@
+4fc8b3af83dbe78118bc827c94abc30d
+module.exports = {
+      testUri:
+        "../../../assets/menu_hamburger.png"
+    };

@@ -1,0 +1,163 @@
+ea204986437b4e6596a7492084de3f31
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.GestureStateManager = void 0;
+
+var _reanimatedWrapper = require("./reanimatedWrapper");
+
+var _State = require("../../State");
+
+var _utils = require("../../utils");
+
+var warningMessage = (0, _utils.tagMessage)('react-native-reanimated is required in order to use synchronous state management');
+var GestureStateManager = {
+  create: function () {
+    var _f = function _f(handlerTag) {
+      return {
+        begin: function () {
+          var _f = function _f() {
+            if (_reanimatedWrapper.Reanimated) {
+              _reanimatedWrapper.Reanimated.setGestureState(handlerTag, _State.State.BEGAN);
+            } else {
+              console.warn(warningMessage);
+            }
+          };
+
+          _f._closure = {
+            _reanimatedWrapper: {
+              Reanimated: _reanimatedWrapper.Reanimated
+            },
+            handlerTag: handlerTag,
+            _State: {
+              State: {
+                BEGAN: _State.State.BEGAN
+              }
+            },
+            warningMessage: warningMessage
+          };
+          _f.asString = "function _f(){const{_reanimatedWrapper,handlerTag,_State,warningMessage}=jsThis._closure;{if(_reanimatedWrapper.Reanimated){_reanimatedWrapper.Reanimated.setGestureState(handlerTag,_State.State.BEGAN);}else{console.warn(warningMessage);}}}";
+          _f.__workletHash = 14466660575909;
+          _f.__location = "/home/nom4d/delivery/GuardianDock/node_modules/react-native-gesture-handler/lib/commonjs/handlers/gestures/gestureStateManager.js (20:13)";
+
+          global.__reanimatedWorkletInit(_f);
+
+          return _f;
+        }(),
+        activate: function () {
+          var _f = function _f() {
+            if (_reanimatedWrapper.Reanimated) {
+              _reanimatedWrapper.Reanimated.setGestureState(handlerTag, _State.State.ACTIVE);
+            } else {
+              console.warn(warningMessage);
+            }
+          };
+
+          _f._closure = {
+            _reanimatedWrapper: {
+              Reanimated: _reanimatedWrapper.Reanimated
+            },
+            handlerTag: handlerTag,
+            _State: {
+              State: {
+                ACTIVE: _State.State.ACTIVE
+              }
+            },
+            warningMessage: warningMessage
+          };
+          _f.asString = "function _f(){const{_reanimatedWrapper,handlerTag,_State,warningMessage}=jsThis._closure;{if(_reanimatedWrapper.Reanimated){_reanimatedWrapper.Reanimated.setGestureState(handlerTag,_State.State.ACTIVE);}else{console.warn(warningMessage);}}}";
+          _f.__workletHash = 15179606250086;
+          _f.__location = "/home/nom4d/delivery/GuardianDock/node_modules/react-native-gesture-handler/lib/commonjs/handlers/gestures/gestureStateManager.js (29:16)";
+
+          global.__reanimatedWorkletInit(_f);
+
+          return _f;
+        }(),
+        fail: function () {
+          var _f = function _f() {
+            if (_reanimatedWrapper.Reanimated) {
+              _reanimatedWrapper.Reanimated.setGestureState(handlerTag, _State.State.FAILED);
+            } else {
+              console.warn(warningMessage);
+            }
+          };
+
+          _f._closure = {
+            _reanimatedWrapper: {
+              Reanimated: _reanimatedWrapper.Reanimated
+            },
+            handlerTag: handlerTag,
+            _State: {
+              State: {
+                FAILED: _State.State.FAILED
+              }
+            },
+            warningMessage: warningMessage
+          };
+          _f.asString = "function _f(){const{_reanimatedWrapper,handlerTag,_State,warningMessage}=jsThis._closure;{if(_reanimatedWrapper.Reanimated){_reanimatedWrapper.Reanimated.setGestureState(handlerTag,_State.State.FAILED);}else{console.warn(warningMessage);}}}";
+          _f.__workletHash = 14920923826537;
+          _f.__location = "/home/nom4d/delivery/GuardianDock/node_modules/react-native-gesture-handler/lib/commonjs/handlers/gestures/gestureStateManager.js (38:12)";
+
+          global.__reanimatedWorkletInit(_f);
+
+          return _f;
+        }(),
+        end: function () {
+          var _f = function _f() {
+            if (_reanimatedWrapper.Reanimated) {
+              _reanimatedWrapper.Reanimated.setGestureState(handlerTag, _State.State.END);
+            } else {
+              console.warn(warningMessage);
+            }
+          };
+
+          _f._closure = {
+            _reanimatedWrapper: {
+              Reanimated: _reanimatedWrapper.Reanimated
+            },
+            handlerTag: handlerTag,
+            _State: {
+              State: {
+                END: _State.State.END
+              }
+            },
+            warningMessage: warningMessage
+          };
+          _f.asString = "function _f(){const{_reanimatedWrapper,handlerTag,_State,warningMessage}=jsThis._closure;{if(_reanimatedWrapper.Reanimated){_reanimatedWrapper.Reanimated.setGestureState(handlerTag,_State.State.END);}else{console.warn(warningMessage);}}}";
+          _f.__workletHash = 11808757989221;
+          _f.__location = "/home/nom4d/delivery/GuardianDock/node_modules/react-native-gesture-handler/lib/commonjs/handlers/gestures/gestureStateManager.js (47:11)";
+
+          global.__reanimatedWorkletInit(_f);
+
+          return _f;
+        }()
+      };
+    };
+
+    _f._closure = {
+      _reanimatedWrapper: {
+        Reanimated: _reanimatedWrapper.Reanimated
+      },
+      _State: {
+        State: {
+          BEGAN: _State.State.BEGAN,
+          ACTIVE: _State.State.ACTIVE,
+          FAILED: _State.State.FAILED,
+          END: _State.State.END
+        }
+      },
+      warningMessage: warningMessage
+    };
+    _f.asString = "function create(handlerTag){const{_reanimatedWrapper,_State,warningMessage}=jsThis._closure;{return{begin:function(){'worklet';if(_reanimatedWrapper.Reanimated){_reanimatedWrapper.Reanimated.setGestureState(handlerTag,_State.State.BEGAN);}else{console.warn(warningMessage);}},activate:function(){'worklet';if(_reanimatedWrapper.Reanimated){_reanimatedWrapper.Reanimated.setGestureState(handlerTag,_State.State.ACTIVE);}else{console.warn(warningMessage);}},fail:function(){'worklet';if(_reanimatedWrapper.Reanimated){_reanimatedWrapper.Reanimated.setGestureState(handlerTag,_State.State.FAILED);}else{console.warn(warningMessage);}},end:function(){'worklet';if(_reanimatedWrapper.Reanimated){_reanimatedWrapper.Reanimated.setGestureState(handlerTag,_State.State.END);}else{console.warn(warningMessage);}}};}}";
+    _f.__workletHash = 2721950801978;
+    _f.__location = "/home/nom4d/delivery/GuardianDock/node_modules/react-native-gesture-handler/lib/commonjs/handlers/gestures/gestureStateManager.js";
+
+    global.__reanimatedWorkletInit(_f);
+
+    return _f;
+  }()
+};
+exports.GestureStateManager = GestureStateManager;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUNBOztBQUNBOztBQVNBLElBQU1BLGNBQWMsR0FBRyx1QkFDckIsa0ZBRHFCLENBQXZCO0FBSU8sSUFBTUMsbUJBQW1CLEdBQUc7QUFDakNDLFFBRGlDO0FBQUEseUJBQzFCQyxVQUQwQixFQUNtQjtBQUVsRCxhQUFPO0FBQ0xDLGFBQUs7QUFBQSxpQ0FBUTtBQUVYLGdCQUFJQyw2QkFBSixFQUFnQjtBQUNkQSw0Q0FBV0MsZUFBWEQsQ0FBMkJGLFVBQTNCRSxFQUF1Q0UsYUFBTUMsS0FBN0NIO0FBREYsbUJBRU87QUFDTEkscUJBQU8sQ0FBQ0MsSUFBUkQsQ0FBYVQsY0FBYlM7QUFDRDtBQVBFLFdBQ0E7O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBOztBQUFBOztBQUFBO0FBQUEsV0FEQTtBQVVMRSxnQkFBUTtBQUFBLGlDQUFRO0FBRWQsZ0JBQUlOLDZCQUFKLEVBQWdCO0FBQ2RBLDRDQUFXQyxlQUFYRCxDQUEyQkYsVUFBM0JFLEVBQXVDRSxhQUFNSyxNQUE3Q1A7QUFERixtQkFFTztBQUNMSSxxQkFBTyxDQUFDQyxJQUFSRCxDQUFhVCxjQUFiUztBQUNEO0FBaEJFLFdBVUc7O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBOztBQUFBOztBQUFBO0FBQUEsV0FWSDtBQW1CTEksWUFBSTtBQUFBLGlDQUFRO0FBRVYsZ0JBQUlSLDZCQUFKLEVBQWdCO0FBQ2RBLDRDQUFXQyxlQUFYRCxDQUEyQkYsVUFBM0JFLEVBQXVDRSxhQUFNTyxNQUE3Q1Q7QUFERixtQkFFTztBQUNMSSxxQkFBTyxDQUFDQyxJQUFSRCxDQUFhVCxjQUFiUztBQUNEO0FBekJFLFdBbUJEOztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTs7QUFBQTs7QUFBQTtBQUFBLFdBbkJDO0FBNEJMTSxXQUFHO0FBQUEsaUNBQVE7QUFFVCxnQkFBSVYsNkJBQUosRUFBZ0I7QUFDZEEsNENBQVdDLGVBQVhELENBQTJCRixVQUEzQkUsRUFBdUNFLGFBQU1TLEdBQTdDWDtBQURGLG1CQUVPO0FBQ0xJLHFCQUFPLENBQUNDLElBQVJELENBQWFULGNBQWJTO0FBQ0Q7QUFDRixXQVBFOztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTs7QUFBQTs7QUFBQTtBQUFBO0FBNUJFLE9BQVA7QUFxQ0QsS0F4Q2dDOztBQUFBO0FBQUE7QUFBQSxvQkFlM0JRLGtCQUVPO0FBakJvQjtBQUFBO0FBQUE7QUFBQSxpQkFmbkNDLGtCQWVtQztBQUFBLGtCQUUvQkEsbUJBRitCO0FBQUEsa0JBU3pCQSxtQkFUeUI7QUFBQSxlQWtCekJBO0FBbEJ5QjtBQUFBO0FBQUEsc0JBR3hCbEI7QUFId0I7QUFBQTtBQUFBO0FBQUE7O0FBQUE7O0FBQUE7QUFBQTtBQUFBLENBQTVCIiwibmFtZXMiOlsid2FybmluZ01lc3NhZ2UiLCJHZXN0dXJlU3RhdGVNYW5hZ2VyIiwiY3JlYXRlIiwiaGFuZGxlclRhZyIsImJlZ2luIiwiUmVhbmltYXRlZCIsInNldEdlc3R1cmVTdGF0ZSIsIlN0YXRlIiwiQkVHQU4iLCJjb25zb2xlIiwid2FybiIsImFjdGl2YXRlIiwiQUNUSVZFIiwiZmFpbCIsIkZBSUxFRCIsImVuZCIsIkVORCIsIl9yZWFuaW1hdGVkV3JhcHBlciIsIl9TdGF0ZSJdLCJzb3VyY2VzIjpbImdlc3R1cmVTdGF0ZU1hbmFnZXIudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUmVhbmltYXRlZCB9IGZyb20gJy4vcmVhbmltYXRlZFdyYXBwZXInO1xuaW1wb3J0IHsgU3RhdGUgfSBmcm9tICcuLi8uLi9TdGF0ZSc7XG5pbXBvcnQgeyB0YWdNZXNzYWdlIH0gZnJvbSAnLi4vLi4vdXRpbHMnO1xuXG5leHBvcnQgaW50ZXJmYWNlIEdlc3R1cmVTdGF0ZU1hbmFnZXJUeXBlIHtcbiAgYmVnaW46ICgpID0+IHZvaWQ7XG4gIGFjdGl2YXRlOiAoKSA9PiB2b2lkO1xuICBmYWlsOiAoKSA9PiB2b2lkO1xuICBlbmQ6ICgpID0+IHZvaWQ7XG59XG5cbmNvbnN0IHdhcm5pbmdNZXNzYWdlID0gdGFnTWVzc2FnZShcbiAgJ3JlYWN0LW5hdGl2ZS1yZWFuaW1hdGVkIGlzIHJlcXVpcmVkIGluIG9yZGVyIHRvIHVzZSBzeW5jaHJvbm91cyBzdGF0ZSBtYW5hZ2VtZW50J1xuKTtcblxuZXhwb3J0IGNvbnN0IEdlc3R1cmVTdGF0ZU1hbmFnZXIgPSB7XG4gIGNyZWF0ZShoYW5kbGVyVGFnOiBudW1iZXIpOiBHZXN0dXJlU3RhdGVNYW5hZ2VyVHlwZSB7XG4gICAgJ3dvcmtsZXQnO1xuICAgIHJldHVybiB7XG4gICAgICBiZWdpbjogKCkgPT4ge1xuICAgICAgICAnd29ya2xldCc7XG4gICAgICAgIGlmIChSZWFuaW1hdGVkKSB7XG4gICAgICAgICAgUmVhbmltYXRlZC5zZXRHZXN0dXJlU3RhdGUoaGFuZGxlclRhZywgU3RhdGUuQkVHQU4pO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIGNvbnNvbGUud2Fybih3YXJuaW5nTWVzc2FnZSk7XG4gICAgICAgIH1cbiAgICAgIH0sXG5cbiAgICAgIGFjdGl2YXRlOiAoKSA9PiB7XG4gICAgICAgICd3b3JrbGV0JztcbiAgICAgICAgaWYgKFJlYW5pbWF0ZWQpIHtcbiAgICAgICAgICBSZWFuaW1hdGVkLnNldEdlc3R1cmVTdGF0ZShoYW5kbGVyVGFnLCBTdGF0ZS5BQ1RJVkUpO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIGNvbnNvbGUud2Fybih3YXJuaW5nTWVzc2FnZSk7XG4gICAgICAgIH1cbiAgICAgIH0sXG5cbiAgICAgIGZhaWw6ICgpID0+IHtcbiAgICAgICAgJ3dvcmtsZXQnO1xuICAgICAgICBpZiAoUmVhbmltYXRlZCkge1xuICAgICAgICAgIFJlYW5pbWF0ZWQuc2V0R2VzdHVyZVN0YXRlKGhhbmRsZXJUYWcsIFN0YXRlLkZBSUxFRCk7XG4gICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgY29uc29sZS53YXJuKHdhcm5pbmdNZXNzYWdlKTtcbiAgICAgICAgfVxuICAgICAgfSxcblxuICAgICAgZW5kOiAoKSA9PiB7XG4gICAgICAgICd3b3JrbGV0JztcbiAgICAgICAgaWYgKFJlYW5pbWF0ZWQpIHtcbiAgICAgICAgICBSZWFuaW1hdGVkLnNldEdlc3R1cmVTdGF0ZShoYW5kbGVyVGFnLCBTdGF0ZS5FTkQpO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIGNvbnNvbGUud2Fybih3YXJuaW5nTWVzc2FnZSk7XG4gICAgICAgIH1cbiAgICAgIH0sXG4gICAgfTtcbiAgfSxcbn07XG4iXX0=

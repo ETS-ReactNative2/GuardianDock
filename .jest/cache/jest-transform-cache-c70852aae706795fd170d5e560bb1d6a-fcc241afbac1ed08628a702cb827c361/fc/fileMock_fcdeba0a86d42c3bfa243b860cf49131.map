@@ -1,0 +1,1 @@
+{"version":3,"sources":["fileMock.js"],"names":["module","exports"],"mappings":"AAAAA,MAAM,CAACC,OAAP,GAAiB,gBAAjB","sourcesContent":["module.exports = 'test-file-stub';\n"]}

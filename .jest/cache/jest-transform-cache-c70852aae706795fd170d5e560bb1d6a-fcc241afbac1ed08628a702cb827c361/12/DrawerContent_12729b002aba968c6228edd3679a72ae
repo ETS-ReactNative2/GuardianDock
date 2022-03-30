@@ -1,0 +1,111 @@
+d210d037eefdf2b0f87a8c6d24306cd8
+"use strict";
+
+var _interopRequireDefault2 = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _objectWithoutProperties2 = _interopRequireDefault2(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _excluded = ["descriptors", "state"];
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = DrawerContent;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _DrawerContentScrollView = _interopRequireDefault(require("./DrawerContentScrollView"));
+
+var _DrawerItemList = _interopRequireDefault(require("./DrawerItemList"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function DrawerContent(_ref) {
+  var descriptors = _ref.descriptors,
+      state = _ref.state,
+      rest = (0, _objectWithoutProperties2.default)(_ref, _excluded);
+  var focusedRoute = state.routes[state.index];
+  var focusedDescriptor = descriptors[focusedRoute.key];
+  var focusedOptions = focusedDescriptor.options;
+  var drawerContentStyle = focusedOptions.drawerContentStyle,
+      drawerContentContainerStyle = focusedOptions.drawerContentContainerStyle;
+  return React.createElement(_DrawerContentScrollView.default, _extends({}, rest, {
+    contentContainerStyle: drawerContentContainerStyle,
+    style: drawerContentStyle
+  }), React.createElement(_DrawerItemList.default, _extends({
+    descriptors: descriptors,
+    state: state
+  }, rest)));
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQUE7O0FBR0E7O0FBQ0E7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFFZSxTQUFTQSxhQUFULE9BSWlCO0FBQUEsTUFIOUJDLFdBRzhCLFFBSDlCQSxXQUc4QjtBQUFBLE1BRjlCQyxLQUU4QixRQUY5QkEsS0FFOEI7QUFBQSxNQUQzQkMsSUFDMkI7QUFDOUIsTUFBTUMsWUFBWSxHQUFHRixLQUFLLENBQUNHLE1BQU5ILENBQWFBLEtBQUssQ0FBQ0ksS0FBbkJKLENBQXJCO0FBQ0EsTUFBTUssaUJBQWlCLEdBQUdOLFdBQVcsQ0FBQ0csWUFBWSxDQUFDSSxHQUFkLENBQXJDO0FBQ0EsTUFBTUMsY0FBYyxHQUFHRixpQkFBaUIsQ0FBQ0csT0FBekM7QUFFQSxNQUFRQyxrQkFBUixHQUE0REYsY0FBNUQsQ0FBUUUsa0JBQVI7QUFBQSxNQUE0QkMsMkJBQTVCLEdBQTRESCxjQUE1RCxDQUE0QkcsMkJBQTVCO0FBRUEsU0FDRUMsb0JBQUNDLGdDQUFELGVBQ01YLElBRE47QUFFRVkseUJBQXFCLEVBQUVILDJCQUZ6QjtBQUdFSSxTQUFLLEVBQUVMO0FBSFQsTUFLRUUsb0JBQUNJLHVCQUFEO0FBQWdCaEIsZUFBVyxFQUFFQSxXQUE3QjtBQUEwQ0MsU0FBSyxFQUFFQTtBQUFqRCxLQUE0REMsSUFBNUQsRUFMRixDQURGO0FBU0QiLCJuYW1lcyI6WyJEcmF3ZXJDb250ZW50IiwiZGVzY3JpcHRvcnMiLCJzdGF0ZSIsInJlc3QiLCJmb2N1c2VkUm91dGUiLCJyb3V0ZXMiLCJpbmRleCIsImZvY3VzZWREZXNjcmlwdG9yIiwia2V5IiwiZm9jdXNlZE9wdGlvbnMiLCJvcHRpb25zIiwiZHJhd2VyQ29udGVudFN0eWxlIiwiZHJhd2VyQ29udGVudENvbnRhaW5lclN0eWxlIiwiUmVhY3QiLCJfRHJhd2VyQ29udGVudFNjcm9sbFZpZXciLCJjb250ZW50Q29udGFpbmVyU3R5bGUiLCJzdHlsZSIsIl9EcmF3ZXJJdGVtTGlzdCJdLCJzb3VyY2VzIjpbIkRyYXdlckNvbnRlbnQudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAqIGFzIFJlYWN0IGZyb20gJ3JlYWN0JztcblxuaW1wb3J0IHR5cGUgeyBEcmF3ZXJDb250ZW50Q29tcG9uZW50UHJvcHMgfSBmcm9tICcuLi90eXBlcyc7XG5pbXBvcnQgRHJhd2VyQ29udGVudFNjcm9sbFZpZXcgZnJvbSAnLi9EcmF3ZXJDb250ZW50U2Nyb2xsVmlldyc7XG5pbXBvcnQgRHJhd2VySXRlbUxpc3QgZnJvbSAnLi9EcmF3ZXJJdGVtTGlzdCc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIERyYXdlckNvbnRlbnQoe1xuICBkZXNjcmlwdG9ycyxcbiAgc3RhdGUsXG4gIC4uLnJlc3Rcbn06IERyYXdlckNvbnRlbnRDb21wb25lbnRQcm9wcykge1xuICBjb25zdCBmb2N1c2VkUm91dGUgPSBzdGF0ZS5yb3V0ZXNbc3RhdGUuaW5kZXhdO1xuICBjb25zdCBmb2N1c2VkRGVzY3JpcHRvciA9IGRlc2NyaXB0b3JzW2ZvY3VzZWRSb3V0ZS5rZXldO1xuICBjb25zdCBmb2N1c2VkT3B0aW9ucyA9IGZvY3VzZWREZXNjcmlwdG9yLm9wdGlvbnM7XG5cbiAgY29uc3QgeyBkcmF3ZXJDb250ZW50U3R5bGUsIGRyYXdlckNvbnRlbnRDb250YWluZXJTdHlsZSB9ID0gZm9jdXNlZE9wdGlvbnM7XG5cbiAgcmV0dXJuIChcbiAgICA8RHJhd2VyQ29udGVudFNjcm9sbFZpZXdcbiAgICAgIHsuLi5yZXN0fVxuICAgICAgY29udGVudENvbnRhaW5lclN0eWxlPXtkcmF3ZXJDb250ZW50Q29udGFpbmVyU3R5bGV9XG4gICAgICBzdHlsZT17ZHJhd2VyQ29udGVudFN0eWxlfVxuICAgID5cbiAgICAgIDxEcmF3ZXJJdGVtTGlzdCBkZXNjcmlwdG9ycz17ZGVzY3JpcHRvcnN9IHN0YXRlPXtzdGF0ZX0gey4uLnJlc3R9IC8+XG4gICAgPC9EcmF3ZXJDb250ZW50U2Nyb2xsVmlldz5cbiAgKTtcbn1cbiJdfQ==

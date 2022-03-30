@@ -1,0 +1,178 @@
+b6b6eee6488435c701e0401975094165
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _exportNames = {
+  Assets: true,
+  Background: true,
+  getDefaultHeaderHeight: true,
+  getHeaderTitle: true,
+  Header: true,
+  HeaderBackButton: true,
+  HeaderBackContext: true,
+  HeaderBackground: true,
+  HeaderHeightContext: true,
+  HeaderShownContext: true,
+  HeaderTitle: true,
+  useHeaderHeight: true,
+  MissingIcon: true,
+  PlatformPressable: true,
+  ResourceSavingView: true,
+  SafeAreaProviderCompat: true,
+  Screen: true
+};
+exports.Assets = void 0;
+Object.defineProperty(exports, "Background", {
+  enumerable: true,
+  get: function get() {
+    return _Background.default;
+  }
+});
+Object.defineProperty(exports, "Header", {
+  enumerable: true,
+  get: function get() {
+    return _Header.default;
+  }
+});
+Object.defineProperty(exports, "HeaderBackButton", {
+  enumerable: true,
+  get: function get() {
+    return _HeaderBackButton.default;
+  }
+});
+Object.defineProperty(exports, "HeaderBackContext", {
+  enumerable: true,
+  get: function get() {
+    return _HeaderBackContext.default;
+  }
+});
+Object.defineProperty(exports, "HeaderBackground", {
+  enumerable: true,
+  get: function get() {
+    return _HeaderBackground.default;
+  }
+});
+Object.defineProperty(exports, "HeaderHeightContext", {
+  enumerable: true,
+  get: function get() {
+    return _HeaderHeightContext.default;
+  }
+});
+Object.defineProperty(exports, "HeaderShownContext", {
+  enumerable: true,
+  get: function get() {
+    return _HeaderShownContext.default;
+  }
+});
+Object.defineProperty(exports, "HeaderTitle", {
+  enumerable: true,
+  get: function get() {
+    return _HeaderTitle.default;
+  }
+});
+Object.defineProperty(exports, "MissingIcon", {
+  enumerable: true,
+  get: function get() {
+    return _MissingIcon.default;
+  }
+});
+Object.defineProperty(exports, "PlatformPressable", {
+  enumerable: true,
+  get: function get() {
+    return _PlatformPressable.default;
+  }
+});
+Object.defineProperty(exports, "ResourceSavingView", {
+  enumerable: true,
+  get: function get() {
+    return _ResourceSavingView.default;
+  }
+});
+Object.defineProperty(exports, "SafeAreaProviderCompat", {
+  enumerable: true,
+  get: function get() {
+    return _SafeAreaProviderCompat.default;
+  }
+});
+Object.defineProperty(exports, "Screen", {
+  enumerable: true,
+  get: function get() {
+    return _Screen.default;
+  }
+});
+Object.defineProperty(exports, "getDefaultHeaderHeight", {
+  enumerable: true,
+  get: function get() {
+    return _getDefaultHeaderHeight.default;
+  }
+});
+Object.defineProperty(exports, "getHeaderTitle", {
+  enumerable: true,
+  get: function get() {
+    return _getHeaderTitle.default;
+  }
+});
+Object.defineProperty(exports, "useHeaderHeight", {
+  enumerable: true,
+  get: function get() {
+    return _useHeaderHeight.default;
+  }
+});
+
+var _Background = _interopRequireDefault(require("./Background"));
+
+var _getDefaultHeaderHeight = _interopRequireDefault(require("./Header/getDefaultHeaderHeight"));
+
+var _getHeaderTitle = _interopRequireDefault(require("./Header/getHeaderTitle"));
+
+var _Header = _interopRequireDefault(require("./Header/Header"));
+
+var _HeaderBackButton = _interopRequireDefault(require("./Header/HeaderBackButton"));
+
+var _HeaderBackContext = _interopRequireDefault(require("./Header/HeaderBackContext"));
+
+var _HeaderBackground = _interopRequireDefault(require("./Header/HeaderBackground"));
+
+var _HeaderHeightContext = _interopRequireDefault(require("./Header/HeaderHeightContext"));
+
+var _HeaderShownContext = _interopRequireDefault(require("./Header/HeaderShownContext"));
+
+var _HeaderTitle = _interopRequireDefault(require("./Header/HeaderTitle"));
+
+var _useHeaderHeight = _interopRequireDefault(require("./Header/useHeaderHeight"));
+
+var _MissingIcon = _interopRequireDefault(require("./MissingIcon"));
+
+var _PlatformPressable = _interopRequireDefault(require("./PlatformPressable"));
+
+var _ResourceSavingView = _interopRequireDefault(require("./ResourceSavingView"));
+
+var _SafeAreaProviderCompat = _interopRequireDefault(require("./SafeAreaProviderCompat"));
+
+var _Screen = _interopRequireDefault(require("./Screen"));
+
+var _types = require("./types");
+
+Object.keys(_types).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _types[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _types[key];
+    }
+  });
+});
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+var Assets = [require('./assets/back-icon.png'), require('./assets/back-icon-mask.png')];
+exports.Assets = Assets;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFDQTs7QUFTQTs7QUFBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQUE7QUFBQUM7QUFBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTs7Ozs7Ozs7QUFQTyxJQUFNQyxNQUFNLEdBQUcsQ0FFcEJDLE9BQU8sQ0FBQyx3QkFBRCxDQUZhLEVBSXBCQSxPQUFPLENBQUMsNkJBQUQsQ0FKYSxDQUFmIiwibmFtZXMiOlsiT2JqZWN0IiwiZW51bWVyYWJsZSIsImdldCIsIkFzc2V0cyIsInJlcXVpcmUiXSwic291cmNlcyI6WyJpbmRleC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHsgZGVmYXVsdCBhcyBCYWNrZ3JvdW5kIH0gZnJvbSAnLi9CYWNrZ3JvdW5kJztcbmV4cG9ydCB7IGRlZmF1bHQgYXMgZ2V0RGVmYXVsdEhlYWRlckhlaWdodCB9IGZyb20gJy4vSGVhZGVyL2dldERlZmF1bHRIZWFkZXJIZWlnaHQnO1xuZXhwb3J0IHsgZGVmYXVsdCBhcyBnZXRIZWFkZXJUaXRsZSB9IGZyb20gJy4vSGVhZGVyL2dldEhlYWRlclRpdGxlJztcbmV4cG9ydCB7IGRlZmF1bHQgYXMgSGVhZGVyIH0gZnJvbSAnLi9IZWFkZXIvSGVhZGVyJztcbmV4cG9ydCB7IGRlZmF1bHQgYXMgSGVhZGVyQmFja0J1dHRvbiB9IGZyb20gJy4vSGVhZGVyL0hlYWRlckJhY2tCdXR0b24nO1xuZXhwb3J0IHsgZGVmYXVsdCBhcyBIZWFkZXJCYWNrQ29udGV4dCB9IGZyb20gJy4vSGVhZGVyL0hlYWRlckJhY2tDb250ZXh0JztcbmV4cG9ydCB7IGRlZmF1bHQgYXMgSGVhZGVyQmFja2dyb3VuZCB9IGZyb20gJy4vSGVhZGVyL0hlYWRlckJhY2tncm91bmQnO1xuZXhwb3J0IHsgZGVmYXVsdCBhcyBIZWFkZXJIZWlnaHRDb250ZXh0IH0gZnJvbSAnLi9IZWFkZXIvSGVhZGVySGVpZ2h0Q29udGV4dCc7XG5leHBvcnQgeyBkZWZhdWx0IGFzIEhlYWRlclNob3duQ29udGV4dCB9IGZyb20gJy4vSGVhZGVyL0hlYWRlclNob3duQ29udGV4dCc7XG5leHBvcnQgeyBkZWZhdWx0IGFzIEhlYWRlclRpdGxlIH0gZnJvbSAnLi9IZWFkZXIvSGVhZGVyVGl0bGUnO1xuZXhwb3J0IHsgZGVmYXVsdCBhcyB1c2VIZWFkZXJIZWlnaHQgfSBmcm9tICcuL0hlYWRlci91c2VIZWFkZXJIZWlnaHQnO1xuZXhwb3J0IHsgZGVmYXVsdCBhcyBNaXNzaW5nSWNvbiB9IGZyb20gJy4vTWlzc2luZ0ljb24nO1xuZXhwb3J0IHsgZGVmYXVsdCBhcyBQbGF0Zm9ybVByZXNzYWJsZSB9IGZyb20gJy4vUGxhdGZvcm1QcmVzc2FibGUnO1xuZXhwb3J0IHsgZGVmYXVsdCBhcyBSZXNvdXJjZVNhdmluZ1ZpZXcgfSBmcm9tICcuL1Jlc291cmNlU2F2aW5nVmlldyc7XG5leHBvcnQgeyBkZWZhdWx0IGFzIFNhZmVBcmVhUHJvdmlkZXJDb21wYXQgfSBmcm9tICcuL1NhZmVBcmVhUHJvdmlkZXJDb21wYXQnO1xuZXhwb3J0IHsgZGVmYXVsdCBhcyBTY3JlZW4gfSBmcm9tICcuL1NjcmVlbic7XG5cbmV4cG9ydCBjb25zdCBBc3NldHMgPSBbXG4gIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBpbXBvcnQvbm8tY29tbW9uanNcbiAgcmVxdWlyZSgnLi9hc3NldHMvYmFjay1pY29uLnBuZycpLFxuICAvLyBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgaW1wb3J0L25vLWNvbW1vbmpzXG4gIHJlcXVpcmUoJy4vYXNzZXRzL2JhY2staWNvbi1tYXNrLnBuZycpLFxuXTtcblxuZXhwb3J0ICogZnJvbSAnLi90eXBlcyc7XG4iXX0=

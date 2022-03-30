@@ -1,0 +1,20 @@
+b6bdbf40bdd5e7727a4138a2563c5637
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _getNamedContext = _interopRequireDefault(require("../getNamedContext"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+var HeaderHeightContext = (0, _getNamedContext.default)('HeaderHeightContext', undefined);
+var _default = HeaderHeightContext;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOzs7Ozs7OztBQUVBLElBQU1BLG1CQUFtQixHQUFHLDhCQUMxQixxQkFEMEIsRUFFMUJDLFNBRjBCLENBQTVCO2VBS2VEIiwibmFtZXMiOlsiSGVhZGVySGVpZ2h0Q29udGV4dCIsInVuZGVmaW5lZCJdLCJzb3VyY2VzIjpbIkhlYWRlckhlaWdodENvbnRleHQudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBnZXROYW1lZENvbnRleHQgZnJvbSAnLi4vZ2V0TmFtZWRDb250ZXh0JztcblxuY29uc3QgSGVhZGVySGVpZ2h0Q29udGV4dCA9IGdldE5hbWVkQ29udGV4dDxudW1iZXIgfCB1bmRlZmluZWQ+KFxuICAnSGVhZGVySGVpZ2h0Q29udGV4dCcsXG4gIHVuZGVmaW5lZFxuKTtcblxuZXhwb3J0IGRlZmF1bHQgSGVhZGVySGVpZ2h0Q29udGV4dDtcbiJdfQ==

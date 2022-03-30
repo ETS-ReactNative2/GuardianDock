@@ -1,0 +1,96 @@
+3e9af8e217b3836eb3cbbb6b14e16430
+"use strict";
+
+var _interopRequireDefault2 = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _toConsumableArray2 = _interopRequireDefault2(require("@babel/runtime/helpers/toConsumableArray"));
+
+var _classCallCheck2 = _interopRequireDefault2(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault2(require("@babel/runtime/helpers/createClass"));
+
+var _inherits2 = _interopRequireDefault2(require("@babel/runtime/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault2(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault2(require("@babel/runtime/helpers/getPrototypeOf"));
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ForceTouchGestureHandler = exports.forceTouchHandlerName = exports.forceTouchGestureHandlerProps = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _utils = require("../utils");
+
+var _PlatformConstants = _interopRequireDefault(require("../PlatformConstants"));
+
+var _createHandler = _interopRequireDefault(require("./createHandler"));
+
+var _gestureHandlerCommon = require("./gestureHandlerCommon");
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+var forceTouchGestureHandlerProps = ['minForce', 'maxForce', 'feedbackOnActivation'];
+exports.forceTouchGestureHandlerProps = forceTouchGestureHandlerProps;
+
+var ForceTouchFallback = function (_react$default$Compon) {
+  (0, _inherits2.default)(ForceTouchFallback, _react$default$Compon);
+
+  var _super = _createSuper(ForceTouchFallback);
+
+  function ForceTouchFallback() {
+    (0, _classCallCheck2.default)(this, ForceTouchFallback);
+    return _super.apply(this, arguments);
+  }
+
+  (0, _createClass2.default)(ForceTouchFallback, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.warn((0, _utils.tagMessage)('ForceTouchGestureHandler is not available on this platform. Please use ForceTouchGestureHandler.forceTouchAvailable to conditionally render other components that would provide a fallback behavior specific to your usecase'));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return this.props.children;
+    }
+  }]);
+  return ForceTouchFallback;
+}(_react.default.Component);
+
+_defineProperty(ForceTouchFallback, "forceTouchAvailable", false);
+
+var forceTouchHandlerName = 'ForceTouchGestureHandler';
+exports.forceTouchHandlerName = forceTouchHandlerName;
+var ForceTouchGestureHandler = _PlatformConstants.default !== null && _PlatformConstants.default !== void 0 && _PlatformConstants.default.forceTouchAvailable ? (0, _createHandler.default)({
+  name: forceTouchHandlerName,
+  allowedProps: [].concat((0, _toConsumableArray2.default)(_gestureHandlerCommon.baseGestureHandlerProps), forceTouchGestureHandlerProps),
+  config: {}
+}) : ForceTouchFallback;
+exports.ForceTouchGestureHandler = ForceTouchGestureHandler;
+ForceTouchGestureHandler.forceTouchAvailable = (_PlatformConstants.default === null || _PlatformConstants.default === void 0 ? void 0 : _PlatformConstants.default.forceTouchAvailable) || false;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBOztBQUNBOztBQUNBOztBQUNBOztBQUNBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUtPLElBQU1BLDZCQUE2QixHQUFHLENBQzNDLFVBRDJDLEVBRTNDLFVBRjJDLEVBRzNDLHNCQUgyQyxDQUF0Qzs7O0lBTURDLGtCOzs7Ozs7Ozs7Ozs7V0FFSkMsNkJBQW9CO0FBQ2xCQyxhQUFPLENBQUNDLElBQVJELENBQ0UsdUJBQ0UsOE5BREYsQ0FERkE7QUFLRDs7O1dBQ0RFLGtCQUFTO0FBQ1AsYUFBTyxLQUFLQyxLQUFMLENBQVdDLFFBQWxCO0FBQ0Q7OztFQVg4QkMsZUFBTUMsUzs7Z0JBQWpDUixvQix1QkFDeUI7O0FBc0R4QixJQUFNUyxxQkFBcUIsR0FBRywwQkFBOUI7O0FBR0EsSUFBTUMsd0JBQXdCLEdBQUdDLDJHQUFtQkMsbUJBQW5CRCxHQUNwQyw0QkFHRTtBQUNBRSxNQUFJLEVBQUVKLHFCQUROO0FBRUFLLGNBQVksNkNBQ1BDLDZDQURPLEdBRVBoQiw2QkFGTyxDQUZaO0FBTUFpQixRQUFNLEVBQUU7QUFOUixDQUhGLENBRG9DTCxHQVlwQ1gsa0JBWkc7O0FBY05VLHdCQUFELENBQXVERSxtQkFBdERGLEdBQ0Msb0hBQW1CRSxtQkFBbkIsS0FBMEMsS0FEM0NGIiwibmFtZXMiOlsiZm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyUHJvcHMiLCJGb3JjZVRvdWNoRmFsbGJhY2siLCJjb21wb25lbnREaWRNb3VudCIsImNvbnNvbGUiLCJ3YXJuIiwicmVuZGVyIiwicHJvcHMiLCJjaGlsZHJlbiIsIlJlYWN0IiwiQ29tcG9uZW50IiwiZm9yY2VUb3VjaEhhbmRsZXJOYW1lIiwiRm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyIiwiUGxhdGZvcm1Db25zdGFudHMiLCJmb3JjZVRvdWNoQXZhaWxhYmxlIiwibmFtZSIsImFsbG93ZWRQcm9wcyIsImJhc2VHZXN0dXJlSGFuZGxlclByb3BzIiwiY29uZmlnIl0sInNvdXJjZXMiOlsiRm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyB0YWdNZXNzYWdlIH0gZnJvbSAnLi4vdXRpbHMnO1xuaW1wb3J0IFBsYXRmb3JtQ29uc3RhbnRzIGZyb20gJy4uL1BsYXRmb3JtQ29uc3RhbnRzJztcbmltcG9ydCBjcmVhdGVIYW5kbGVyIGZyb20gJy4vY3JlYXRlSGFuZGxlcic7XG5pbXBvcnQge1xuICBCYXNlR2VzdHVyZUhhbmRsZXJQcm9wcyxcbiAgYmFzZUdlc3R1cmVIYW5kbGVyUHJvcHMsXG59IGZyb20gJy4vZ2VzdHVyZUhhbmRsZXJDb21tb24nO1xuXG5leHBvcnQgY29uc3QgZm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyUHJvcHMgPSBbXG4gICdtaW5Gb3JjZScsXG4gICdtYXhGb3JjZScsXG4gICdmZWVkYmFja09uQWN0aXZhdGlvbicsXG5dIGFzIGNvbnN0O1xuXG5jbGFzcyBGb3JjZVRvdWNoRmFsbGJhY2sgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICBzdGF0aWMgZm9yY2VUb3VjaEF2YWlsYWJsZSA9IGZhbHNlO1xuICBjb21wb25lbnREaWRNb3VudCgpIHtcbiAgICBjb25zb2xlLndhcm4oXG4gICAgICB0YWdNZXNzYWdlKFxuICAgICAgICAnRm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyIGlzIG5vdCBhdmFpbGFibGUgb24gdGhpcyBwbGF0Zm9ybS4gUGxlYXNlIHVzZSBGb3JjZVRvdWNoR2VzdHVyZUhhbmRsZXIuZm9yY2VUb3VjaEF2YWlsYWJsZSB0byBjb25kaXRpb25hbGx5IHJlbmRlciBvdGhlciBjb21wb25lbnRzIHRoYXQgd291bGQgcHJvdmlkZSBhIGZhbGxiYWNrIGJlaGF2aW9yIHNwZWNpZmljIHRvIHlvdXIgdXNlY2FzZSdcbiAgICAgIClcbiAgICApO1xuICB9XG4gIHJlbmRlcigpIHtcbiAgICByZXR1cm4gdGhpcy5wcm9wcy5jaGlsZHJlbjtcbiAgfVxufVxuXG5leHBvcnQgdHlwZSBGb3JjZVRvdWNoR2VzdHVyZUhhbmRsZXJFdmVudFBheWxvYWQgPSB7XG4gIHg6IG51bWJlcjtcbiAgeTogbnVtYmVyO1xuICBhYnNvbHV0ZVg6IG51bWJlcjtcbiAgYWJzb2x1dGVZOiBudW1iZXI7XG5cbiAgLyoqXG4gICAqIFRoZSBwcmVzc3VyZSBvZiBhIHRvdWNoLlxuICAgKi9cbiAgZm9yY2U6IG51bWJlcjtcbn07XG5cbmV4cG9ydCBpbnRlcmZhY2UgRm9yY2VUb3VjaEdlc3R1cmVDb25maWcge1xuICAvKipcbiAgICpcbiAgICogQSBtaW5pbWFsIHByZXNzdXJlIHRoYXQgaXMgcmVxdWlyZWQgYmVmb3JlIGhhbmRsZXIgY2FuIGFjdGl2YXRlLiBTaG91bGQgYmUgYVxuICAgKiB2YWx1ZSBmcm9tIHJhbmdlIGBbMC4wLCAxLjBdYC4gRGVmYXVsdCBpcyBgMC4yYC5cbiAgICovXG4gIG1pbkZvcmNlPzogbnVtYmVyO1xuXG4gIC8qKlxuICAgKiBBIG1heGltYWwgcHJlc3N1cmUgdGhhdCBjb3VsZCBiZSBhcHBsaWVkIGZvciBoYW5kbGVyLiBJZiB0aGUgcHJlc3N1cmUgaXNcbiAgICogZ3JlYXRlciwgaGFuZGxlciBmYWlscy4gU2hvdWxkIGJlIGEgdmFsdWUgZnJvbSByYW5nZSBgWzAuMCwgMS4wXWAuXG4gICAqL1xuICBtYXhGb3JjZT86IG51bWJlcjtcblxuICAvKipcbiAgICogQm9vbGVhbiB2YWx1ZSBkZWZpbmluZyBpZiBoYXB0aWMgZmVlZGJhY2sgaGFzIHRvIGJlIHBlcmZvcm1lZCBvblxuICAgKiBhY3RpdmF0aW9uLlxuICAgKi9cbiAgZmVlZGJhY2tPbkFjdGl2YXRpb24/OiBib29sZWFuO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEZvcmNlVG91Y2hHZXN0dXJlSGFuZGxlclByb3BzXG4gIGV4dGVuZHMgQmFzZUdlc3R1cmVIYW5kbGVyUHJvcHM8Rm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyRXZlbnRQYXlsb2FkPixcbiAgICBGb3JjZVRvdWNoR2VzdHVyZUNvbmZpZyB7fVxuXG5leHBvcnQgdHlwZSBGb3JjZVRvdWNoR2VzdHVyZUhhbmRsZXIgPSB0eXBlb2YgRm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyICYge1xuICBmb3JjZVRvdWNoQXZhaWxhYmxlOiBib29sZWFuO1xufTtcblxuZXhwb3J0IGNvbnN0IGZvcmNlVG91Y2hIYW5kbGVyTmFtZSA9ICdGb3JjZVRvdWNoR2VzdHVyZUhhbmRsZXInO1xuXG4vLyBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgQHR5cGVzY3JpcHQtZXNsaW50L25vLXJlZGVjbGFyZSAtLSBiYWNrd2FyZCBjb21wYXRpYmlsaXR5OyBzZWUgZGVzY3JpcHRpb24gb24gdGhlIHRvcCBvZiBnZXN0dXJlSGFuZGxlckNvbW1vbi50cyBmaWxlXG5leHBvcnQgY29uc3QgRm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyID0gUGxhdGZvcm1Db25zdGFudHM/LmZvcmNlVG91Y2hBdmFpbGFibGVcbiAgPyBjcmVhdGVIYW5kbGVyPFxuICAgICAgRm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyUHJvcHMsXG4gICAgICBGb3JjZVRvdWNoR2VzdHVyZUhhbmRsZXJFdmVudFBheWxvYWRcbiAgICA+KHtcbiAgICAgIG5hbWU6IGZvcmNlVG91Y2hIYW5kbGVyTmFtZSxcbiAgICAgIGFsbG93ZWRQcm9wczogW1xuICAgICAgICAuLi5iYXNlR2VzdHVyZUhhbmRsZXJQcm9wcyxcbiAgICAgICAgLi4uZm9yY2VUb3VjaEdlc3R1cmVIYW5kbGVyUHJvcHMsXG4gICAgICBdIGFzIGNvbnN0LFxuICAgICAgY29uZmlnOiB7fSxcbiAgICB9KVxuICA6IEZvcmNlVG91Y2hGYWxsYmFjaztcblxuKEZvcmNlVG91Y2hHZXN0dXJlSGFuZGxlciBhcyBGb3JjZVRvdWNoR2VzdHVyZUhhbmRsZXIpLmZvcmNlVG91Y2hBdmFpbGFibGUgPVxuICBQbGF0Zm9ybUNvbnN0YW50cz8uZm9yY2VUb3VjaEF2YWlsYWJsZSB8fCBmYWxzZTtcbiJdfQ==

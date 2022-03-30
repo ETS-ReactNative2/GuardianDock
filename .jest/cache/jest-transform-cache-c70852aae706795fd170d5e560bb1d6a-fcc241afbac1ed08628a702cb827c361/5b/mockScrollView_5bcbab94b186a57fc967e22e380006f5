@@ -1,0 +1,60 @@
+86db87d24082bd95d4492256aa5e4326
+'use strict';
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _jsxRuntime = require("react/jsx-runtime");
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+var React = require('react');
+
+var View = require("../Libraries/Components/View/View");
+
+var requireNativeComponent = require("../Libraries/ReactNative/requireNativeComponent");
+
+var RCTScrollView = requireNativeComponent('RCTScrollView');
+
+function mockScrollView(BaseComponent) {
+  var ScrollViewMock = function (_BaseComponent) {
+    (0, _inherits2.default)(ScrollViewMock, _BaseComponent);
+
+    var _super = _createSuper(ScrollViewMock);
+
+    function ScrollViewMock() {
+      (0, _classCallCheck2.default)(this, ScrollViewMock);
+      return _super.apply(this, arguments);
+    }
+
+    (0, _createClass2.default)(ScrollViewMock, [{
+      key: "render",
+      value: function render() {
+        return (0, _jsxRuntime.jsxs)(RCTScrollView, (0, _extends2.default)({}, this.props, {
+          children: [this.props.refreshControl, (0, _jsxRuntime.jsx)(View, {
+            children: this.props.children
+          })]
+        }));
+      }
+    }]);
+    return ScrollViewMock;
+  }(BaseComponent);
+
+  return ScrollViewMock;
+}
+
+module.exports = mockScrollView;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vY2tTY3JvbGxWaWV3LmpzIl0sIm5hbWVzIjpbIlJlYWN0IiwicmVxdWlyZSIsIlZpZXciLCJyZXF1aXJlTmF0aXZlQ29tcG9uZW50IiwiUkNUU2Nyb2xsVmlldyIsIm1vY2tTY3JvbGxWaWV3IiwiQmFzZUNvbXBvbmVudCIsIlNjcm9sbFZpZXdNb2NrIiwicHJvcHMiLCJyZWZyZXNoQ29udHJvbCIsImNoaWxkcmVuIiwibW9kdWxlIiwiZXhwb3J0cyJdLCJtYXBwaW5ncyI6IkFBWUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFFQSxJQUFNQSxLQUFLLEdBQUdDLE9BQU8sQ0FBQyxPQUFELENBQXJCOztBQUNBLElBQU1DLElBQUksR0FBR0QsT0FBTyxxQ0FBcEI7O0FBRUEsSUFBTUUsc0JBQXNCLEdBQUdGLE9BQU8sbURBQXRDOztBQUNBLElBQU1HLGFBQXlCLEdBQUdELHNCQUFzQixDQUFDLGVBQUQsQ0FBeEQ7O0FBRUEsU0FBU0UsY0FBVCxDQUF3QkMsYUFBeEIsRUFBbUQ7QUFBQSxNQUMzQ0MsY0FEMkM7QUFBQTs7QUFBQTs7QUFBQTtBQUFBO0FBQUE7QUFBQTs7QUFBQTtBQUFBO0FBQUEsYUFFL0Msa0JBQThDO0FBQzVDLGVBQ0Usc0JBQUMsYUFBRCw2QkFBbUIsS0FBS0MsS0FBeEI7QUFBQSxxQkFDRyxLQUFLQSxLQUFMLENBQVdDLGNBRGQsRUFFRSxxQkFBQyxJQUFEO0FBQUEsc0JBQU8sS0FBS0QsS0FBTCxDQUFXRTtBQUFsQixZQUZGO0FBQUEsV0FERjtBQU1EO0FBVDhDO0FBQUE7QUFBQSxJQUNwQkosYUFEb0I7O0FBV2pELFNBQU9DLGNBQVA7QUFDRDs7QUFFREksTUFBTSxDQUFDQyxPQUFQLEdBQWtCUCxjQUFsQiIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQ29weXJpZ2h0IChjKSBGYWNlYm9vaywgSW5jLiBhbmQgaXRzIGFmZmlsaWF0ZXMuXG4gKlxuICogVGhpcyBzb3VyY2UgY29kZSBpcyBsaWNlbnNlZCB1bmRlciB0aGUgTUlUIGxpY2Vuc2UgZm91bmQgaW4gdGhlXG4gKiBMSUNFTlNFIGZpbGUgaW4gdGhlIHJvb3QgZGlyZWN0b3J5IG9mIHRoaXMgc291cmNlIHRyZWUuXG4gKlxuICogQGZvcm1hdFxuICogQGZsb3cgc3RyaWN0LWxvY2FsXG4gKi9cblxuLyogZXNsaW50LWVudiBqZXN0ICovXG5cbid1c2Ugc3RyaWN0JztcblxuY29uc3QgUmVhY3QgPSByZXF1aXJlKCdyZWFjdCcpO1xuY29uc3QgVmlldyA9IHJlcXVpcmUoJy4uL0xpYnJhcmllcy9Db21wb25lbnRzL1ZpZXcvVmlldycpO1xuXG5jb25zdCByZXF1aXJlTmF0aXZlQ29tcG9uZW50ID0gcmVxdWlyZSgnLi4vTGlicmFyaWVzL1JlYWN0TmF0aXZlL3JlcXVpcmVOYXRpdmVDb21wb25lbnQnKTtcbmNvbnN0IFJDVFNjcm9sbFZpZXc6ICRGbG93Rml4TWUgPSByZXF1aXJlTmF0aXZlQ29tcG9uZW50KCdSQ1RTY3JvbGxWaWV3Jyk7XG5cbmZ1bmN0aW9uIG1vY2tTY3JvbGxWaWV3KEJhc2VDb21wb25lbnQ6ICRGbG93Rml4TWUpIHtcbiAgY2xhc3MgU2Nyb2xsVmlld01vY2sgZXh0ZW5kcyBCYXNlQ29tcG9uZW50IHtcbiAgICByZW5kZXIoKTogUmVhY3QuRWxlbWVudDx0eXBlb2YgUkNUU2Nyb2xsVmlldz4ge1xuICAgICAgcmV0dXJuIChcbiAgICAgICAgPFJDVFNjcm9sbFZpZXcgey4uLnRoaXMucHJvcHN9PlxuICAgICAgICAgIHt0aGlzLnByb3BzLnJlZnJlc2hDb250cm9sfVxuICAgICAgICAgIDxWaWV3Pnt0aGlzLnByb3BzLmNoaWxkcmVufTwvVmlldz5cbiAgICAgICAgPC9SQ1RTY3JvbGxWaWV3PlxuICAgICAgKTtcbiAgICB9XG4gIH1cbiAgcmV0dXJuIFNjcm9sbFZpZXdNb2NrO1xufVxuXG5tb2R1bGUuZXhwb3J0cyA9IChtb2NrU2Nyb2xsVmlldzogJEZsb3dGaXhNZSk7XG4iXX0=

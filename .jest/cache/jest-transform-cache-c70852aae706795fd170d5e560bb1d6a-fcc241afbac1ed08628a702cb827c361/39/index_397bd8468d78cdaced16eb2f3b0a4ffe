@@ -1,0 +1,28 @@
+4ed96e9555f3447a6f5ecabacbf12c57
+"use strict";
+
+var _interopRequireDefault2 = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _extends2 = _interopRequireDefault2(require("@babel/runtime/helpers/extends"));
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _FAB = _interopRequireDefault(require("./FAB"));
+
+var _FABGroup = _interopRequireDefault(require("./FABGroup"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+var FAB = (0, _extends2.default)(_FAB.default, {
+  Group: _FABGroup.default
+});
+var _default = FAB;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFBQTs7QUFDQTs7Ozs7Ozs7QUFFQSxJQUFNQSxHQUFHLEdBQUdDLHVCQUVWQyxZQUZVRCxFQUdWO0FBRUVFLE9BQUssRUFBRUM7QUFGVCxDQUhVSCxDQUFaO2VBU2VEIiwibmFtZXMiOlsiRkFCIiwiT2JqZWN0IiwiRkFCQ29tcG9uZW50IiwiR3JvdXAiLCJGQUJHcm91cCJdLCJzb3VyY2VzIjpbImluZGV4LnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBGQUJDb21wb25lbnQgZnJvbSAnLi9GQUInO1xuaW1wb3J0IEZBQkdyb3VwIGZyb20gJy4vRkFCR3JvdXAnO1xuXG5jb25zdCBGQUIgPSBPYmplY3QuYXNzaWduKFxuICAvLyBAY29tcG9uZW50IC4vRkFCLnRzeFxuICBGQUJDb21wb25lbnQsXG4gIHtcbiAgICAvLyBAY29tcG9uZW50IC4vRkFCR3JvdXAudHN4XG4gICAgR3JvdXA6IEZBQkdyb3VwLFxuICB9XG4pO1xuXG5leHBvcnQgZGVmYXVsdCBGQUI7XG4iXX0=

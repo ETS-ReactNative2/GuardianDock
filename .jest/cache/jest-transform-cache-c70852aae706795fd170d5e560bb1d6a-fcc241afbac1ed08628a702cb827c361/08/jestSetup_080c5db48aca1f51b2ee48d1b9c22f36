@@ -1,0 +1,24 @@
+9aaf42b847660be241afb7539eb53763
+_getJestObj().mock("./src/RNGestureHandlerModule", function () {
+  return require("./src/mocks");
+});
+
+_getJestObj().mock("./lib/commonjs/RNGestureHandlerModule", function () {
+  return require("./lib/commonjs/mocks");
+});
+
+_getJestObj().mock("./lib/module/RNGestureHandlerModule", function () {
+  return require("./lib/module/mocks");
+});
+
+function _getJestObj() {
+  var _require = require("@jest/globals"),
+      jest = _require.jest;
+
+  _getJestObj = function _getJestObj() {
+    return jest;
+  };
+
+  return jest;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImplc3RTZXR1cC5qcyJdLCJuYW1lcyI6WyJtb2NrIiwicmVxdWlyZSJdLCJtYXBwaW5ncyI6IkFBQUEsY0FBS0EsSUFBTCxpQ0FBMEM7QUFBQSxTQUFNQyxPQUFPLGVBQWI7QUFBQSxDQUExQzs7QUFDQSxjQUFLRCxJQUFMLDBDQUFtRDtBQUFBLFNBQ2pEQyxPQUFPLHdCQUQwQztBQUFBLENBQW5EOztBQUdBLGNBQUtELElBQUwsd0NBQWlEO0FBQUEsU0FDL0NDLE9BQU8sc0JBRHdDO0FBQUEsQ0FBakQiLCJzb3VyY2VzQ29udGVudCI6WyJqZXN0Lm1vY2soJy4vc3JjL1JOR2VzdHVyZUhhbmRsZXJNb2R1bGUnLCAoKSA9PiByZXF1aXJlKCcuL3NyYy9tb2NrcycpKTtcbmplc3QubW9jaygnLi9saWIvY29tbW9uanMvUk5HZXN0dXJlSGFuZGxlck1vZHVsZScsICgpID0+XG4gIHJlcXVpcmUoJy4vbGliL2NvbW1vbmpzL21vY2tzJylcbik7XG5qZXN0Lm1vY2soJy4vbGliL21vZHVsZS9STkdlc3R1cmVIYW5kbGVyTW9kdWxlJywgKCkgPT5cbiAgcmVxdWlyZSgnLi9saWIvbW9kdWxlL21vY2tzJylcbik7XG4iXX0=

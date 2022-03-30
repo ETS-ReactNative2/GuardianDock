@@ -1,0 +1,1 @@
+{"version":3,"mappings":";;;;;;;AAAA;;;;;;;;AAEA,IAAMA,kBAAkB,GAAG,8BAAgB,oBAAhB,EAAsC,KAAtC,CAA3B;eAEeA","names":["HeaderShownContext"],"sources":["HeaderShownContext.tsx"],"sourcesContent":["import getNamedContext from '../getNamedContext';\n\nconst HeaderShownContext = getNamedContext('HeaderShownContext', false);\n\nexport default HeaderShownContext;\n"]}
