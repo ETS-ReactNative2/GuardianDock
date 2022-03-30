@@ -1,9 +1,0 @@
-15cdd568a8d0e6a916ed3d8797e2516c
-'use strict';
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require("./cjs/react.production.min.js");
-} else {
-  module.exports = require("./cjs/react.development.js");
-}
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbInByb2Nlc3MiLCJlbnYiLCJOT0RFX0VOViIsIm1vZHVsZSIsImV4cG9ydHMiLCJyZXF1aXJlIl0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQSxJQUFJQSxPQUFPLENBQUNDLEdBQVIsQ0FBWUMsUUFBWixLQUF5QixZQUE3QixFQUEyQztBQUN6Q0MsRUFBQUEsTUFBTSxDQUFDQyxPQUFQLEdBQWlCQyxPQUFPLGlDQUF4QjtBQUNELENBRkQsTUFFTztBQUNMRixFQUFBQSxNQUFNLENBQUNDLE9BQVAsR0FBaUJDLE9BQU8sOEJBQXhCO0FBQ0QiLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIHN0cmljdCc7XG5cbmlmIChwcm9jZXNzLmVudi5OT0RFX0VOViA9PT0gJ3Byb2R1Y3Rpb24nKSB7XG4gIG1vZHVsZS5leHBvcnRzID0gcmVxdWlyZSgnLi9janMvcmVhY3QucHJvZHVjdGlvbi5taW4uanMnKTtcbn0gZWxzZSB7XG4gIG1vZHVsZS5leHBvcnRzID0gcmVxdWlyZSgnLi9janMvcmVhY3QuZGV2ZWxvcG1lbnQuanMnKTtcbn1cbiJdfQ==
