@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 
-import {Image, SafeAreaView, ScrollView, View} from 'react-native';
 import {DrawerContentComponentProps, DrawerContentScrollView, DrawerItem} from "@react-navigation/drawer";
 
 import {DrawerContentItems, screenRouteProps} from '../config/DrawerItems';
-import {Divider, VStack, Text, Heading, Pressable, HStack} from "native-base";
+import {Divider, VStack, Text, Heading, Pressable, HStack, View, Image} from "native-base";
 
 export default function CustomDrawerContent(props: DrawerContentComponentProps) {
     return (
@@ -13,7 +12,7 @@ export default function CustomDrawerContent(props: DrawerContentComponentProps) 
                 <View style={{flex: 1}}>
                     <View style={{paddingLeft: 20, backgroundColor: '#222222'}}>
                         <View style={{flexDirection: 'row', marginTop: 15}}>
-                            <Image source={require('../../assets/logo-og-nbg.png')} style={{width: '100%', height: 162.5}}/>
+                            <Image source={require('../../assets/logo-og-nbg.png')} style={{width: '100%', height: 162.5}} alt="GuardianDock Logo"/>
                         </View>
                     </View>
                     {DrawerContentItems.map((value, _) => {
@@ -40,7 +39,7 @@ export default function CustomDrawerContent(props: DrawerContentComponentProps) 
                     })}
                 </View>
             </DrawerContentScrollView>
-            <VStack style={{marginBottom: 15, borderTopColor: '#f4f4f4', borderTopWidth: 1, justifyContent: 'center', alignContent: 'center'}}>
+            <VStack space='5' style={{marginBottom: 15, borderTopColor: '#f4f4f4', borderTopWidth: 1, justifyContent: 'center', alignContent: 'flex-end'}}>
                 <Heading size='xs' style={{textAlign: 'center'}}>
                     Version 0.0.1
                 </Heading>
