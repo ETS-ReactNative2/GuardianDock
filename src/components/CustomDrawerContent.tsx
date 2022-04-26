@@ -25,7 +25,8 @@ export default function CustomDrawerContent(props: DrawerContentComponentProps) 
                                         key={route.routerName}
                                         px='5' py='3'
                                         rounded='md'
-                                        onPress={(event) => props.navigation.navigate({}, route.routerName)}
+                                        // @ts-ignore
+                                        onPress={(event) => props.navigation.navigate(route.routerName)}
                                     >
                                         <HStack space='7' alignItems='center'>
                                             <Text color="gray.700" fontWeight="500">
