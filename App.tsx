@@ -8,6 +8,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomDrawerContent from "./src/components/CustomDrawerContent";
 import HomeScreen from "./src/views/HomeScreen";
 import CustomHeader from "./src/components/CustomHeader";
+import PvETrackerScreen from "./src/views/PvETracker";
 
 const SideMenu = createDrawerNavigator();
 
@@ -26,7 +27,8 @@ const App = () => {
                             }
                         }}
                     >
-                        <SideMenu.Screen name='home' component={HomeScreen}/>
+                        <SideMenu.Screen name='home' component={HomeScreen} />
+                        <SideMenu.Screen name='PvETracker' component={PvETrackerScreen} />
                     </SideMenu.Navigator>
                 </Box>
             </NativeBaseProvider>
