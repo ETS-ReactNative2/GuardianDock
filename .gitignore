@@ -61,3 +61,5 @@ buck-out/
 .jest/
 
 .env
+__snapshots__
+coverage/

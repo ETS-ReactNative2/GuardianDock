@@ -6,13 +6,14 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --updateSnapshot --coverage --watchAll=false --verbose",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@native-base/icons": "^0.0.11",
     "@react-navigation/drawer": "^6.4.1",
     "@react-navigation/native": "^6.0.10",
+    "@testing-library/react-native": "^9.1.0",
     "expo": ">=44.0.0-0 <45.0.0",
     "i18next": "^21.6.16",
     "i18next-http-backend": "^1.4.0",
