@@ -1,19 +1,21 @@
 import React, {useEffect, useState} from 'react';
 
-import {Divider, Input, KeyboardAvoidingView, View, VStack} from "native-base";
+import Autocomplete from 'react-native-autocomplete-input';
+import {Divider, Input, View, VStack} from "native-base";
 import {ImageBackground} from "react-native";
 
 import {UserInfoCard} from "../config/BungieAPI";
 import {parseDisplayName} from "../utils/utils";
 
 import { API_ROUTE, BUNGIE_API_KEY } from '@env';
+import CenteredAlert from "../components/CenteredAlert";
 
 const fetchUsers = async (id: string) : Promise<any> => {
     const [displayName, displayNameCode] = parseDisplayName(id)
 
     if (displayName === undefined || displayNameCode === undefined)
-        return null
-    const response = await fetch(API_ROUTE + '/Destiny2/SearchDestinyPlayerByBungieName/-1', {
+        return {}
+    const response = await fetch(API_ROUTE + '/Destiny2/SearchDestinyPlayerByBungieName/-1/', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -31,14 +33,39 @@ const fetchUsers = async (id: string) : Promise<any> => {
 
 export default function PvETrackerScreen() {
     const [users, setUserList] = useState<Array<UserInfoCard>>([]);
+    const [bungieId, setBungieId] = useState<string>('')
+    const [isError, setError] = useState<boolean>(false)
+
+    useEffect(() => {
+        fetchUsers(bungieId).then((data) => {
+            if (data === null)
+                setError(true)
+            console.log(data)
+        })
+    }, [bungieId])
 
     return <>
         <ImageBackground source={require('../../assets/D2Background.jpg')} style={{ width: '100%', height: '100%' }}>
             <View flex='1' alignItems='center'>
                 <VStack safeAreaTop w='90%' space='5' alignItems='center' divider={<Divider />} >
-                    <Input variant='underlined' w='85%' size='md' placeholder='GuardianID#Code'/>
+                    <Input
+                        variant='underlined'
+                        w='85%'
+                        size='md'
+                        style={{ color: '#ffffff' }}
+                        placeholder='GuardianID#Code'
+                        onChangeText={(bungieId) => setBungieId(bungieId)}
+                    />
                 </VStack>
             </View>
+            {isError ?
+                <CenteredAlert
+                    status='error'
+                    title='Error when fetching users!'
+                    description='An error occurred when trying to fetch users using Bungie API.'
+                    onClose={() => setError(false)}
+                /> : null
+            }
         </ImageBackground>
     </>
 }
