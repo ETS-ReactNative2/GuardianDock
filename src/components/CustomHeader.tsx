@@ -24,7 +24,7 @@ export default function CustomHeader({ navigation }: DrawerHeaderProps) {
             <HStack alignItems='center'>
                 <IconButton icon={<Icon size='sm' as={MaterialIcons} name='menu' color='#F2EFDE' />} onPress={toggleSideMenu}/>
                 <Text color='#F2EFDE' fontSize='20' fontWeight='bold' >
-                    {t(routeName) as string}
+                    {t(routeName)}
                 </Text>
             </HStack>
         </HStack>

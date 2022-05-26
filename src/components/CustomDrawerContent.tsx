@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import {DrawerContentComponentProps, DrawerContentScrollView, DrawerItem} from "@react-navigation/drawer";
+import {DrawerContentComponentProps, DrawerContentScrollView} from "@react-navigation/drawer";
 
-import {DrawerContentItems, screenRouteProps} from '../config/DrawerItems';
+import {DrawerContentItems} from '../config/DrawerItems';
 import {Divider, VStack, Text, Heading, Pressable, HStack, View, Image} from "native-base";
 
 export default function CustomDrawerContent(props: DrawerContentComponentProps) {

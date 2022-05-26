@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import PvETracker from '../../src/views/PvETracker';
+import PvETracker from '../../src/views/PvETrackerScreen';
 
 import {fireEvent, render} from "@testing-library/react-native";
 import {NativeBaseProvider} from "native-base";

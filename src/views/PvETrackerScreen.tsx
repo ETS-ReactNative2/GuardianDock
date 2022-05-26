@@ -1,48 +1,46 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 
-import Autocomplete from 'react-native-autocomplete-input';
 import {Divider, Input, View, VStack} from "native-base";
 import {ImageBackground} from "react-native";
 
-import {UserInfoCard} from "../config/BungieAPI";
 import {parseDisplayName} from "../utils/utils";
 
-import { API_ROUTE, BUNGIE_API_KEY } from '@env';
+import {API_ROUTE, BUNGIE_API_KEY} from "@env";
 import CenteredAlert from "../components/CenteredAlert";
 
 const fetchUsers = async (id: string) : Promise<any> => {
     const [displayName, displayNameCode] = parseDisplayName(id)
 
-    if (displayName === undefined || displayNameCode === undefined)
-        return {}
-    const response = await fetch(API_ROUTE + '/Destiny2/SearchDestinyPlayerByBungieName/-1/', {
+    if (displayName === undefined || displayNameCode !== undefined)
+        return {};
+    const response = await fetch(API_ROUTE + '/User/Search/GlobalName/0/', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
             'X-API-KEY': BUNGIE_API_KEY
         },
-        body: JSON.stringify({ "displayName": displayName, "displayNameCode": displayNameCode })
+        body: JSON.stringify({ "displayNamePrefix": displayName })
     });
 
     if (response.ok)
-        return await response.json()
+        return response.json()
     console.error('An error occurred when trying to fetch users.')
     return null
 }
 
 export default function PvETrackerScreen() {
-    const [users, setUserList] = useState<Array<UserInfoCard>>([]);
     const [bungieId, setBungieId] = useState<string>('')
     const [isError, setError] = useState<boolean>(false)
 
     useEffect(() => {
+        console.log(bungieId);
         fetchUsers(bungieId).then((data) => {
             if (data === null)
-                setError(true)
-            console.log(data)
+                setError(true);
+            console.log(data.Response.searchResults);
         })
-    }, [bungieId])
+    }, [bungieId]);
 
     return <>
         <ImageBackground source={require('../../assets/D2Background.jpg')} style={{ width: '100%', height: '100%' }}>
@@ -53,8 +51,8 @@ export default function PvETrackerScreen() {
                         w='85%'
                         size='md'
                         style={{ color: '#ffffff' }}
-                        placeholder='GuardianID#Code'
-                        onChangeText={(bungieId) => setBungieId(bungieId)}
+                        placeholder='Guardian Display Name'
+                        onChangeText={(guardianDisplayName: string) => setBungieId(guardianDisplayName)}
                     />
                 </VStack>
             </View>

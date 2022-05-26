@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import {
     NativeBaseProvider,
     Box,
-} from 'native-base';
+} from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomDrawerContent from "./src/components/CustomDrawerContent";
 import HomeScreen from "./src/views/HomeScreen";
 import CustomHeader from "./src/components/CustomHeader";
-import PvETrackerScreen from "./src/views/PvETracker";
+import PvETrackerScreen from "./src/views/PvETrackerScreen";
 
 const SideMenu = createDrawerNavigator();
 

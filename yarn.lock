@@ -7493,6 +7493,11 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+native-base-autocomplete@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/native-base-autocomplete/-/native-base-autocomplete-1.3.2.tgz#b3afcd99272b2c933ecfec31da2f2327f6ea4a0e"
+  integrity sha512-0OilbGF12dzBa+2INobQWm9h7c1vO7Y4U0JuYh8AaLaeqWmPGn2+Py39dGb8n9aLPzmD7MNde27O7v2A0SoTiQ==
+
 native-base@3.4.3:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/native-base/-/native-base-3.4.3.tgz#0079e0442727c1633bace72d0a15eb049eda11a7"
